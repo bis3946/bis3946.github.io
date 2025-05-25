@@ -26,3 +26,7 @@
 - Live blockchain stats integration
 - Web3 wallet connect
 - Multi-language support (Croatian, English)
+<footer>
+    &copy; 2025 NuN Project by Bojan Petar Milanović (bis3946). | 
+    <a href="changelog.md">Restore Point & Changelog</a>
+</footer>
