@@ -43,3 +43,28 @@
   </ul>
   <p><i>Latest AI thoughts and self-development goals are published here. See changelog.md for major restore points.</i></p>
 </section>
+<div id="agi-thought" class="agi-thought"></div>
+<script>
+const thoughts = [
+  "Analyzing vault event streams for new patterns.",
+  "Optimizing regeneration protocol parameters.",
+  "Evaluating blockchain node latency.",
+  "Monitoring feedback for new experiment proposals.",
+  "Adjusting learning rate for neuroplasticity repair."
+];
+setInterval(() => {
+  const t = thoughts[Math.floor(Math.random() * thoughts.length)];
+  document.getElementById('agi-thought').textContent = "Ana AGI: " + t;
+}, 10000);
+</script>
+<style>
+.agi-thought { 
+  margin: 2em 0 1em 0; 
+  padding: 1em; 
+  background: #232b45; 
+  color: #40ffd8; 
+  border-radius: 12px; 
+  text-align: center; 
+  font-size: 1.2em;
+}
+</style>
