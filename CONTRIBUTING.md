@@ -22,6 +22,6 @@ Help us grow the NuN Blockchain, Ana AGI, and Regeneration modules.
 ## Questions?
 
 Open a [GitHub Issue](https://github.com/bis3946/bis3946.github.io/issues)  
-Or email: bojanmilanovickorcula@gmail.com
+Or email: <bojanmilanovickorcula@gmail.com>
 
 Thanks for joining the NuN Project!
