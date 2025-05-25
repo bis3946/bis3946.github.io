@@ -16,6 +16,31 @@
     </nav>
   </header>
   <main>
+  <h1>NuN Central Dashboard</h1>
+  <section class="stats-panel">
+    <h2>Project Status</h2>
+    <ul>
+      <li><b>Active Experiments:</b> <span id="exp-count">3</span></li>
+      <li><b>Parallel Simulations:</b> <span id="sim-count">22</span></li>
+      <li><b>Blockchain Nodes Online:</b> <span id="node-count">5</span></li>
+      <li><b>Last Update:</b> <span id="last-update">2025-05-25</span></li>
+    </ul>
+  </section>
+</main>
+<script>
+  // You can link these to a JSON file or update them as you progress
+  document.getElementById('exp-count').textContent = "3";
+  document.getElementById('sim-count').textContent = "22";
+  document.getElementById('node-count').textContent = "5";
+  document.getElementById('last-update').textContent = "2025-05-25";
+</script>
+<style>
+.stats-panel { background: #191f31; color: #8cf9f9; padding: 1.5em; border-radius: 12px; margin: 1.5em 0; }
+.stats-panel ul { list-style-type: none; padding: 0; }
+.stats-panel li { margin-bottom: 0.7em; font-size: 1.1em; }
+</style>
+
+  <main>
     <h1>NuN Project Dashboard</h1>
     <section class="dashboard-grid">
       <div>
