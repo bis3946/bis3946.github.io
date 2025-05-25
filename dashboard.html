@@ -1,4 +1,29 @@
 <!DOCTYPE html>
+<!-- Pi Network Micro-Payment Simulation -->
+<section class="pi-leaderboard">
+  <h3>Contribute to NuN — Earn Pi Micro-Payments</h3>
+  <button onclick="addPi('User')">Contribute Resources</button>
+  <ul id="pi-leaderboard"></ul>
+</section>
+<script>
+let piContributions = JSON.parse(localStorage.getItem('piContributions')) || {};
+function addPi(name) {
+  piContributions[name] = (piContributions[name] || 0) + Math.floor(Math.random() * 5 + 1);
+  localStorage.setItem('piContributions', JSON.stringify(piContributions));
+  updateLeaderboard();
+}
+function updateLeaderboard() {
+  const sorted = Object.entries(piContributions).sort((a,b) => b[1] - a[1]);
+  document.getElementById('pi-leaderboard').innerHTML = sorted.map(([user, amt]) =>
+    `<li><b>${user}:</b> ${amt} Pi tokens</li>`).join('');
+}
+updateLeaderboard();
+</script>
+<style>
+.pi-leaderboard { background:#151c2a; border-radius:12px; padding:1.5em; margin-top:1em;}
+.pi-leaderboard button { background:#40ffd8; color:#232b45; border:none; padding:7px 17px; border-radius:7px; margin-bottom:1em; }
+</style>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
