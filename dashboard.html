@@ -57,4 +57,24 @@
     &copy; 2025 NuN Project by Bojan Petar Milanović (bis3946).
   </footer>
 </body>
+<div>
+  Active Experiments: <span id="active-experiments"></span><br>
+  Parallel Simulations: <span id="parallel-simulations"></span><br>
+  Nodes Online: <span id="nodes-online"></span><br>
+  Last Update: <span id="last-update"></span>
+</div>
+
 </html>
+<script>
+async function updateDashboard() {
+  const res = await fetch('https://your-backend-url.com/api/status');
+  const data = await res.json();
+  document.getElementById('active-experiments').textContent = data.activeExperiments;
+  document.getElementById('parallel-simulations').textContent = data.parallelSimulations;
+  document.getElementById('nodes-online').textContent = data.nodesOnline;
+  document.getElementById('last-update').textContent = new Date(data.lastUpdate).toLocaleString();
+}
+setInterval(updateDashboard, 10000);
+updateDashboard();
+</script>
+
