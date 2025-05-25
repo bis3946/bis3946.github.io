@@ -1,4 +1,42 @@
 <!DOCTYPE html>
+<!-- Restore Point Simulation -->
+<section class="restore-sim">
+  <h3>Restore Point Test</h3>
+  <button onclick="runRestore()">Simulate Rollback</button>
+  <p id="restore-status">System healthy. No rollback required.</p>
+</section>
+<script>
+function runRestore() {
+  document.getElementById('restore-status').textContent = "Rolling back to last restore point...";
+  setTimeout(() => {
+    document.getElementById('restore-status').textContent = "Restore complete. State reverted to previous stable configuration (see changelog.md)";
+  }, 3200);
+}
+</script>
+<style>
+.restore-sim { background:#25316d; color:#e6e6e6; padding:1.1em; border-radius:12px; margin-top:1.2em;}
+.restore-sim button { background:#40ffd8; color:#232b45; border:none; padding:6px 15px; border-radius:7px;}
+</style>
+
+<!-- Vault Data Integrity Challenge -->
+<section class="vault-challenge">
+  <h3>NuN Vault Data Integrity Test</h3>
+  <button onclick="vaultAttack()">Simulate Attack</button>
+  <p id="vault-status">Vault secure. No anomalies detected.</p>
+</section>
+<script>
+function vaultAttack() {
+  document.getElementById('vault-status').textContent = "Integrity threat detected! Initiating recovery...";
+  setTimeout(() => {
+    document.getElementById('vault-status').textContent = "Vault restored. All logs recovered via AGI protocol.";
+  }, 3000);
+}
+</script>
+<style>
+.vault-challenge { background:#151c2a; color:#ffc36a; padding:1.1em; border-radius:12px; margin-top:1.2em;}
+.vault-challenge button { background:#ffc36a; color:#232b45; border:none; padding:6px 18px; border-radius:7px;}
+</style>
+
 <!-- Dynamic Learning Rate Tuning Simulation -->
 <section class="learning-rate">
   <h3>AGI Adaptive Learning Rate</h3>
