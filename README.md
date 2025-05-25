@@ -1,3 +1,7 @@
+![GitHub Repo stars](https://img.shields.io/github/stars/bis3946/bis3946.github.io?style=social)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Website](https://img.shields.io/website-up-down-green-red/https/nunprotocol.com.svg)
+
 # NuN Project
 
 > **Nexus of Unity – Blockchain, AI, and Vault for the Post-Quantum Age**

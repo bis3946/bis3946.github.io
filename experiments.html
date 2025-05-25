@@ -6,6 +6,20 @@
   <title>AGI Experiments | NuN Project</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+const agiExperiments = [
+  { date: "2025-05-25", summary: "Parallel simulation engine updated, learning rate adjusted." },
+  { date: "2025-05-24", summary: "Vault sync algorithm improved after user feedback." },
+  { date: "2025-05-24", summary: "New dashboard UI deployed." }
+];
+const logList = document.getElementById("agi-experiments-log");
+agiExperiments.forEach(entry => {
+  const li = document.createElement("li");
+  li.innerHTML = `<b>[${entry.date}]</b> ${entry.summary}`;
+  logList.appendChild(li);
+});
+</script>
+
 <body>
   <header>
     <img src="assets/logo.svg" alt="NuN Logo" class="logo"/>
@@ -16,6 +30,8 @@
       <a href="modules.html">Modules</a>
       <a href="experiments.html" class="active">Experiments</a>
       <a href="contact.html">Contact</a>
+      <ul id="agi-experiments-log"></ul>
+
     </nav>
   </header>
   <main>
