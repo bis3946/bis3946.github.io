@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Neuroplasticity Engine | NuN Project</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <img src="../assets/logo.svg" alt="NuN Logo" class="logo"/>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../modules.html" class="active">Modules</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Neuroplasticity Engine</h1>
+    <p>
+      Data-driven repair, real-time feedback, and adaptive brainwave monitoring.  
+      An evolving AI/biotech bridge for regeneration and enhancement.
+    </p>
+    <ul>
+      <li>Real-time EEG analysis and mapping (future)</li>
+      <li>Predictive neural pattern modeling</li>
+      <li>Closed-loop repair logic</li>
+    </ul>
+    <p>Status: <span class="badge beta">Beta</span></p>
+  </main>
+  <footer>
+    &copy; 2025 NuN Project by Bojan Petar Milanović (bis3946).
+  </footer>
+</body>
+</html>
