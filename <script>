@@ -1,0 +1,13 @@
+<script>
+const log = [
+  "[2025-05-25] NuN Vault sync improved.",
+  "[2025-05-24] New neuroplasticity algorithm deployed."
+];
+const ul = document.getElementById('agi-log');
+log.forEach(item => {
+  const li = document.createElement('li');
+  li.textContent = item;
+  ul.appendChild(li);
+});
+</script>
+<!-- In your HTML: <ul id="agi-log"></ul> -->
