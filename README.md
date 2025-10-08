@@ -12,7 +12,7 @@
 
 ## 🌐 Live Site
 
-**[nunprotocol.com](https://nunprotocol.com)**  
+**[NuN Nexus of Unity Alpha testing ](https://bis3946.github.io/)**  
 (Hosted free via GitHub Pages with open DNS and post-quantum security)
 
 ---
