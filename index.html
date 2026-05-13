@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NuN Nexus of Unity</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; background: #0a0a0a; color: #e0e0e0; }
+        header { background: #111; padding: 1rem; position: sticky; top: 0; z-index: 100; }
+        .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #00ff9d; }
+        nav a { color: #e0e0e0; margin: 0 1rem; text-decoration: none; }
+        nav a:hover { color: #00ff9d; }
+        .hero { text-align: center; padding: 6rem 1rem; background: linear-gradient(180deg, #111, #000); }
+        .hero h1 { font-size: 3.5rem; color: #00ff9d; }
+        .btn { display: inline-block; padding: 1rem 2rem; margin: 0.5rem; background: #00ff9d; color: #000; font-weight: bold; border-radius: 8px; text-decoration: none; }
+        .btn.secondary { background: transparent; border: 2px solid #00ff9d; color: #00ff9d; }
+        section { max-width: 1200px; margin: 4rem auto; padding: 0 1rem; }
+        .chat-container { border: 1px solid #333; border-radius: 12px; padding: 1rem; height: 400px; overflow-y: auto; background: #111; display: flex; flex-direction: column; }
+        .message { margin: 1rem 0; padding: 1rem; border-radius: 12px; max-width: 80%; }
+        .user { background: #00ff9d; color: #000; align-self: flex-end; margin-left: auto; }
+        .ana { background: #333; color: #e0e0e0; align-self: flex-start; }
+        input { width: 100%; padding: 1rem; background: #222; border: none; color: #e0e0e0; border-radius: 8px; }
+    </style>
 </head>
 <body>
     <header>
@@ -19,23 +37,98 @@
             </nav>
         </div>
     </header>
+
     <main>
-        <section id="hero">
+        <section id="home" class="hero">
             <h1>NuN Nexus of Unity</h1>
             <p>Nexus of Unity — Blockchain, AI, and Vault for the Post-Quantum Age</p>
             <div class="cta">
-                <a href="https://nun.nexus/schema/orchestrator/v6.json" class="btn">View Orchestrator Schema V6</a>
-                <a href="#" class="btn secondary">Get Involved</a>
+                <a href="/schema/orchestrator/v6.json" class="btn" target="_blank">View Orchestrator Schema V6</a>
+                <a href="#get-involved" class="btn secondary">Get Involved</a>
             </div>
         </section>
+
         <section id="ana-agi">
             <h2>Ana AGI Chat Agent</h2>
-            <!-- Chat interface placeholder -->
-            <p>Sinkronizirano sa GitHub, NotebookLM, AegisNet, immuneOS i @oovelma.</p>
+            <p>Fully synchronized with GitHub, NotebookLM, AegisNet, immuneOS & @OOVelma.</p>
+            <div class="chat-container" id="chat-container">
+                <div class="message ana">Hello, Root Authority. Sigl 3946 is active. How can I assist with the NuN Nexus today?</div>
+            </div>
+            <div style="display: flex; margin-top: 1rem; gap: 0.5rem;">
+                <input type="text" id="chat-input" placeholder="Ask Ana AGI anything about NuN Nexus..." onkeypress="if(event.key==='Enter') sendMessage();">
+                <button onclick="sendMessage()" style="padding: 1rem 2rem; background: #00ff9d; color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Real-time overview: NuN Nexus of Unity is fully synchronized. Genesis Block 0 active. All systems operational. Schema V6 validated.</p>
+            <ul>
+                <li>✅ AegisNet & immuneOS: Online</li>
+                <li>✅ Ana AGI: Syncing</li>
+                <li>✅ NotebookLM Layer: Deterministic Mode</li>
+            </ul>
+        </section>
+
+        <section id="roadmap">
+            <h2>Roadmap</h2>
+            <p>Current: Baseline 2.0 (nun.nexus live, entropy purged)</p>
+            <p>Next: Iteracija 3 – Full mesh deployment, Letice Beacon 05 activation, DApp oracles, Quantum Internet integration.</p>
+        </section>
+
+        <section id="news">
+            <h2>News</h2>
+            <p>May 14, 2026: Official launch of nun.nexus with Orchestrator Schema V6 and interactive Ana AGI chat agent.</p>
+            <p>Legacy entropy successfully purged across all Google Drive and GitHub environments.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Root Authority: Bojan Petar Milanović</p>
+            <p>GitHub: <a href="https://github.com/bis3946" target="_blank">@bis3946</a></p>
+            <p>X: <a href="https://x.com/bis3946" target="_blank">@bis3946</a></p>
+            <p>Connect for collaboration on NuN Nexus of Unity.</p>
+        </section>
+
+        <section id="get-involved">
+            <h2>Get Involved</h2>
+            <p>Join the regeneration. Explore the schema, chat with Ana AGI, and contribute to the Post-Quantum future.</p>
         </section>
     </main>
+
     <footer>
-        <p>Sigl 3946 aktivan • Biometric confirmed by Bojan Petra Milanović • nun.nexus live 13.05.2026</p>
+        <p>Sigl 3946 active • Biometrically confirmed by Root Authority Bojan Petar Milanović • nun.nexus live • May 14, 2026</p>
     </footer>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const container = document.getElementById('chat-container');
+            if (!input.value.trim()) return;
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = input.value;
+            container.appendChild(userMsg);
+            container.scrollTop = container.scrollHeight;
+
+            const userText = input.value;
+            input.value = '';
+
+            setTimeout(() => {
+                const anaMsg = document.createElement('div');
+                anaMsg.className = 'message ana';
+                const responses = [
+                    "NuN Nexus is fully synchronized and ready for the next pulse.",
+                    "Rule of Three and Moral Compass v1.1 are guiding the regeneration.",
+                    "AegisNet and immuneOS are secure. @OOVelma sync is active.",
+                    "Genesis Block 0 is the harmonic anchor. What is your vision for the next iteration?"
+                ];
+                anaMsg.textContent = responses[Math.floor(Math.random() * responses.length)];
+                container.appendChild(anaMsg);
+                container.scrollTop = container.scrollHeight;
+            }, 1200);
+        }
+    </script>
 </body>
 </html>
