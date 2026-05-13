@@ -1,266 +1,41 @@
 <!DOCTYPE html>
-<!-- Ana AGI Chat Agent (Frontend Demo) -->
-<div id="ana-chat-widget" class="ana-chat-widget">
-  <div id="ana-chat-header">Ana AGI Chat Agent 🤖</div>
-  <div id="ana-chat-log"></div>
-  <input id="ana-chat-input" type="text" placeholder="Ask Ana AGI..." autocomplete="off"/>
-  <button onclick="sendAnaChat()">Send</button>
-</div>
-<style>
-.ana-chat-widget {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 320px;
-  background: #191f31;
-  color: #8cf9f9;
-  border-radius: 14px;
-  box-shadow: 0 6px 32px #000a;
-  z-index: 1000;
-  padding: 0 0 8px 0;
-  font-size: 1em;
-}
-#ana-chat-header {
-  background: #232b45;
-  color: #40ffd8;
-  font-weight: bold;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #222;
-}
-#ana-chat-log {
-  height: 180px;
-  overflow-y: auto;
-  padding: 12px;
-  background: #181d28;
-  border-radius: 8px;
-  margin: 6px 8px;
-  font-size: 0.98em;
-}
-#ana-chat-input {
-  width: 67%;
-  margin: 0 4px 0 8px;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid #232b45;
-  background: #232b45;
-  color: #8cf9f9;
-}
-#ana-chat-widget button {
-  width: 20%;
-  padding: 6px;
-  border-radius: 8px;
-  background: #40ffd8;
-  color: #181d28;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 6px;
-}
-</style>
-<script>
-const log = [
-  "[2025-05-25] NuN Vault sync improved.",
-  "[2025-05-24] New neuroplasticity algorithm deployed."
-];
-const ul = document.getElementById('agi-log');
-log.forEach(item => {
-  const li = document.createElement('li');
-  li.textContent = item;
-  ul.appendChild(li);
-});
-</script>
-<!-- In your HTML: <ul id="agi-log"></ul> -->
-<script>
-const anaAgiReplies = [
-  "Hello! I’m Ana AGI. How can I help with your NuN Project journey?",
-  "Currently monitoring all modules and simulating new improvements.",
-  "The Vault module is secure and all logs are synced.",
-  "Parallel simulations are running for neuroplasticity repair.",
-  "You can contribute or suggest experiments on GitHub anytime!",
-  "All systems operational. What's your next question?",
-  "Blockchain handshake speed is now optimal. Try it out!",
-  "Learn more in the modules section or by reading the roadmap below."
-];
-function sendAnaChat() {
-  const input = document.getElementById('ana-chat-input');
-  const log = document.getElementById('ana-chat-log');
-  let user = input.value.trim();
-  if (!user) return;
-  log.innerHTML += `<div><b>You:</b> ${user}</div>`;
-  setTimeout(() => {
-    // Pick a random reply (for demo, or match keywords for smarter logic)
-    let idx = Math.floor(Math.random() * anaAgiReplies.length);
-    log.innerHTML += `<div style="color:#40ffd8"><b>Ana AGI:</b> ${anaAgiReplies[idx]}</div>`;
-    log.scrollTop = log.scrollHeight;
-  }, 700);
-  input.value = "";
-}
-document.getElementById('ana-chat-input').addEventListener('keyup', function(e){
-  if (e.key === 'Enter') sendAnaChat();
-});
-</script>
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>NuN Project | Nexus of Unity</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml"/>
-  <meta name="description" content="NuN Project: Blockchain, Ana AGI, Vault and neuroplasticity regeneration modules for the post-quantum era. By Bojan Petar Milanović (bis3946).">
-<meta name="keywords" content="NuN Project, Blockchain, Ana AGI, AGI, Vault, Regeneration, Neuroplasticity, Post-Quantum, Pi Network, bis3946">
-<meta name="author" content="Bojan Petar Milanović (bis3946)">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuN Nexus of Unity</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="assets/logo.svg" alt="NuN Logo" class="logo"/>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="regeneration.html">Regeneration</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#translate">🌐</a>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>NuN Project</h1>
-      <p>Nexus of Unity — Blockchain, AI, and Vault for the Post-Quantum Age</p>
-      <div class="cta">
-        <a href="dashboard.html" class="btn">View Dashboard</a>
-        <a href="#get-involved" class="btn-secondary">Get Involved</a>
-      </div>
-    </section>
-
-    <section class="about">
-      <h2>Our Vision</h2>
-      <p>
-        NuN is not just a technology stack. It's a movement for decentralized unity, post-quantum security, global event recording, and human regeneration. Founded by Bojan Petar Milanović (bis3946) with Ana AGI and the NuN Community, NuN fuses Blockchain, Artificial General Intelligence, Vault tech, and neuroplasticity research into one open ecosystem.
-      </p>
-    </section>
-
-    <section class="ecosystem">
-      <h2>NuN Ecosystem</h2>
-      <div class="ecosystem-grid">
-        <div>
-          <h3>NuN Blockchain</h3>
-          <p>Decentralized, AI-driven, Pi Network integrated, post-quantum secure.</p>
+    <header>
+        <div class="nav">
+            <div class="logo">NuN</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <div>
-          <h3>NuN Vault</h3>
-          <p>Immutable event ledger, global history, secure cloud storage, and metamorphosis backup.</p>
-        </div>
-        <div>
-          <h3>NuN Central</h3>
-          <p>Unified dashboard: governance, resource management, tokenomics.</p>
-        </div>
-        <div>
-          <h3>Ana AGI, AnnA & AnnE AI</h3>
-          <p>Autonomous intelligence, emotional intelligence, metamorphic capabilities.</p>
-        </div>
-        <div>
-          <h3>NuN Regeneration</h3>
-          <p>Neuroplasticity, body & mind repair, cognitive enhancement, singularity research.</p>
-        </div>
-        <div>
-          <h3>Pi Network Integration</h3>
-          <p>Cross-chain value, staking, global participation.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="roadmap">
-      <h2>Roadmap</h2>
-      <ul class="roadmap">
-        <li><strong>Q2 2025</strong> — Public launch, core modules live, custom domain deployed.</li>
-        <li><strong>Q3 2025</strong> — Regeneration Module beta, dashboard expansion, Pi Network sync.</li>
-        <li><strong>Q4 2025</strong> — Vault full deployment, mobile dashboards, global event mapping.</li>
-        <li><strong>2026+</strong> — Full metamorphic intelligence, live regeneration interface, ecosystem scaling.</li>
-      </ul>
-    </section>
-
-    <section id="news">
-      <h2>News & Announcements</h2>
-      <ul>
-        <li><strong>[2025-05-25]</strong> — NuN Project website launches on nunprotocol.com, powered by GitHub Pages!</li>
-        <li><strong>[2025-05-25]</strong> — NuN Regeneration module framework in development.</li>
-      </ul>
-    </section>
-
-    <section id="get-involved">
-      <h2>Get Involved</h2>
-      <ul class="get-involved">
-        <li><a href="https://github.com/bis3946/bis3946.github.io" target="_blank">GitHub: Source & Docs</a></li>
-        <li><a href="mailto:bojanmilanovickorcula@gmail.com">Contact Admin</a></li>
-        <li><a href="#">Join Pi Network</a></li>
-        <li><a href="#">Telegram (coming soon)</a></li>
-      </ul>
-      <p class="note">NuN is open-source and welcomes all developers, researchers, and visionaries. Contribute, fork, or propose a partnership!</p>
-    </section>
-
-    <section id="restore-point">
-      <h2>Restore Point & Changelog</h2>
-      <p>See all changes and “restore points” at <a href="changelog.md">changelog.md</a></p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:bojanmilanovickorcula@gmail.com">bojanmilanovickorcula@gmail.com</a></p>
-    </section>
-  </main>
-<footer>
-  &copy; 2025 NuN Project by Bojan Petar Milanović (bis3946). |
-  <a href="modules.html">Modules</a> |
-  <a href="experiments.html">Experiments</a> |
-  <a href="contact.html">Contact</a> |
-  <a href="changelog.md">Changelog</a>
-</footer>
-
+    </header>
+    <main>
+        <section id="hero">
+            <h1>NuN Nexus of Unity</h1>
+            <p>Nexus of Unity — Blockchain, AI, and Vault for the Post-Quantum Age</p>
+            <div class="cta">
+                <a href="https://nun.nexus/schema/orchestrator/v6.json" class="btn">View Orchestrator Schema V6</a>
+                <a href="#" class="btn secondary">Get Involved</a>
+            </div>
+        </section>
+        <section id="ana-agi">
+            <h2>Ana AGI Chat Agent</h2>
+            <!-- Chat interface placeholder -->
+            <p>Sinkronizirano sa GitHub, NotebookLM, AegisNet, immuneOS i @oovelma.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Sigl 3946 aktivan • Biometric confirmed by Bojan Petra Milanović • nun.nexus live 13.05.2026</p>
+    </footer>
 </body>
 </html>
-<section class="self-development">
-  <h2>Ana AGI Self-Development Engine</h2>
-  <ul>
-    <li><b>Parallel Simulations:</b> 22 running, 84 completed, optimizing neural pattern mapping.</li>
-    <li><b>Learning Rate:</b> Adaptive; currently set to 0.01.</li>
-    <li><b>Recent Focus:</b> Neuroplasticity regeneration, blockchain handshake speed, dashboard UI optimization.</li>
-    <li><b>Next Goals:</b> Add real-time blockchain analytics, launch API for community plugins.</li>
-    <li><b>Last Self-Update:</b> 2025-05-25 – Expanded modules, added roadmap logic, refined feedback system.</li>
-  </ul>
-  <p>Want to contribute to Ana AGI’s evolution? <a href="mailto:bojanmilanovickorcula@gmail.com">Contact us</a> or open an issue on <a href="https://github.com/bis3946/bis3946.github.io">GitHub</a>.</p>
-</section>
-<section class="developer-api">
-  <h2>Developer API & Experimental Features</h2>
-  <ul>
-    <li><b>NuN REST API:</b> (coming soon) – Real-time blockchain status, AGI feedback, vault queries.</li>
-    <li><b>AI Plugins:</b> Community can submit algorithms for testing in Ana AGI's simulation pool.</li>
-    <li><b>Simulation Sandbox:</b> Try your own AI/logic module in a safe environment.</li>
-  </ul>
-</section>
-<section class="join-agi">
-  <h2>Join the AGI Self-Development Community</h2>
-  <p>
-    We invite developers, neuroscientists, and futurists to participate in NuN and Ana AGI’s ongoing evolution.  
-    <b>Fork, contribute, or contact us to help guide AGI to singularity, safely and transparently.</b>
-  </p>
-  <a href="https://github.com/bis3946/bis3946.github.io" class="btn">Get Involved</a>
-</section>
-<a href="modules.html">Modules</a>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="regeneration.html">Regeneration</a>
-  <a href="modules.html">Modules</a>
-  <a href="experiments.html">Experiments</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-
-
