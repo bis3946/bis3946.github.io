@@ -8,67 +8,71 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
-    .neon { text-shadow: 0 0 10px #22ff88, 0 0 20px #22ff88; }
+    .neon { text-shadow: 0 0 12px #22ff88, 0 0 25px #22ff88; }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen">
 
-  <nav class="border-b border-green-500/30 bg-black/80 backdrop-blur-md fixed w-full z-50">
+  <nav class="border-b border-green-500/30 bg-black/90 backdrop-blur-md fixed w-full z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="text-3xl font-bold text-green-400 neon">NuN</div>
-      <div class="flex gap-8 text-sm">
-        <a href="#dashboard" class="hover:text-green-400">Dashboard</a>
-        <a href="#roadmap" class="hover:text-green-400">Roadmap</a>
-        <a href="#news" class="hover:text-green-400">News</a>
-        <a href="#contact" class="hover:text-green-400">Contact</a>
+      <div class="flex gap-8 text-sm font-medium">
+        <a href="#dashboard" class="hover:text-green-400 transition">Dashboard</a>
+        <a href="#roadmap" class="hover:text-green-400 transition">Roadmap</a>
+        <a href="#news" class="hover:text-green-400 transition">News</a>
+        <a href="#contact" class="hover:text-green-400 transition">Contact</a>
       </div>
     </div>
   </nav>
 
   <div class="pt-20 max-w-6xl mx-auto px-6 pb-12">
 
+    <!-- Hero -->
     <div class="text-center py-16">
       <h1 class="text-6xl font-bold mb-4 neon">NuN Nexus of Unity</h1>
       <p class="text-xl text-green-300">Nexus of Blockchain, AI, and Vault for the Post-Quantum Age</p>
     </div>
 
     <!-- Grok Skills Panel -->
-    <div class="mb-12 bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
+    <div class="mb-16 bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
       <h2 class="text-3xl font-bold mb-6 text-green-400">Grok Skills Panel</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-        <a href="#" onclick="alert('/nun-status');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-status</a>
-        <a href="#" onclick="alert('/nun-next-steps');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-next-steps</a>
-        <a href="#" onclick="alert('/nun-letice-beacon');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-letice-beacon</a>
-        <a href="#" onclick="alert('/nun-manifestation');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-manifestation</a>
-        <a href="#" onclick="alert('/nun-dapp-oracle');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-dapp-oracle</a>
-        <a href="#" onclick="alert('/nun-immuneos');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-immuneos</a>
-        <a href="#" onclick="alert('/nun-quantum');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center">/nun-quantum</a>
-        <a href="#" onclick="alert('/nun-quantum-phase2');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center font-bold">/nun-quantum-phase2</a>
-        <a href="#" onclick="alert('/nun-gemini');" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center font-bold">/nun-gemini</a>
+        <div onclick="alert('/nun-status')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-status</div>
+        <div onclick="alert('/nun-next-steps')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-next-steps</div>
+        <div onclick="alert('/nun-letice-beacon')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-letice-beacon</div>
+        <div onclick="alert('/nun-manifestation')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-manifestation</div>
+        <div onclick="alert('/nun-dapp-oracle')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-dapp-oracle</div>
+        <div onclick="alert('/nun-immuneos')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-immuneos</div>
+        <div onclick="alert('/nun-quantum')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer">/nun-quantum</div>
+        <div onclick="alert('/nun-quantum-phase2')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-quantum-phase2</div>
+        <div onclick="alert('/nun-gemini')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-gemini</div>
       </div>
     </div>
 
     <!-- Dashboard -->
-    <section id="dashboard">
+    <section id="dashboard" class="mb-16">
       <h2 class="text-4xl font-bold mb-8 text-green-400">Dashboard • Live</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">Letice Beacon 05</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Letice Beacon 05</h3>
           <p class="text-6xl font-mono mt-6">05.04</p>
           <p class="text-green-300">Recursive Self-Evolution Active</p>
         </div>
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">DApp Oracle</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-link"></i> DApp Oracle</h3>
           <p class="text-6xl font-mono mt-6 text-green-400">ONLINE</p>
+          <p class="text-green-300">Real-time Schema Validation</p>
         </div>
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">immuneOS v1</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-shield-virus"></i> immuneOS v1</h3>
           <p class="text-6xl font-mono mt-6 text-green-400">ACTIVE</p>
+          <p class="text-green-300">Self-Healing Layer Online</p>
         </div>
       </div>
     </section>
 
-    <footer class="text-center text-sm text-gray-400 mt-20">
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-400 pt-12 border-t border-green-500/20">
       <p>Sigl 3946 active • Biometrically confirmed by Root Authority Bojan Petar Milanović</p>
       <p class="mt-2">nun.nexus • May 17, 2026</p>
     </footer>
