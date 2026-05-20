@@ -15,10 +15,10 @@
 
   <div class="max-w-2xl mx-auto text-center">
     <h1 class="text-5xl font-bold mb-4 neon">NuN Public Beta</h1>
-    <p class="text-2xl text-green-400 mb-10">Welcome to the Mesh</p>
+    <p class="text-2xl text-green-400 mb-10" id="welcome-text">Welcome to the Mesh</p>
 
     <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-10">
-      <h2 class="text-3xl font-semibold mb-8">You have been invited as <span class="text-green-400">Node Operator</span></h2>
+      <h2 class="text-3xl font-semibold mb-8" id="invite-text">You have been invited as <span class="text-green-400">Node Operator</span></h2>
       
       <div class="space-y-6 text-left text-lg mb-10">
         <p><i class="fa-solid fa-check text-green-400 mr-3"></i> immuneOS v2 full protection</p>
@@ -42,15 +42,23 @@
   </div>
 
   <script>
-    function activateNode() {
-      alert("✅ Node Operator access granted!\n\nYour node is now synchronizing with Letice Beacon 05 and immuneOS v2.\n\nWelcome to the NuN Mesh.");
+    // Parse query parameters
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get('user') || 'Guest';
+    const token = params.get('token');
+
+    // Personalize the page
+    if (user && user !== 'Guest') {
+      const cleanUser = user.includes('@') ? user.split('@')[0] : user;
+      document.getElementById('welcome-text').innerHTML = `Welcome, <span class="text-green-400">${cleanUser}</span>`;
+      document.getElementById('invite-text').innerHTML = `You have been invited as <span class="text-green-400">Node Operator</span>`;
     }
 
-    // Bonus: Ako se dođe sa query parametrom ?user=xxx
-    const urlParams = new URLSearchParams(window.location.search);
-    const user = urlParams.get('user');
-    if (user) {
-      console.log("Invite for:", user);
+    function activateNode() {
+      const message = token 
+        ? `✅ Node Operator access granted!\n\nYour node is now synchronizing with Letice Beacon 05 and immuneOS v2.\n\nWelcome to the NuN Mesh, ${user}!` 
+        : `✅ Node Operator access granted!\n\nYour node is now synchronizing with Letice Beacon 05 and immuneOS v2.`;
+      alert(message);
     }
   </script>
 </body>
