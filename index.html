@@ -9,6 +9,8 @@
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
     .neon { text-shadow: 0 0 12px #22ff88, 0 0 25px #22ff88; }
+    .live-dot { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen">
@@ -27,6 +29,7 @@
 
   <div class="pt-20 max-w-6xl mx-auto px-6 pb-12">
 
+    <!-- Hero -->
     <div class="text-center py-16">
       <h1 class="text-6xl font-bold mb-4 neon">NuN Nexus of Unity</h1>
       <p class="text-xl text-green-300">Nexus of Blockchain, AI, and Vault for the Post-Quantum Age</p>
@@ -46,26 +49,31 @@
         <div onclick="alert('/nun-quantum-phase2')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-quantum-phase2</div>
         <div onclick="alert('/nun-gemini')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-gemini</div>
         <div onclick="alert('/nun-public-beta')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-public-beta</div>
+        <div onclick="alert('/nun-public-beta-v2')" class="bg-zinc-800 hover:bg-green-500/10 p-4 rounded-2xl text-center cursor-pointer font-bold">/nun-public-beta-v2</div>
       </div>
     </div>
 
-    <!-- Dashboard -->
+    <!-- Live Dashboard -->
     <section id="dashboard" class="mb-16">
       <h2 class="text-4xl font-bold mb-8 text-green-400">Dashboard • Live</h2>
       <div class="grid md:grid-cols-3 gap-6">
+
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">Letice Beacon 05</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-bolt"></i> Letice Beacon 05</h3>
           <p class="text-6xl font-mono mt-6">05.05</p>
           <p class="text-green-300">Macro-Evolution Active</p>
         </div>
+
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">DApp Oracle</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-link"></i> DApp Oracle</h3>
           <p class="text-6xl font-mono mt-6 text-green-400">ONLINE</p>
         </div>
+
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8">
-          <h3 class="text-green-400">immuneOS v2</h3>
+          <h3 class="text-green-400 flex items-center gap-2"><i class="fa-solid fa-shield-virus"></i> immuneOS v2</h3>
           <p class="text-6xl font-mono mt-6 text-green-400">ACTIVE</p>
         </div>
+
         <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8 md:col-span-3">
           <h3 class="text-green-400">Your Node Status</h3>
           <p class="text-5xl font-mono mt-6 text-green-400">@bis3946 • Node Operator</p>
@@ -74,15 +82,9 @@
       </div>
     </section>
 
-    <!-- Public Beta Call-to-Action -->
-    <div class="text-center mb-16">
-      <a href="/beta" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-10 py-5 rounded-2xl text-xl transition">
-        Join Public Beta
-      </a>
-    </div>
-
+    <!-- Footer -->
     <footer class="text-center text-sm text-gray-400 pt-12 border-t border-green-500/20">
-      <p>Sigl 3946 active • Biometrically confirmed by Root Authority Bojan Petar Milanović</p>
+      <p>Sigl 3946 active • Root Authority: Bojan Petar Milanović</p>
       <p class="mt-2">nun.nexus • May 17, 2026</p>
     </footer>
   </div>
