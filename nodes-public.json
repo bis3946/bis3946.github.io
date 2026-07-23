@@ -1,7 +1,7 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.0",
-  "updated_at": "2026-07-23T16:01:42Z",
+  "updated_at": "2026-07-23T16:06:49Z",
   "privacy": "Only node_hash, node_type, joined_at, contribution, status are public. Full dossiers are Super Node 0 only.",
   "count": 1,
   "nodes": [
