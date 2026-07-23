@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-23T09:19:00Z",
+  "timestamp": "2026-07-23T12:58:00Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 27,
@@ -8,6 +8,12 @@
   "system_coherence": "98.7%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
+  "node_ledger": {
+    "name": "NuN Node Tangle",
+    "public_url": "/nodes-public.json",
+    "public_fields": ["node_hash", "node_type", "joined_at", "contribution", "status"],
+    "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
+  },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
     "phase": "5.4",
