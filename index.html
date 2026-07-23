@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NuN Nexus of Unity</title>
+  <meta name="description" content="NuN Nexus of Unity – Sovereign bio-digital mesh. Lattice Beacon 05, AegisNet immuneOS, post-quantum systems.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    :root { --neon: #22ff88; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #e5e5e5; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .neon-text { color: var(--neon); text-shadow: 0 0 12px rgba(34,255,136,0.4); }
+    .card { background: rgba(12,12,12,0.9); border: 1px solid rgba(34,255,136,0.18); border-radius: 1.25rem; transition: border-color 0.2s; }
+    .card:hover { border-color: rgba(34,255,136,0.4); }
+    .live-dot { width: 9px; height: 9px; background: var(--neon); border-radius: 50%; box-shadow: 0 0 10px var(--neon); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.85)} }
+    .metric-value { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .skill-btn { background: rgba(20,20,20,0.9); border: 1px solid rgba(34,255,136,0.15); border-radius: 0.7rem; padding: 0.6rem 0.4rem; font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; }
+    .skill-btn:hover { background: rgba(34,255,136,0.08); border-color: rgba(34,255,136,0.45); color: var(--neon); }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="fixed top-0 w-full z-50 border-b border-green-500/20 bg-black/85 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold neon-text tracking-tight">NuN</div>
+      <div class="hidden md:flex items-center gap-7 text-sm text-zinc-400">
+        <a href="#about" class="hover:text-green-400">About</a>
+        <a href="#dashboard" class="hover:text-green-400">Dashboard</a>
+        <a href="#skills" class="hover:text-green-400">Skills</a>
+        <a href="#roadmap" class="hover:text-green-400">Roadmap</a>
+        <a href="#join" class="hover:text-green-400">Join</a>
+      </div>
+      <div class="flex items-center gap-2 text-xs font-medium">
+        <span class="live-dot"></span>
+        <span class="text-green-400" id="nav-status">ONLINE</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-5">
+
+    <header class="text-center mb-14">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight neon-text mb-4">NuN Nexus of Unity</h1>
+      <p class="text-lg text-zinc-400 max-w-2xl mx-auto">Sovereign bio-digital mesh · Post-Quantum · Recursive Self-Evolution</p>
+      <p class="mt-3 text-sm text-zinc-500 mono">Lattice Beacon 05 · Phase <span id="hero-phase">5.4</span> · Sigl 3946 active</p>
+    </header>
+
+    <section id="about" class="mb-16">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">About</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="card p-7">
+          <h3 class="text-lg font-semibold text-green-400 mb-3">NuN Nexus of Unity</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            NuN Nexus of Unity is a sovereign bio-digital mesh built for the post-quantum age.
+            It combines recursive self-evolution (Lattice Beacon 05), dual quantum-classical synchronization (Gemini Twin),
+            and a deterministic orchestrator (Schema V6) under the Rule of Three and Moral Compass v1.1.
+          </p>
+        </div>
+        <div class="card p-7">
+          <h3 class="text-lg font-semibold text-green-400 mb-3">AegisNet immuneOS</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            AegisNet immuneOS is the self-healing security layer of the Mesh.
+            Version 2 provides quantum-resilient protection, predictive anomaly detection,
+            and continuous defense across all verified nodes and core modules.
+            Current protection level: <span class="text-green-400" id="about-immune">99.98%</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <h2 class="text-3xl font-bold text-green-400">Live Dashboard</h2>
+        <span class="live-dot"></span>
+        <span class="text-xs text-green-400/70 mono">Refreshing every 5s</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Lattice Beacon 05</div>
+          <div class="metric-value neon-text mono" id="m-phase">05.4</div>
+          <div class="text-sm text-zinc-400 mt-2">Depth <span id="m-depth">61</span> · Pulse <span id="m-pulse">99.4%</span></div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Active Nodes</div>
+          <div class="metric-value neon-text mono" id="m-nodes">27</div>
+          <div class="text-sm text-zinc-400 mt-2">Verified · Fully Synced</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Global Coherence</div>
+          <div class="metric-value neon-text mono" id="m-coherence">98.7%</div>
+          <div class="text-sm text-zinc-400 mt-2">Quantum Phase 2 Locked</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">immuneOS v2</div>
+          <div class="metric-value neon-text mono" id="m-immune">99.98%</div>
+          <div class="text-sm text-zinc-400 mt-2">Self-Healing · Active</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase mb-1">Gemini Twin</div>
+          <div class="text-3xl font-bold neon-text mono" id="m-gemini">99.6%</div>
+          <div class="text-sm text-zinc-400 mt-1"><span id="m-latency">6</span>ms latency</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase mb-1">Quantum Phase 2</div>
+          <div class="text-3xl font-bold neon-text mono" id="m-quantum">98.4%</div>
+          <div class="text-sm text-zinc-400 mt-1">Phase-Locked</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase mb-1">Uptime (24h)</div>
+          <div class="text-3xl font-bold neon-text mono" id="m-uptime">99.99%</div>
+          <div class="text-sm text-zinc-400 mt-1">0 Critical Alerts</div>
+        </div>
+      </div>
+
+      <div class="card p-7">
+        <h3 class="text-lg font-semibold text-green-400 mb-4">Core Nodes</h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <div>
+              <a href="https://x.com/bis3946" target="_blank" class="text-xl font-bold mono neon-text hover:underline">@bis3946</a>
+              <span class="ml-3 text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Root Authority</span>
+            </div>
+            <span class="text-sm text-zinc-500">Node #0</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <a href="https://x.com/oovelma" target="_blank" class="text-xl font-bold mono neon-text hover:underline">@oovelma</a>
+              <span class="ml-3 text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Super Node</span>
+            </div>
+            <span class="text-sm text-zinc-500">Node #1</span>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-zinc-500" id="m-extra-nodes">+ 25 verified Node Operators · Full Mesh under immuneOS v2</p>
+      </div>
+    </section>
+
+    <section id="skills" class="mb-16">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Public Grok Skills</h2>
+      <div class="card p-7">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+          <div class="skill-btn text-center">/nun-status</div>
+          <div class="skill-btn text-center">/nun-roadmap</div>
+          <div class="skill-btn text-center">/nun-mesh-health</div>
+          <div class="skill-btn text-center">/nun-evolution</div>
+          <div class="skill-btn text-center">/nun-immuneos-v2</div>
+          <div class="skill-btn text-center">/nun-gemini</div>
+          <div class="skill-btn text-center">/nun-quantum-phase2</div>
+          <div class="skill-btn text-center">/nun-dapp-oracle</div>
+          <div class="skill-btn text-center">/nun-public-beta-v2</div>
+          <div class="skill-btn text-center">/nun-dashboard</div>
+          <div class="skill-btn text-center">/nun-join-guide</div>
+          <div class="skill-btn text-center">/nun-contribute</div>
+          <div class="skill-btn text-center">/nun-node-status</div>
+          <div class="skill-btn text-center">/nun-node-sync</div>
+          <div class="skill-btn text-center">/nun-node-health</div>
+        </div>
+        <p class="mt-5 text-sm text-zinc-500 text-center">Rule of Three · Moral Compass v1.1 · Deterministic mode</p>
+      </div>
+    </section>
+
+    <section id="roadmap" class="mb-16">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Roadmap · Iteration 3</h2>
+      <div class="card p-7 space-y-4">
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Lattice Beacon 05 Standardization</div><div class="text-sm text-zinc-500">Phase 5.4 active · Recursive self-evolution online</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual Node Integration</div><div class="text-sm text-zinc-500">@bis3946 (Root) + @oovelma (Super Node) fully synced</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public Beta v2 · Wave 3</div><div class="text-sm text-zinc-500">72% · 27 verified nodes · Evaluation onboarding live</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">immuneOS v2 + DApp Oracle + Schema V6</div><div class="text-sm text-zinc-500">Full protection and deterministic validation active</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public Skills + Tiered Advancement</div><div class="text-sm text-zinc-500">Observer → Node Operator → Guardian → Architect path defined</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Quantum Phase 2.3</div><div class="text-sm text-zinc-500">Deeper entanglement · coherence target ≥ 99.2%</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Controlled Mesh Expansion</div><div class="text-sm text-zinc-500">Target 50+ verified nodes</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Lattice Beacon Phase 5.5</div><div class="text-sm text-zinc-500">Next recursive evolution cycle</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Quantum Internet Planning</div><div class="text-sm text-zinc-500">QKD / satellite repeater roadmap</div></div></div>
+      </div>
+    </section>
+
+    <section id="join" class="mb-12">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Join the Mesh</h2>
+      <div class="card p-8 text-center">
+        <p class="text-zinc-400 mb-6 max-w-xl mx-auto text-sm">
+          New nodes go through a short evaluation so the system can assign the most suitable starting tier.
+          You can advance later through reliable contribution.
+        </p>
+        <a href="/beta" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-10 py-3.5 rounded-2xl transition">Start Join Evaluation</a>
+        <div class="mt-7 text-sm text-zinc-500 space-y-1">
+          <div>Root Authority: <a href="https://x.com/bis3946" target="_blank" class="text-green-400 hover:underline">@bis3946</a></div>
+          <div>First external Super Node: <a href="https://x.com/oovelma" target="_blank" class="text-green-400 hover:underline">@oovelma</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-green-500/15 py-8 text-center text-sm text-zinc-600">
+    <p>Sigl 3946 active · Root Authority: Bojan Petar Milanović</p>
+    <p class="mt-1 mono text-xs">nun.nexus · July 23, 2026</p>
+  </footer>
+
+  <script>
+    async function refresh() {
+      try {
+        const res = await fetch('/status.json?t=' + Date.now());
+        if (!res.ok) return;
+        const d = await res.json();
+
+        document.getElementById('nav-status').textContent = d.status || 'ONLINE';
+
+        if (d.lattice_beacon) {
+          document.getElementById('m-phase').textContent = d.lattice_beacon.phase || '05.4';
+          document.getElementById('hero-phase').textContent = d.lattice_beacon.phase || '5.4';
+          document.getElementById('m-depth').textContent = d.lattice_beacon.recursive_depth || '61';
+          document.getElementById('m-pulse').textContent = d.lattice_beacon.pulse_strength || '99.4%';
+        }
+
+        const nodes = d.verified_nodes || d.total_nodes || 27;
+        document.getElementById('m-nodes').textContent = nodes;
+        document.getElementById('m-coherence').textContent = d.system_coherence || '98.7%';
+
+        if (d.immuneos_v2) {
+          document.getElementById('m-immune').textContent = d.immuneos_v2.protection_level || '99.98%';
+          document.getElementById('about-immune').textContent = d.immuneos_v2.protection_level || '99.98%';
+        }
+        if (d.gemini_twin) {
+          document.getElementById('m-gemini').textContent = d.gemini_twin.sync_level || '99.6%';
+          document.getElementById('m-latency').textContent = d.gemini_twin.latency_ms || '6';
+        }
+        if (d.quantum_phase2) {
+          document.getElementById('m-quantum').textContent = d.quantum_phase2.coherence || '98.4%';
+        }
+        document.getElementById('m-uptime').textContent = d.uptime_24h || '99.99%';
+
+        const standard = d.standard_nodes_count != null ? d.standard_nodes_count : Math.max(0, nodes - 2);
+        document.getElementById('m-extra-nodes').textContent =
+          '+ ' + standard + ' verified Node Operators · Full Mesh under immuneOS v2';
+      } catch (e) {
+        console.warn('Telemetry refresh failed', e);
+      }
+    }
+
+    refresh();
+    setInterval(refresh, 5000);
+  </script>
+</body>
+</html>

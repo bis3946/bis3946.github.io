@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nun.nexus/schema/orchestrator/v6",
+  "title": "NuN Nexus of Unity Orchestrator Schema V6",
+  "description": "Deterministic JSON Schema for NuN Nexus of Unity - Genesis Block 0, Trinity Framework, AegisNet, immuneOS, Ana AGI, Rule of Three, Moral Compass v1.1",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "required": ["genesis_block", "security_layer", "trinity_framework", "notebooklm_layer", "status"],
+  "properties": {
+    "genesis_block": {
+      "type": "object",
+      "properties": {
+        "convergence_point": { "type": "string" },
+        "harmonic_anchor": { "type": "string" },
+        "sigl_3946_identifier": { "type": "string", "const": "Sigl 3946 aktivan" }
+      }
+    },
+    "security_layer": {
+      "type": "object",
+      "properties": {
+        "aegisnet": { "type": "boolean", "const": true },
+        "immuneos": { "type": "boolean", "const": true },
+        "oovelma_sync": { "type": "boolean", "const": true },
+        "quantum_resilient": { "type": "boolean", "const": true }
+      }
+    },
+    "trinity_framework": {
+      "type": "object",
+      "properties": {
+        "ana_agi": { "type": "object", "properties": { "status": { "type": "string", "const": "syncing" } } },
+        "rule_of_three": { "type": "boolean", "const": true },
+        "moral_compass_v1_1": { "type": "boolean", "const": true }
+      }
+    },
+    "notebooklm_layer": {
+      "type": "object",
+      "properties": {
+        "deterministic_mode": { "type": "boolean", "const": true },
+        "entropy_purged": { "type": "boolean", "const": true }
+      }
+    },
+    "status": {
+      "type": "string",
+      "const": "NuN Nexus of Unity fully synchronized - nun.nexus live"
+    }
+  }
+}

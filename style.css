@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0d0d16;
+  color: #f3f3f3;
+}
+header {
+  display: flex;
+  align-items: center;
+  background: #181825;
+  padding: 1em 2em;
+  border-bottom: 2px solid #84f0c7;
+}
+.logo {
+  height: 48px;
+  margin-right: 2em;
+}
+nav a {
+  color: #9fffe6;
+  text-decoration: none;
+  margin: 0 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+nav a.active,
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #84f0c7;
+}
+main {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #171726;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px #0008;
+}
+.hero {
+  text-align: center;
+  padding-bottom: 2em;
+}
+.cta .btn,
+.btn {
+  display: inline-block;
+  background: #9fffe6;
+  color: #171726;
+  padding: 0.75em 1.5em;
+  margin: 1em 0.5em;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cta .btn-secondary,
+.btn-secondary {
+  background: transparent;
+  color: #9fffe6;
+  border: 2px solid #9fffe6;
+}
+.cta .btn:hover,
+.btn:hover,
+.btn-secondary:hover {
+  background: #84f0c7;
+  color: #181825;
+}
+h1, h2, h3 {
+  color: #84f0c7;
+  margin-bottom: 0.5em;
+}
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.6em;
+}
+h3 {
+  font-size: 1.2em;
+}
+.ecosystem-grid, .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 1.2em;
+  margin: 2em 0;
+}
+.ecosystem-grid div, .dashboard-grid div {
+  background: #202036;
+  border-radius: 12px;
+  padding: 1em;
+  min-height: 120px;
+  box-shadow: 0 2px 8px #0005;
+}
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 0.5em;
+  margin-bottom: 0.3em;
+  font-size: 1em;
+}
+.badge.online { background: #22ff9c; color: #181825; }
+.badge.progress { background: #ffc36a; color: #181825; }
+.badge.planned { background: #1e9cff; color: #fff; }
+.badge.beta { background: #c97cff; color: #fff; }
+.roadmap {
+  padding-left: 1.2em;
+}
+.get-involved {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  list-style: none;
+  padding-left: 0;
+}
+.get-involved li {
+  margin: 0;
+}
+.note {
+  color: #aaa;
+  font-size: 0.97em;
+}
+footer {
+  text-align: center;
+  padding: 2em 0 1em 0;
+  color: #aaa;
+  font-size: 1em;
+  background: none;
+}
+footer .legal {
+  display: block;
+  margin-top: 0.6em;
+  font-size: 0.95em;
+}
+@media (max-width: 600px) {
+  main { padding: 1em; }
+  header { flex-direction: column; align-items: flex-start; }
+  nav a { margin: 0 0.5em; font-size: 1em; }
+}
