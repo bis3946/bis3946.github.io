@@ -1,0 +1,5 @@
+{
+  "intake_url": null,
+  "updated_at": "2026-07-24T02:20:00Z",
+  "note": "Set intake_url to https://YOUR-TUNNEL/apply after cloudflared is up. Never put tokens here."
+}
