@@ -19,34 +19,64 @@ This is the **public surface only** of NuN Nexus of Unity. It is published via *
 
 - Public website (`index.html`, `beta/`, assets)
 - Live telemetry (`status.json`)
-- Public node ledger slice (`nodes-public.json`) — only hash, type, join time, contribution, status
+- Public node ledger slice (`nodes-public.json`)
 - Orchestrator schema (`schema/orchestrator/v6.json`)
 - Public documentation (this README, CONTRIBUTING)
 
-**Never published here:**
-
-- Source code of intake, admit, encryption, or daemons
-- Private node dossiers
-- Ledger keys, intake tokens, or credentials
-- Root-only / Super Node 0 tooling
-
-All of that lives in a **separate private repository** (`Nun-root`). Public updates are limited to safe artifacts after integrity checks.
+**Never published here:** source of intake/admit, private dossiers, keys, or Root-only tooling (those live in private `Nun-root`).
 
 ---
 
-## Live metrics (indicative)
+## Node tiers and progression
 
-See the dashboard on [nun.nexus](https://nun.nexus) (refreshes from `status.json` every few seconds).
+Public onboarding assigns a **starting tier** after automated investigation (declarations + optional live health probe). Advancement is **contribution-based**, not purchase.
 
-| Metric | Typical value |
-|--------|----------------|
-| Status | ONLINE |
-| Verified nodes | 28+ (see live JSON) |
-| Lattice Beacon 05 | Phase 5.4 |
-| immuneOS v2 | Active / self-healing |
-| Schema | Orchestrator V6 |
+| Order | Tier | Role function (summary) |
+|------:|------|-------------------------|
+| 1 | **Observer** | Observe Mesh status and learn the public skills surface |
+| 2 | **Node Operator** | Operate a reliable participation node on the Mesh |
+| 3 | **Guardian** | Stabilize Mesh health, report anomalies, support operators |
+| 4 | **Architect** | Contribute architecture, schema, and growth design |
 
-Public APIs:
+**Special roles (not granted by the public form):**
+
+| Tier | Role function |
+|------|----------------|
+| **Super Node** | Coordinate Mesh stability and Super-scope skills (appointed) |
+| **Root Authority** | Root governance, ledger authority, Super Node 0 |
+
+**Path:** Observer → Node Operator → Guardian → Architect  
+**Super Node** is Root-appointed only.
+
+Classification also records public-safe fields when available:
+
+- `role_function` — human-readable function of the tier  
+- `tier_rank` — numeric order on the public path  
+- `capability_class` — e.g. ops, development, research, community, mixed  
+- `resource_band` — entry | standard | advanced (from investigation + optional probe)  
+- `progression_next` — next public tier (or note at Architect ceiling)
+
+---
+
+## Join evaluation
+
+1. Open [https://nun.nexus/beta](https://nun.nexus/beta)
+2. Provide truthful identity, experience, role intent, capabilities, commitment
+3. Optional: `probe_endpoint` (public health URL) improves resource scoring
+4. Application is investigated; admission writes **public fields only** to the ledger
+
+---
+
+## Privacy model (public ledger)
+
+Public fields may include:
+
+`node_hash`, `node_type`, `joined_at`, `contribution`, `status`,  
+`role_function`, `tier_rank`, `capability_class`, `resource_band`, `progression_next`
+
+Full dossiers are **Super Node 0 / Root only** and never stored in this repository.
+
+Live APIs:
 
 - [status.json](https://nun.nexus/status.json)
 - [nodes-public.json](https://nun.nexus/nodes-public.json)
@@ -56,36 +86,22 @@ Public APIs:
 
 ## Benefits of joining
 
-Joining NuN Nexus of Unity means participating in a deterministic, security-first mesh—not a social feed.
-
-1. **Mesh membership** — Verified node identity on the public Node Tangle (privacy-preserving hash view).
-2. **Tiered path** — Observer → Node Operator → Guardian → Architect through contribution, not purchase.
-3. **immuneOS cover** — Alignment with AegisNet immuneOS v2 self-healing and quantum-resilient posture.
-4. **Schema V6 discipline** — Deterministic orchestration under Rule of Three and Moral Compass v1.1.
-5. **Public skills surface** — Grok `/nun-*` skills for status, health, roadmap, and onboarding guidance.
-6. **Coordination with Super Nodes** — Clear roles (Root Authority, Super Node, operators) without exposing private dossiers.
-7. **Post-quantum direction** — Architecture aimed at long-term cryptographic resilience.
-
-Start evaluation: [https://nun.nexus/beta](https://nun.nexus/beta)
-
----
-
-## Privacy model (public ledger)
-
-Anyone can see:
-
-`node_hash`, `node_type`, `joined_at`, `contribution`, `status`
-
-Full dossiers are **Super Node 0 / Root only** and are never stored in this repository.
+1. **Mesh membership** — verified node on the public Node Tangle (privacy-preserving)
+2. **Tiered path** — Observer → Node Operator → Guardian → Architect
+3. **immuneOS cover** — AegisNet immuneOS v2 alignment
+4. **Schema V6 discipline** — Rule of Three and Moral Compass v1.1
+5. **Public skills surface** — Grok `/nun-*` orientation skills
+6. **Clear roles** — Root, Super Node, operators without private dossier exposure
+7. **Post-quantum direction** — long-term cryptographic resilience focus
 
 ---
 
 ## Development policy
 
-1. Develop automation and sensitive logic in **private** `Nun-root` only.
-2. Publish to this repo **only** public HTML, schema, and metrics/ledger slices that pass integrity checks.
-3. Automation must **merge** new nodes into the existing ledger—never replace a full database with a partial cache.
-4. No secrets in git history of this repository.
+1. Sensitive logic only in private `Nun-root`
+2. Publish only integrity-checked public artifacts
+3. Automation **merges** nodes — never shrinks the ledger silently
+4. No secrets in this repository’s history
 
 ---
 
