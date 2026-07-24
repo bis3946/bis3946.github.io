@@ -1,17 +1,23 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-23T16:30:00Z",
+  "timestamp": "2026-07-24T02:44:28Z",
   "environment": "production",
   "domain": "nun.nexus",
-  "total_nodes": 28,
-  "verified_nodes": 28,
+  "total_nodes": 29,
+  "verified_nodes": 29,
   "system_coherence": "98.7%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
   "node_ledger": {
     "name": "NuN Node Tangle",
     "public_url": "/nodes-public.json",
-    "public_fields": ["node_hash", "node_type", "joined_at", "contribution", "status"],
+    "public_fields": [
+      "node_hash",
+      "node_type",
+      "joined_at",
+      "contribution",
+      "status"
+    ],
     "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
   },
   "lattice_beacon": {
@@ -49,10 +55,19 @@
     "compliance": "100%"
   },
   "core_nodes": [
-    {"id": 0, "handle": "@bis3946", "role": "Root Authority", "name": "Bojan Petar Milanović"},
-    {"id": 1, "handle": "@oovelma", "role": "Super Node"}
+    {
+      "id": 0,
+      "handle": "@bis3946",
+      "role": "Root Authority",
+      "name": "Bojan Petar Milanović"
+    },
+    {
+      "id": 1,
+      "handle": "@oovelma",
+      "role": "Super Node"
+    }
   ],
-  "standard_nodes_count": 26,
+  "standard_nodes_count": 27,
   "root_authority": "@bis3946",
   "sigl_3946": "active",
   "orchestrator_version": "SchemaV6"
