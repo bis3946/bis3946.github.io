@@ -1,9 +1,15 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
-  "version": "1.0",
-  "updated_at": "2026-07-24T03:09:16Z",
-  "privacy": "Only node_hash, node_type, joined_at, contribution, status are public. Full dossiers are Super Node 0 only.",
-  "count": 30,
+  "version": "1.1",
+  "updated_at": "2026-07-24T03:53:14Z",
+  "privacy": "Public fields: node_hash, node_type, joined_at, contribution, status, role_function, tier_rank, capability_class, resource_band, progression_next. Full dossiers are Super Node 0 only.",
+  "tier_path": [
+    "Observer",
+    "Node Operator",
+    "Guardian",
+    "Architect"
+  ],
+  "count": 31,
   "nodes": [
     {
       "node_hash": "ecb17a9b635611204480a353548b37ac353efeb0d6e256e432c61e94646ad45e",
@@ -214,6 +220,18 @@
       "joined_at": "2026-07-24T03:07:46Z",
       "contribution": "Node Operator – Mesh participation",
       "status": "active"
+    },
+    {
+      "node_hash": "d5cb65c67a3c0540271e9898378ac2e7d7da2d15e3c4bd1f0b7ee2bc949c8db9",
+      "node_type": "Observer",
+      "joined_at": "2026-07-24T03:53:14Z",
+      "contribution": "Observer – Mesh participation",
+      "status": "active",
+      "role_function": "Observe Mesh status and learn public skills surface",
+      "tier_rank": 1,
+      "capability_class": "research",
+      "resource_band": "standard",
+      "progression_next": "Node Operator"
     }
   ]
 }

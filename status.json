@@ -1,10 +1,10 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-24T03:09:16Z",
+  "timestamp": "2026-07-24T03:53:14Z",
   "environment": "production",
   "domain": "nun.nexus",
-  "total_nodes": 30,
-  "verified_nodes": 30,
+  "total_nodes": 31,
+  "verified_nodes": 31,
   "system_coherence": "98.7%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
@@ -16,9 +16,20 @@
       "node_type",
       "joined_at",
       "contribution",
-      "status"
+      "status",
+      "role_function",
+      "tier_rank",
+      "capability_class",
+      "resource_band",
+      "progression_next"
     ],
-    "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
+    "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records.",
+    "tier_path": [
+      "Observer",
+      "Node Operator",
+      "Guardian",
+      "Architect"
+    ]
   },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
@@ -67,7 +78,7 @@
       "role": "Super Node"
     }
   ],
-  "standard_nodes_count": 28,
+  "standard_nodes_count": 29,
   "root_authority": "@bis3946",
   "sigl_3946": "active",
   "orchestrator_version": "SchemaV6"
