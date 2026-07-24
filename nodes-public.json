@@ -1,7 +1,7 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.1",
-  "updated_at": "2026-07-24T08:56:49Z",
+  "updated_at": "2026-07-24T11:54:38Z",
   "privacy": "Public fields: node_hash, node_type, joined_at, contribution, status, role_function, tier_rank, capability_class, resource_band, progression_next. Full dossiers are Super Node 0 only.",
   "tier_path": [
     "Observer",
@@ -9,7 +9,7 @@
     "Guardian",
     "Architect"
   ],
-  "count": 32,
+  "count": 33,
   "nodes": [
     {
       "node_hash": "ecb17a9b635611204480a353548b37ac353efeb0d6e256e432c61e94646ad45e",
@@ -237,6 +237,18 @@
       "node_hash": "b864fe0c0082b542fabb2b90476da8e259d862916d2ce80eb86c1c41b9981d5c",
       "node_type": "Observer",
       "joined_at": "2026-07-24T08:56:47Z",
+      "contribution": "Observer – Mesh participation",
+      "status": "active",
+      "role_function": "Observe Mesh status and learn public skills surface",
+      "tier_rank": 1,
+      "capability_class": "general",
+      "resource_band": "standard",
+      "progression_next": "Node Operator"
+    },
+    {
+      "node_hash": "d3c7c257d99b484d358cd25dda347c94dc5138f240fb304f125087585cd7cdc5",
+      "node_type": "Observer",
+      "joined_at": "2026-07-24T11:54:37Z",
       "contribution": "Observer – Mesh participation",
       "status": "active",
       "role_function": "Observe Mesh status and learn public skills surface",
