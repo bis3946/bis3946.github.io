@@ -17,6 +17,7 @@
     <div class="text-center mb-10">
       <h1 class="text-4xl font-bold neon mb-2">NuN Public Beta</h1>
       <p class="text-zinc-400 text-sm">Wave 3 · Join · Investigation required before ledger entry</p>
+      <p class="text-zinc-500 text-xs mt-2">Tier path: Observer → Node Operator → Guardian → Architect</p>
     </div>
 
     <div class="card p-7 mb-5" id="step1">
@@ -49,6 +50,7 @@
             <option value="guardian">Help protect & stabilize the Mesh</option>
             <option value="architect">Contribute to architecture & growth</option>
           </select>
+          <p class="text-[11px] text-zinc-600 mt-1">Starting tier is assigned by investigation. Super Node is Root-appointed only.</p>
         </div>
         <div>
           <label class="block text-xs text-zinc-500 mb-1.5">Commitment (uptime + Rule of Three + Moral Compass) *</label>
@@ -63,7 +65,16 @@
         </div>
         <div>
           <label class="block text-xs text-zinc-500 mb-1.5">Optional probe endpoint (health URL)</label>
-          <input id="probe" type="url" placeholder="https://…" class="w-full bg-black border border-green-500/30 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-400">
+          <input id="probe" type="url" placeholder="https://example.com/health" class="w-full bg-black border border-green-500/30 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-green-400">
+          <p class="text-[11px] text-zinc-500 mt-2 leading-relaxed">
+            <span class="text-zinc-400">What this is:</span> a public HTTPS URL the Mesh can call to check that something you operate is reachable (for example a simple <span class="mono text-green-500/80">/health</span> or status page that returns HTTP 200).
+            <br><br>
+            <span class="text-zinc-400">Why it helps:</span> a successful probe improves resource scoring and may support a stronger starting classification.
+            <br><br>
+            <span class="text-zinc-400">You can leave this blank</span> if you have no public endpoint yet. Joining still works; evaluation then uses your declared fields only.
+            <br><br>
+            Do <span class="text-zinc-400">not</span> put passwords, private APIs, or localhost addresses here.
+          </p>
         </div>
         <label class="flex items-start gap-2 text-sm text-zinc-300">
           <input id="truth" type="checkbox" class="mt-1">
@@ -80,7 +91,7 @@
       <p class="text-xs text-zinc-500 mb-2">Application ID</p>
       <p class="mono text-green-400 text-sm break-all mb-4" id="appId">—</p>
       <p id="step3Delivery" class="text-xs text-zinc-500 mb-4"></p>
-      <p class="text-xs text-zinc-500 mb-4">After admission, public visibility is limited to: node hash, type, join time, contribution, status. Full records are Super Node 0 only.</p>
+      <p class="text-xs text-zinc-500 mb-4">After admission, public visibility may include: node hash, type, join time, contribution, status, role function, tier rank, capability class, resource band, progression next. Full records are Super Node 0 only.</p>
       <a href="/nodes-public.json" class="text-green-400 text-sm hover:underline">View public node ledger →</a>
       <div class="mt-6">
         <a href="/" class="text-zinc-500 text-sm hover:underline">← Back to nun.nexus</a>
