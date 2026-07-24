@@ -1,5 +1,4 @@
 {
-  "intake_url": null,
-  "updated_at": "2026-07-24T02:20:00Z",
-  "note": "Set intake_url to https://YOUR-TUNNEL/apply after cloudflared is up. Never put tokens here."
+  "intake_url": "https://mattress-dive-seattle-congress.trycloudflare.com/apply",
+  "updated_at": "2026-07-24T02:25:00Z"
 }
