@@ -70,14 +70,16 @@
           <span>I declare that all information provided is true and complete. *</span>
         </label>
       </div>
-      <button onclick="submitApp()" class="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-3 rounded-xl transition">Submit for investigation</button>
+      <button id="submitBtn" onclick="submitApp()" class="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-3 rounded-xl transition">Submit for investigation</button>
+      <p id="submitHint" class="text-xs text-zinc-500 mt-3"></p>
     </div>
 
     <div class="card p-7 hidden" id="step3">
       <h2 class="text-lg font-semibold text-green-400 mb-2">3. Application received</h2>
-      <p class="text-sm text-zinc-400 mb-4">Your application is queued for automated investigation. No node enters the Tangle Ledger until investigation passes.</p>
+      <p id="step3Msg" class="text-sm text-zinc-400 mb-4">Your application is queued for automated investigation. No node enters the Tangle Ledger until investigation passes.</p>
       <p class="text-xs text-zinc-500 mb-2">Application ID</p>
       <p class="mono text-green-400 text-sm break-all mb-4" id="appId">—</p>
+      <p id="step3Delivery" class="text-xs text-zinc-500 mb-4"></p>
       <p class="text-xs text-zinc-500 mb-4">After admission, public visibility is limited to: node hash, type, join time, contribution, status. Full records are Super Node 0 only.</p>
       <a href="/nodes-public.json" class="text-green-400 text-sm hover:underline">View public node ledger →</a>
       <div class="mt-6">
@@ -90,6 +92,29 @@
 
   <script>
     let handle = 'Guest';
+    let intakeUrl = null;
+
+    async function loadIntakeConfig() {
+      try {
+        const r = await fetch('/intake-config.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) return;
+        const cfg = await r.json();
+        if (cfg && typeof cfg.intake_url === 'string' && cfg.intake_url.startsWith('https://')) {
+          intakeUrl = cfg.intake_url;
+        }
+        if (window.NUN_INTAKE_URL && String(window.NUN_INTAKE_URL).startsWith('https://')) {
+          intakeUrl = window.NUN_INTAKE_URL;
+        }
+      } catch (e) {}
+      const hint = document.getElementById('submitHint');
+      if (hint) {
+        hint.textContent = intakeUrl
+          ? 'Live intake linked to Root host.'
+          : 'Intake relay offline — application will be stored locally until Root enables the public relay.';
+      }
+    }
+    loadIntakeConfig();
+
     function goToEval() {
       const h = document.getElementById('handleInput').value.trim();
       if (!h || h.length < 2) { alert('Handle is required'); return; }
@@ -97,13 +122,15 @@
       document.getElementById('step1').classList.add('hidden');
       document.getElementById('step2').classList.remove('hidden');
     }
-    function submitApp() {
+
+    async function submitApp() {
       if (!document.getElementById('truth').checked) {
         alert('Truth declaration is required');
         return;
       }
       const caps = document.getElementById('caps').value.trim();
       if (!caps) { alert('Declare at least one capability'); return; }
+
       const application = {
         handle: handle,
         contact_email: document.getElementById('emailInput').value.trim() || null,
@@ -118,13 +145,40 @@
       const id = 'app-' + btoa(unescape(encodeURIComponent(application.handle + application.submitted_at))).replace(/[^a-zA-Z0-9]/g,'').slice(0, 24);
       application.application_id = id;
       localStorage.setItem('nun_pending_application', JSON.stringify(application));
-      // Optional private intake webhook (set by Root on controlled deployments)
-      if (window.NUN_INTAKE_URL) {
-        fetch(window.NUN_INTAKE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(application) }).catch(() => {});
+
+      let delivered = false;
+      let remoteId = id;
+      const btn = document.getElementById('submitBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
+
+      if (intakeUrl) {
+        try {
+          const resp = await fetch(intakeUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(application)
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (resp.ok || resp.status === 202) {
+            delivered = true;
+            if (data.application_id) remoteId = data.application_id;
+            if (data.pending_file) remoteId = data.application_id || remoteId;
+          }
+        } catch (e) {
+          delivered = false;
+        }
       }
-      document.getElementById('appId').textContent = id;
+
+      document.getElementById('appId').textContent = remoteId;
+      document.getElementById('step3Msg').textContent = delivered
+        ? 'Your application reached the Root intake queue for automated investigation. No node enters the Tangle Ledger until investigation passes.'
+        : 'Your application was saved on this device. The live intake relay is not connected right now — Root Authority will process when the relay is online, or you can contact @bis3946.';
+      document.getElementById('step3Delivery').textContent = delivered
+        ? 'Delivery: live Root host queue.'
+        : 'Delivery: local only (relay offline).';
       document.getElementById('step2').classList.add('hidden');
       document.getElementById('step3').classList.remove('hidden');
+      if (btn) { btn.disabled = false; btn.textContent = 'Submit for investigation'; }
     }
   </script>
 </body>
