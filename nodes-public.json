@@ -1,9 +1,9 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.0",
-  "updated_at": "2026-07-24T02:44:28Z",
+  "updated_at": "2026-07-24T03:09:16Z",
   "privacy": "Only node_hash, node_type, joined_at, contribution, status are public. Full dossiers are Super Node 0 only.",
-  "count": 29,
+  "count": 30,
   "nodes": [
     {
       "node_hash": "ecb17a9b635611204480a353548b37ac353efeb0d6e256e432c61e94646ad45e",
@@ -205,6 +205,13 @@
       "node_hash": "7ee763454c2dbb6dfc07bea8ddf0f313eaaa73c55ecaa5e66dbf2736fae85cd6",
       "node_type": "Node Operator",
       "joined_at": "2026-07-24T02:34:22Z",
+      "contribution": "Node Operator – Mesh participation",
+      "status": "active"
+    },
+    {
+      "node_hash": "e3c3300c2d05e3b03c5f4e405055851a26a0c51ddce093a6e905841ef1a92769",
+      "node_type": "Node Operator",
+      "joined_at": "2026-07-24T03:07:46Z",
       "contribution": "Node Operator – Mesh participation",
       "status": "active"
     }
