@@ -1,7 +1,7 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.2",
-  "updated_at": "2026-07-29T06:44:24Z",
+  "updated_at": "2026-07-29T06:46:23Z",
   "privacy": "Public fields include node_id, node_class, node_hash, node_type, joined_at, contribution, status, role_function, tier_rank, capability_class, resource_band, progression_next. Full dossiers are Super Node 0 only.",
   "tier_path": [
     "Observer",
