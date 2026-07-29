@@ -1,51 +1,65 @@
 {
   "status": "ONLINE",
-  "total_nodes": 35,
-  "total_transactions": 1560,
-  "latest_transactions": [
-    {
-      "sender": "SWARM_RECOVERY_AGENT",
-      "receiver": "Swarm_Sentinel_Delta",
-      "amount": 1.0,
-      "timestamp": "2026-07-29 03:52:21",
-      "hash": "regenerated_..."
-    },
-    {
-      "sender": "TORRENT_VAULT_REWARD",
-      "receiver": "Swarm_Sentinel_Delta",
-      "amount": 0.05,
-      "timestamp": "2026-07-29 03:52:21",
-      "hash": "torrent_rewa..."
-    },
-    {
-      "sender": "SWARM_RECOVERY_AGENT",
-      "receiver": "Swarm_Sentinel_Delta",
-      "amount": 1.0,
-      "timestamp": "2026-07-29 03:51:41",
-      "hash": "regenerated_..."
-    },
-    {
-      "sender": "TORRENT_VAULT_REWARD",
-      "receiver": "Swarm_Sentinel_Delta",
-      "amount": 0.05,
-      "timestamp": "2026-07-29 03:51:41",
-      "hash": "torrent_rewa..."
-    },
-    {
-      "sender": "SWARM_RECOVERY_AGENT",
-      "receiver": "Swarm_Sentinel_Delta",
-      "amount": 1.0,
-      "timestamp": "2026-07-29 03:51:01",
-      "hash": "regenerated_..."
-    }
-  ],
-  "system_coherence": "100.0%",
-  "timestamp": "2026-07-29T05:52:11Z",
-  "verified_nodes": 35,
-  "standard_nodes_count": 33,
+  "timestamp": "2026-07-29T06:10:00Z",
   "environment": "production",
   "domain": "nun.nexus",
+  "total_nodes": 35,
+  "verified_nodes": 35,
+  "standard_nodes_count": 33,
+  "system_coherence": "98.7%",
+  "uptime_24h": "99.99%",
+  "active_alerts": 0,
+  "sigl_3946": "active",
+  "orchestrator_version": "SchemaV6",
+  "root_authority": "@bis3946",
+  "super_node": "@oovelma",
+  "core_nodes": [
+    {"id": 0, "handle": "@bis3946", "role": "Root Authority", "name": "Bojan Petar Milanović"},
+    {"id": 1, "handle": "@oovelma", "role": "Super Node"}
+  ],
+  "topography": {
+    "core": 2,
+    "production": 5,
+    "foundation": 25,
+    "test": 3,
+    "note": "core=Root+Super; production=classified admits via live intake; foundation=early Mesh operators; test=pipeline validation admits"
+  },
+  "lattice_beacon": {
+    "name": "Lattice Beacon 05",
+    "phase": "5.4",
+    "recursive_depth": 61,
+    "pulse_strength": "99.4%",
+    "state": "Active & Locked"
+  },
+  "immuneos_v2": {
+    "version": "v2.1.7",
+    "protection_level": "99.98%",
+    "state": "Fully Active & Self-Healing",
+    "quantum_resilient": true
+  },
+  "gemini_twin": {
+    "sync_level": "99.6%",
+    "latency_ms": 6,
+    "coherence": "98.7%",
+    "state": "Fully Synchronized"
+  },
+  "quantum_phase2": {
+    "coherence": "98.4%",
+    "state": "Phase-Locked",
+    "entanglement_strength": "94.6%"
+  },
+  "public_beta_v2": {
+    "wave": 3,
+    "progress": "78%",
+    "status": "active"
+  },
+  "dapp_oracle": {
+    "state": "online",
+    "schema_version": "V6",
+    "compliance": "100%"
+  },
   "node_ledger": {
+    "name": "NuN Node Tangle",
     "public_url": "/nodes-public.json",
     "public_fields": [
       "node_hash",
@@ -59,11 +73,7 @@
       "resource_band",
       "progression_next"
     ],
-    "tier_path": [
-      "Observer",
-      "Node Operator",
-      "Guardian",
-      "Architect"
-    ]
+    "tier_path": ["Observer", "Node Operator", "Guardian", "Architect"],
+    "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
   }
 }
