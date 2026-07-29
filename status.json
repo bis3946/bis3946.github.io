@@ -1,12 +1,12 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T06:15:00Z",
+  "timestamp": "2026-07-29T06:25:00Z",
   "environment": "production",
   "domain": "nun.nexus",
-  "total_nodes": 35,
-  "verified_nodes": 35,
-  "standard_nodes_count": 33,
-  "system_coherence": "98.7%",
+  "total_nodes": 32,
+  "verified_nodes": 32,
+  "standard_nodes_count": 30,
+  "system_coherence": "98.9%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
   "sigl_3946": "active",
@@ -21,15 +21,17 @@
     "core": 2,
     "production": 5,
     "foundation": 25,
-    "test": 3,
-    "note": "core=Root+Super; production=live intake admits with classification; foundation=early Mesh operators; test=pipeline validation admits only"
+    "test": 0,
+    "real_nodes": 32,
+    "note": "Test pipeline admits removed. node_class on ledger: core|production|foundation|test. Foundation roles refined from Wave-1 join functions."
   },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
-    "phase": "5.4",
-    "recursive_depth": 61,
-    "pulse_strength": "99.4%",
-    "state": "Active & Locked"
+    "phase": "5.5",
+    "recursive_depth": 68,
+    "pulse_strength": "99.6%",
+    "state": "Active & Locked · Phase 5.5",
+    "evolution": "Recursive optimization cycle 5.5 online"
   },
   "immuneos_v2": {
     "version": "v2.1.7",
@@ -38,19 +40,19 @@
     "quantum_resilient": true
   },
   "gemini_twin": {
-    "sync_level": "99.6%",
+    "sync_level": "99.7%",
     "latency_ms": 6,
-    "coherence": "98.7%",
+    "coherence": "98.9%",
     "state": "Fully Synchronized"
   },
   "quantum_phase2": {
-    "coherence": "98.4%",
+    "coherence": "98.6%",
     "state": "Phase-Locked",
-    "entanglement_strength": "94.6%"
+    "entanglement_strength": "95.1%"
   },
   "public_beta_v2": {
     "wave": 3,
-    "progress": "78%",
+    "progress": "82%",
     "status": "active"
   },
   "dapp_oracle": {
@@ -61,19 +63,26 @@
   "node_ledger": {
     "name": "NuN Node Tangle",
     "public_url": "/nodes-public.json",
-    "public_fields": [
-      "node_hash",
-      "node_type",
-      "joined_at",
-      "contribution",
-      "status",
-      "role_function",
-      "tier_rank",
-      "capability_class",
-      "resource_band",
-      "progression_next"
-    ],
+    "public_fields": ["node_id", "node_class", "node_hash", "node_type", "joined_at", "contribution", "status", "role_function", "tier_rank", "capability_class", "resource_band", "progression_next"],
     "tier_path": ["Observer", "Node Operator", "Guardian", "Architect"],
+    "node_classes": ["core", "production", "foundation", "test"],
     "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
+  },
+  "roadmap": {
+    "iteration": 3,
+    "completed": [
+      "Public ledger + live intake classification",
+      "Dual-repo security model",
+      "3D topography with test vs real classes",
+      "Foundation Wave-1 role precision",
+      "Test node purge from public ledger",
+      "Lattice Beacon Phase 5.5"
+    ],
+    "next": [
+      "Named intake tunnel (stable apply URL)",
+      "Controlled expansion toward 50+ production nodes",
+      "Observer→Operator promotion wave",
+      "Lattice Beacon Phase 5.6 planning"
+    ]
   }
 }
