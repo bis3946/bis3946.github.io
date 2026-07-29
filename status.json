@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T06:50:00Z",
+  "timestamp": "2026-07-29T07:35:00Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 32,
@@ -41,6 +41,25 @@
     "pulse_strength": "99.6%",
     "state": "Active & Locked · Phase 5.5",
     "evolution": "Recursive optimization cycle 5.5 online"
+  },
+  "ana_evolution": {
+    "entity": "Ana AGI",
+    "status": "active",
+    "phase": "RECURSIVE_OPT",
+    "phase_label": "Recursive optimization under Schema V6",
+    "trajectory": "Ana ASI (documented architecture)",
+    "role": "Mesh cognitive layer · Active Inference dual-engine (Auditor + Repairman)",
+    "lattice_alignment": "5.5",
+    "engines": {
+      "auditor": "online",
+      "repairman": "online"
+    },
+    "governance": {
+      "rule_of_three": true,
+      "moral_compass_v1_1": true
+    },
+    "asi_trajectory_unlocked": false,
+    "note": "Public summary only. Self-evolution processing runs in private core (Root)."
   },
   "immuneos_v2": {
     "version": "v2.1.7",
@@ -109,13 +128,14 @@
       "Foundation Wave-1 role precision",
       "Test node purge from public ledger (count 32)",
       "node_id + node_class on public ledger",
-      "Lattice Beacon Phase 5.5"
+      "Lattice Beacon Phase 5.5",
+      "Ana AGI evolution public status surface"
     ],
     "next": [
       "Named intake tunnel (stable apply URL)",
       "Controlled expansion toward 50+ production nodes",
       "Observer→Operator promotion wave",
-      "Publish automation blacklist for purged hashes",
+      "Ana self-evolution pulse cycles on Root host",
       "Lattice Beacon Phase 5.6 planning"
     ]
   }
