@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T06:10:00Z",
+  "timestamp": "2026-07-29T06:15:00Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 35,
@@ -22,7 +22,7 @@
     "production": 5,
     "foundation": 25,
     "test": 3,
-    "note": "core=Root+Super; production=classified admits via live intake; foundation=early Mesh operators; test=pipeline validation admits"
+    "note": "core=Root+Super; production=live intake admits with classification; foundation=early Mesh operators; test=pipeline validation admits only"
   },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
