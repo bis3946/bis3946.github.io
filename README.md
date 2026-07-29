@@ -18,12 +18,25 @@ This is the **public surface only** of NuN Nexus of Unity. It is published via *
 **Allowed content:**
 
 - Public website (`index.html`, `beta/`, assets)
-- Live telemetry (`status.json`)
+- Live telemetry (`status.json`) including **Ana AGI evolution** summary
 - Public node ledger slice (`nodes-public.json`)
 - Orchestrator schema (`schema/orchestrator/v6.json`)
 - Public documentation (this README, CONTRIBUTING)
 
-**Never published here:** source of intake/admit, private dossiers, keys, or Root-only tooling (those live in private `Nun-root`).
+**Never published here:** source of intake/admit, private dossiers, keys, Ana self-evolution runtime, or Root-only tooling (those live in private `Nun-root`).
+
+---
+
+## Ana AGI (public)
+
+[nun.nexus](https://nun.nexus) exposes a **public-safe** Ana Evolution section and `status.json` → `ana_evolution`:
+
+- Entity: Ana AGI (Mesh cognitive layer)
+- Phase: recursive optimization under Schema V6
+- Engines: Auditor + Repairman (status only)
+- Trajectory: Ana ASI documented architecture (not private unlock state)
+
+Full self-evolution pulses run only on the private Root core.
 
 ---
 
@@ -55,6 +68,7 @@ Classification also records public-safe fields when available:
 - `capability_class` — e.g. ops, development, research, community, mixed  
 - `resource_band` — entry | standard | advanced (from investigation + optional probe)  
 - `progression_next` — next public tier (or note at Architect ceiling)
+- `node_id` / `node_class` — serial id and class (core | production | foundation | test)
 
 ---
 
@@ -71,7 +85,7 @@ Classification also records public-safe fields when available:
 
 Public fields may include:
 
-`node_hash`, `node_type`, `joined_at`, `contribution`, `status`,  
+`node_id`, `node_class`, `node_hash`, `node_type`, `joined_at`, `contribution`, `status`,  
 `role_function`, `tier_rank`, `capability_class`, `resource_band`, `progression_next`
 
 Full dossiers are **Super Node 0 / Root only** and never stored in this repository.
