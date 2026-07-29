@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NuN Nexus of Unity</title>
-  <meta name="description" content="NuN Nexus of Unity – live Mesh telemetry, public ledger, 3D node topography. Root @bis3946 · Super Node @oovelma.">
+  <meta name="description" content="NuN Nexus of Unity – live Mesh telemetry, public ledger, 3D node topography (core / production / foundation / test). Root @bis3946 · Super Node @oovelma.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -16,9 +16,14 @@
     .live-dot { width: 9px; height: 9px; background: var(--neon); border-radius: 50%; box-shadow: 0 0 10px var(--neon); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
     .metric-value { font-size: 2.2rem; font-weight: 700; line-height: 1; }
-    .skill-btn { background: rgba(20,20,20,0.9); border: 1px solid rgba(34,255,136,0.15); border-radius: 0.7rem; padding: 0.55rem 0.35rem; font-size: 0.65rem; font-family: 'JetBrains Mono', monospace; }
-    #topo-canvas { width: 100%; height: 420px; border-radius: 1rem; background: radial-gradient(ellipse at center, #0a1a12 0%, #050505 70%); display: block; cursor: grab; }
+    #topo-canvas { width: 100%; height: 440px; border-radius: 1rem; background: radial-gradient(ellipse at center, #0a1a12 0%, #050505 70%); display: block; cursor: grab; touch-action: none; }
     .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    #topo-tip {
+      position: absolute; pointer-events: none; z-index: 20;
+      background: rgba(0,0,0,0.92); border: 1px solid rgba(34,255,136,0.35);
+      border-radius: 0.6rem; padding: 0.45rem 0.65rem; font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace; display: none; max-width: 260px;
+    }
   </style>
 </head>
 <body class="min-h-screen">
@@ -145,27 +150,31 @@
         <span class="live-dot"></span>
       </div>
       <p class="text-sm text-zinc-400 mb-4 max-w-3xl">
-        Abstract lattice view of the public Node Tangle. Positions are deterministic from node hashes (not geographic).
-        Colors mark <strong class="text-sky-300">core</strong>, <strong class="text-green-400">production</strong>,
-        <strong class="text-slate-400">foundation</strong>, and <strong class="text-amber-400">test</strong> nodes.
-        Drag to rotate · scroll to zoom.
+        Abstract lattice of the public Node Tangle. Positions are deterministic from node hashes (not GPS).
+        <strong class="text-sky-300">Core</strong> = Root + Super ·
+        <strong class="text-green-400">Production</strong> = real admits via live intake + classification ·
+        <strong class="text-slate-400">Foundation</strong> = early Mesh operators ·
+        <strong class="text-amber-400">Test</strong> = pipeline validation only.
+        Drag to rotate · scroll to zoom · hover for details.
       </p>
-      <div class="card p-3 md:p-4 mb-4">
-        <canvas id="topo-canvas" width="1200" height="420"></canvas>
+      <div class="card p-3 md:p-4 mb-4 relative">
+        <canvas id="topo-canvas" width="1200" height="440"></canvas>
+        <div id="topo-tip"></div>
       </div>
       <div class="flex flex-wrap gap-4 text-xs text-zinc-400 mb-4">
-        <span><i class="legend-dot" style="background:#38bdf8"></i> Core (Root / Super)</span>
-        <span><i class="legend-dot" style="background:#22ff88"></i> Production (live intake + classification)</span>
-        <span><i class="legend-dot" style="background:#64748b"></i> Foundation (early Mesh operators)</span>
-        <span><i class="legend-dot" style="background:#f59e0b"></i> Test (pipeline validation)</span>
+        <span><i class="legend-dot" style="background:#38bdf8"></i> Core (Root / Super) — real</span>
+        <span><i class="legend-dot" style="background:#22ff88"></i> Production — real</span>
+        <span><i class="legend-dot" style="background:#64748b"></i> Foundation — real (early)</span>
+        <span><i class="legend-dot" style="background:#f59e0b"></i> Test — validation only</span>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="topo-stats">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3" id="topo-stats">
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-sky-300 mono" id="t-core">2</div><div class="text-xs text-zinc-500">Core</div></div>
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-400 mono" id="t-prod">0</div><div class="text-xs text-zinc-500">Production</div></div>
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-slate-400 mono" id="t-found">0</div><div class="text-xs text-zinc-500">Foundation</div></div>
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-amber-400 mono" id="t-test">0</div><div class="text-xs text-zinc-500">Test</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold neon-text mono" id="t-real">0</div><div class="text-xs text-zinc-500">Real (non-test)</div></div>
       </div>
-      <p class="text-xs text-zinc-600 mt-3 mono" id="topo-updated">Loading ledger…</p>
+      <p class="text-xs text-zinc-600 mono" id="topo-updated">Loading ledger…</p>
     </section>
 
     <section id="benefits" class="mb-16">
@@ -183,7 +192,7 @@
       <div class="card p-7 space-y-3 text-sm">
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public ledger + live intake classification</div><div class="text-zinc-500">35 verified nodes · tier path published</div></div></div>
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual-repo security model</div><div class="text-zinc-500">Public surface / private core separation</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">3D live topography</div><div class="text-zinc-500">Core · production · foundation · test visibility</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">3D live topography (test vs real)</div><div class="text-zinc-500">Core · production · foundation · test visibility</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Named intake tunnel (stable apply URL)</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Controlled expansion toward 50+ production nodes</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Lattice Beacon Phase 5.5</div></div></div>
@@ -209,7 +218,7 @@
   </footer>
 
   <script>
-    /* Known pipeline validation admits (public hashes only) */
+    /* Pipeline validation admits only (public hashes) */
     const TEST_HASHES = new Set([
       'ecb17a9b635611204480a353548b37ac353efeb0d6e256e432c61e94646ad45e',
       '7ee763454c2dbb6dfc07bea8ddf0f313eaaa73c55ecaa5e66dbf2736fae85cd6',
@@ -227,6 +236,7 @@
     }
 
     const COLORS = { core: '#38bdf8', production: '#22ff88', foundation: '#64748b', test: '#f59e0b' };
+    const CLASS_LABEL = { core: 'CORE · real', production: 'PRODUCTION · real', foundation: 'FOUNDATION · real', test: 'TEST · validation' };
 
     function hashToUnit(h, salt) {
       let x = salt * 2654435761;
@@ -235,11 +245,11 @@
       return (x % 10000) / 10000;
     }
 
-    /* --- 3D topography ---
-       Simple perspective projection, no external deps. */
     const canvas = document.getElementById('topo-canvas');
     const ctx = canvas.getContext('2d');
+    const tip = document.getElementById('topo-tip');
     let nodes3d = [];
+    let projected = [];
     let rotY = 0.4, rotX = 0.35, zoom = 1.15;
     let dragging = false, lastX = 0, lastY = 0;
 
@@ -247,7 +257,7 @@
       const r = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.floor(r.width * dpr);
-      canvas.height = Math.floor(420 * dpr);
+      canvas.height = Math.floor(440 * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     window.addEventListener('resize', resizeCanvas);
@@ -255,12 +265,32 @@
     canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
     canvas.addEventListener('pointerup', () => { dragging = false; });
     canvas.addEventListener('pointermove', e => {
-      if (!dragging) return;
-      rotY += (e.clientX - lastX) * 0.005;
-      rotX += (e.clientY - lastY) * 0.005;
-      rotX = Math.max(-1.2, Math.min(1.2, rotX));
-      lastX = e.clientX; lastY = e.clientY;
+      if (dragging) {
+        rotY += (e.clientX - lastX) * 0.005;
+        rotX += (e.clientY - lastY) * 0.005;
+        rotX = Math.max(-1.2, Math.min(1.2, rotX));
+        lastX = e.clientX; lastY = e.clientY;
+        tip.style.display = 'none';
+        return;
+      }
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+      let hit = null;
+      for (const p of projected) {
+        const dx = p.x - mx, dy = p.y - my;
+        if (dx * dx + dy * dy < (p.s + 6) * (p.s + 6)) { hit = p; break; }
+      }
+      if (hit) {
+        tip.style.display = 'block';
+        tip.style.left = Math.min(mx + 12, rect.width - 200) + 'px';
+        tip.style.top = Math.max(8, my - 10) + 'px';
+        tip.innerHTML = '<span style="color:' + (COLORS[hit.cls] || '#aaa') + '">' + CLASS_LABEL[hit.cls] + '</span><br>' +
+          (hit.type || 'Node') + '<br><span class="text-zinc-500">' + hit.hash + '…</span>';
+      } else {
+        tip.style.display = 'none';
+      }
     });
+    canvas.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
     canvas.addEventListener('wheel', e => {
       e.preventDefault();
       zoom *= (e.deltaY > 0 ? 0.94 : 1.06);
@@ -269,54 +299,56 @@
 
     function project(p) {
       let x = p.x, y = p.y, z = p.z;
-      // rot Y
       let cos = Math.cos(rotY), sin = Math.sin(rotY);
       let x1 = x * cos - z * sin;
       let z1 = x * sin + z * cos;
-      // rot X
       cos = Math.cos(rotX); sin = Math.sin(rotX);
       let y1 = y * cos - z1 * sin;
       let z2 = y * sin + z1 * cos;
       const f = 480 * zoom;
       const sc = f / (f + z2 + 4);
       const w = canvas.getBoundingClientRect().width;
-      const h = 420;
-      return { x: w / 2 + x1 * sc * 140, y: h / 2 + y1 * sc * 140, s: Math.max(2, 5.5 * sc), z: z2, cls: p.cls };
+      const h = 440;
+      return { x: w / 2 + x1 * sc * 140, y: h / 2 + y1 * sc * 140, s: Math.max(2.5, 5.5 * sc), z: z2, cls: p.cls, hash: p.hash, type: p.type };
     }
 
     function drawTopo() {
       const w = canvas.getBoundingClientRect().width;
-      const h = 420;
+      const h = 440;
       ctx.clearRect(0, 0, w, h);
-      // grid floor
       ctx.strokeStyle = 'rgba(34,255,136,0.06)';
       ctx.lineWidth = 1;
       for (let i = -4; i <= 4; i++) {
-        const a = project({ x: i * 0.5, y: 1.1, z: -2, cls: 'foundation' });
-        const b = project({ x: i * 0.5, y: 1.1, z: 2, cls: 'foundation' });
+        const a = project({ x: i * 0.5, y: 1.1, z: -2, cls: 'foundation', hash: '', type: '' });
+        const b = project({ x: i * 0.5, y: 1.1, z: 2, cls: 'foundation', hash: '', type: '' });
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        const c = project({ x: -2, y: 1.1, z: i * 0.5, cls: 'foundation' });
-        const d = project({ x: 2, y: 1.1, z: i * 0.5, cls: 'foundation' });
+        const c = project({ x: -2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '' });
+        const d = project({ x: 2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '' });
         ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(d.x, d.y); ctx.stroke();
       }
-      // links (nearest among sample)
-      const pts = nodes3d.map(project).sort((a, b) => b.z - a.z);
+      projected = nodes3d.map(project).sort((a, b) => b.z - a.z);
       ctx.strokeStyle = 'rgba(34,255,136,0.08)';
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < Math.min(i + 4, pts.length); j++) {
-          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+      for (let i = 0; i < projected.length; i++) {
+        for (let j = i + 1; j < Math.min(i + 4, projected.length); j++) {
+          const dx = projected[i].x - projected[j].x, dy = projected[i].y - projected[j].y;
           if (dx * dx + dy * dy < 12000) {
-            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(projected[i].x, projected[i].y); ctx.lineTo(projected[j].x, projected[j].y); ctx.stroke();
           }
         }
       }
-      for (const p of pts) {
+      for (const p of projected) {
         ctx.beginPath();
         ctx.fillStyle = COLORS[p.cls] || COLORS.foundation;
-        ctx.globalAlpha = 0.9;
+        ctx.globalAlpha = 0.92;
         ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
         ctx.fill();
-        ctx.globalAlpha = 0.25;
+        if (p.cls === 'test') {
+          ctx.strokeStyle = '#f59e0b';
+          ctx.lineWidth = 1.5;
+          ctx.globalAlpha = 0.8;
+          ctx.stroke();
+        }
+        ctx.globalAlpha = 0.22;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.s * 2.2, 0, Math.PI * 2);
         ctx.fill();
@@ -332,7 +364,6 @@
         const u = hashToUnit(h, 1);
         const v = hashToUnit(h, 2);
         const w = hashToUnit(h, 3);
-        // spherical shell
         const theta = u * Math.PI * 2;
         const phi = Math.acos(2 * v - 1);
         const r = 0.55 + w * 0.85;
@@ -341,7 +372,8 @@
           y: r * Math.cos(phi) * 0.85,
           z: r * Math.sin(phi) * Math.sin(theta),
           cls: classifyNode(n),
-          hash: h.slice(0, 10)
+          hash: h.slice(0, 12),
+          type: n.node_type || 'Node'
         };
       });
       const counts = { core: 0, production: 0, foundation: 0, test: 0 };
@@ -350,6 +382,7 @@
       document.getElementById('t-prod').textContent = counts.production;
       document.getElementById('t-found').textContent = counts.foundation;
       document.getElementById('t-test').textContent = counts.test;
+      document.getElementById('t-real').textContent = counts.core + counts.production + counts.foundation;
       document.getElementById('m-node-breakdown').textContent =
         counts.core + ' core · ' + counts.production + ' prod · ' + counts.foundation + ' foundation · ' + counts.test + ' test';
     }
@@ -392,7 +425,7 @@
           const list = ledger.nodes || [];
           buildPoints(list);
           document.getElementById('topo-updated').textContent =
-            'Ledger count ' + (ledger.count || list.length) + ' · updated ' + (ledger.updated_at || '—');
+            'Ledger count ' + (ledger.count || list.length) + ' · updated ' + (ledger.updated_at || '—') + ' · hover nodes for class';
         }
       } catch (e) {
         console.warn('refresh failed', e);
