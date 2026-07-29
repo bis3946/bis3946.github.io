@@ -1,12 +1,26 @@
 {
     "status": "ONLINE",
     "total_nodes": 2,
-    "total_transactions": 1558,
+    "total_transactions": 1560,
     "latest_transactions": [
         {
             "sender": "SWARM_RECOVERY_AGENT",
             "receiver": "Swarm_Sentinel_Delta",
             "amount": 1.0,
+            "timestamp": "2026-07-29 03:52:21",
+            "hash": "regenerated_..."
+        },
+        {
+            "sender": "TORRENT_VAULT_REWARD",
+            "receiver": "Swarm_Sentinel_Delta",
+            "amount": 0.05,
+            "timestamp": "2026-07-29 03:52:21",
+            "hash": "torrent_rewa..."
+        },
+        {
+            "sender": "SWARM_RECOVERY_AGENT",
+            "receiver": "Swarm_Sentinel_Delta",
+            "amount": 1.0,
             "timestamp": "2026-07-29 03:51:41",
             "hash": "regenerated_..."
         },
@@ -22,20 +36,6 @@
             "receiver": "Swarm_Sentinel_Delta",
             "amount": 1.0,
             "timestamp": "2026-07-29 03:51:01",
-            "hash": "regenerated_..."
-        },
-        {
-            "sender": "TORRENT_VAULT_REWARD",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 0.05,
-            "timestamp": "2026-07-29 03:51:01",
-            "hash": "torrent_rewa..."
-        },
-        {
-            "sender": "SWARM_RECOVERY_AGENT",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 1.0,
-            "timestamp": "2026-07-29 03:50:21",
             "hash": "regenerated_..."
         }
     ],
