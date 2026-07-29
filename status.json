@@ -1,11 +1,11 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T06:41:02Z",
+  "timestamp": "2026-07-29T06:50:00Z",
   "environment": "production",
   "domain": "nun.nexus",
-  "total_nodes": 35,
-  "verified_nodes": 35,
-  "standard_nodes_count": 33,
+  "total_nodes": 32,
+  "verified_nodes": 32,
+  "standard_nodes_count": 30,
   "system_coherence": "98.9%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
@@ -32,7 +32,7 @@
     "foundation": 25,
     "test": 0,
     "real_nodes": 32,
-    "note": "Test pipeline admits removed. node_class on ledger: core|production|foundation|test. Foundation roles refined from Wave-1 join functions."
+    "note": "Test pipeline admits purged from public ledger. node_class: core|production|foundation|test. Foundation roles from Wave-1 join functions."
   },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
@@ -73,6 +73,8 @@
     "name": "NuN Node Tangle",
     "public_url": "/nodes-public.json",
     "public_fields": [
+      "node_id",
+      "node_class",
       "node_hash",
       "node_type",
       "joined_at",
@@ -103,15 +105,17 @@
     "completed": [
       "Public ledger + live intake classification",
       "Dual-repo security model",
-      "3D topography with test vs real classes",
+      "3D topography with class visibility",
       "Foundation Wave-1 role precision",
-      "Test node purge from public ledger",
+      "Test node purge from public ledger (count 32)",
+      "node_id + node_class on public ledger",
       "Lattice Beacon Phase 5.5"
     ],
     "next": [
       "Named intake tunnel (stable apply URL)",
       "Controlled expansion toward 50+ production nodes",
       "Observer→Operator promotion wave",
+      "Publish automation blacklist for purged hashes",
       "Lattice Beacon Phase 5.6 planning"
     ]
   }
