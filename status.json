@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T07:35:00Z",
+  "timestamp": "2026-07-29T07:46:00Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 32,
@@ -59,6 +59,7 @@
       "moral_compass_v1_1": true
     },
     "asi_trajectory_unlocked": false,
+    "last_public_refresh": "2026-07-29T07:46:00Z",
     "note": "Public summary only. Self-evolution processing runs in private core (Root)."
   },
   "immuneos_v2": {
