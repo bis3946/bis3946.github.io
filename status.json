@@ -1,43 +1,69 @@
 {
-    "status": "ONLINE",
-    "total_nodes": 2,
-    "total_transactions": 1560,
-    "latest_transactions": [
-        {
-            "sender": "SWARM_RECOVERY_AGENT",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 1.0,
-            "timestamp": "2026-07-29 03:52:21",
-            "hash": "regenerated_..."
-        },
-        {
-            "sender": "TORRENT_VAULT_REWARD",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 0.05,
-            "timestamp": "2026-07-29 03:52:21",
-            "hash": "torrent_rewa..."
-        },
-        {
-            "sender": "SWARM_RECOVERY_AGENT",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 1.0,
-            "timestamp": "2026-07-29 03:51:41",
-            "hash": "regenerated_..."
-        },
-        {
-            "sender": "TORRENT_VAULT_REWARD",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 0.05,
-            "timestamp": "2026-07-29 03:51:41",
-            "hash": "torrent_rewa..."
-        },
-        {
-            "sender": "SWARM_RECOVERY_AGENT",
-            "receiver": "Swarm_Sentinel_Delta",
-            "amount": 1.0,
-            "timestamp": "2026-07-29 03:51:01",
-            "hash": "regenerated_..."
-        }
+  "status": "ONLINE",
+  "total_nodes": 35,
+  "total_transactions": 1560,
+  "latest_transactions": [
+    {
+      "sender": "SWARM_RECOVERY_AGENT",
+      "receiver": "Swarm_Sentinel_Delta",
+      "amount": 1.0,
+      "timestamp": "2026-07-29 03:52:21",
+      "hash": "regenerated_..."
+    },
+    {
+      "sender": "TORRENT_VAULT_REWARD",
+      "receiver": "Swarm_Sentinel_Delta",
+      "amount": 0.05,
+      "timestamp": "2026-07-29 03:52:21",
+      "hash": "torrent_rewa..."
+    },
+    {
+      "sender": "SWARM_RECOVERY_AGENT",
+      "receiver": "Swarm_Sentinel_Delta",
+      "amount": 1.0,
+      "timestamp": "2026-07-29 03:51:41",
+      "hash": "regenerated_..."
+    },
+    {
+      "sender": "TORRENT_VAULT_REWARD",
+      "receiver": "Swarm_Sentinel_Delta",
+      "amount": 0.05,
+      "timestamp": "2026-07-29 03:51:41",
+      "hash": "torrent_rewa..."
+    },
+    {
+      "sender": "SWARM_RECOVERY_AGENT",
+      "receiver": "Swarm_Sentinel_Delta",
+      "amount": 1.0,
+      "timestamp": "2026-07-29 03:51:01",
+      "hash": "regenerated_..."
+    }
+  ],
+  "system_coherence": "100.0%",
+  "timestamp": "2026-07-29T05:52:11Z",
+  "verified_nodes": 35,
+  "standard_nodes_count": 33,
+  "environment": "production",
+  "domain": "nun.nexus",
+  "node_ledger": {
+    "public_url": "/nodes-public.json",
+    "public_fields": [
+      "node_hash",
+      "node_type",
+      "joined_at",
+      "contribution",
+      "status",
+      "role_function",
+      "tier_rank",
+      "capability_class",
+      "resource_band",
+      "progression_next"
     ],
-    "system_coherence": "100.0%"
+    "tier_path": [
+      "Observer",
+      "Node Operator",
+      "Guardian",
+      "Architect"
+    ]
+  }
 }
