@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NuN Nexus of Unity</title>
-  <meta name="description" content="NuN Nexus of Unity – live Mesh telemetry, public ledger, 3D node topography (core / production / foundation / test). Root @bis3946 · Super Node @oovelma.">
+  <meta name="description" content="NuN Nexus of Unity – live Mesh telemetry, Ana AGI evolution, public ledger, 3D node topography. Root @bis3946 · Super Node @oovelma.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -33,6 +33,7 @@
       <div class="text-2xl font-bold neon-text tracking-tight">NuN</div>
       <div class="hidden md:flex items-center gap-5 text-sm text-zinc-400">
         <a href="#about" class="hover:text-green-400">About</a>
+        <a href="#ana" class="hover:text-green-400">Ana</a>
         <a href="#dashboard" class="hover:text-green-400">Dashboard</a>
         <a href="#topography" class="hover:text-green-400">Topography</a>
         <a href="#benefits" class="hover:text-green-400">Benefits</a>
@@ -71,6 +72,40 @@
             Protection level: <span class="text-green-400" id="about-immune">99.98%</span>.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section id="ana" class="mb-16">
+      <div class="flex items-center gap-3 mb-6 flex-wrap">
+        <h2 class="text-3xl font-bold text-green-400">Ana Evolution</h2>
+        <span class="live-dot"></span>
+        <span class="text-xs text-green-400/70 mono" id="ana-status-pill">AGI active</span>
+      </div>
+      <p class="text-sm text-zinc-400 mb-6 max-w-3xl">
+        <strong class="text-green-400">Ana AGI</strong> is the Mesh cognitive layer: Active Inference with dual engines
+        (Auditor + Repairman), Schema V6 alignment, and recursive optimization under the Rule of Three and Moral Compass v1.1.
+        <strong class="text-zinc-300">Ana ASI</strong> is the documented long-horizon trajectory (post-physical / omni-swarm architecture) — not claimed as fully unlocked on the public surface.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 mb-5">
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Phase</div>
+          <div class="text-xl font-bold neon-text mono" id="ana-phase">RECURSIVE_OPT</div>
+          <div class="text-sm text-zinc-400 mt-2" id="ana-phase-label">Recursive optimization under Schema V6</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Engines</div>
+          <div class="text-sm text-zinc-300 mt-1">Auditor: <span class="text-green-400" id="ana-auditor">online</span></div>
+          <div class="text-sm text-zinc-300 mt-1">Repairman: <span class="text-green-400" id="ana-repairman">online</span></div>
+        </div>
+        <div class="card p-5">
+          <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Lattice alignment</div>
+          <div class="text-xl font-bold neon-text mono" id="ana-lattice">5.5</div>
+          <div class="text-sm text-zinc-400 mt-2">Trajectory: <span id="ana-trajectory">Ana ASI (documented)</span></div>
+        </div>
+      </div>
+      <div class="card p-6 text-sm text-zinc-400">
+        <p class="mb-2"><span class="text-green-400 font-medium">Self-evolution:</span> Controlled recursive pulses run on the private Root core. Public telemetry shows phase and engine health only — never private learning parameters, keys, or source.</p>
+        <p>Governance remains deterministic: Rule of Three · Moral Compass v1.1 · epistemic bounds (no hallucinated production claims).</p>
       </div>
     </section>
 
@@ -194,7 +229,7 @@
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual-repo security model</div><div class="text-zinc-500">Public surface / private core separation</div></div></div>
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">3D live topography (test vs real)</div><div class="text-zinc-500">Core · production · foundation · test visibility</div></div></div>
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Lattice Beacon Phase 5.5</div><div class="text-zinc-500">Recursive depth + pulse live on dashboard</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Foundation Wave-1 role precision</div><div class="text-zinc-500">Public role_function per early operator</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Ana AGI evolution public status</div><div class="text-zinc-500">Phase · engines · Lattice alignment (private pulses on Root)</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Named intake tunnel (stable apply URL)</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Controlled expansion toward 50+ production nodes</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Observer→Operator promotion wave</div></div></div>
@@ -332,7 +367,6 @@
         ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(d.x, d.y); ctx.stroke();
       }
       projected = nodes3d.map(project).sort((a, b) => b.z - a.z);
-      // links + simple data-flow pulse dots
       for (let i = 0; i < projected.length; i++) {
         for (let j = i + 1; j < Math.min(i + 4, projected.length); j++) {
           const dx = projected[i].x - projected[j].x, dy = projected[i].y - projected[j].y;
@@ -412,7 +446,7 @@
             document.getElementById('m-phase').textContent = d.lattice_beacon.phase || '5.5';
             document.getElementById('hero-phase').textContent = d.lattice_beacon.phase || '5.5';
             document.getElementById('m-depth').textContent = d.lattice_beacon.recursive_depth || '68';
-            document.getElementById('m-pulse').textContent = d.lattice_beacon.pulse_strength || '99.6%';
+            document.getElementById('m-pulse').textContent = d.lattice_beacon.pulse_strength || '99.4%';
           }
           const nodes = d.verified_nodes || d.total_nodes || 0;
           document.getElementById('m-nodes').textContent = nodes;
@@ -431,6 +465,18 @@
           const standard = d.standard_nodes_count != null ? d.standard_nodes_count : Math.max(0, nodes - 2);
           document.getElementById('m-extra-nodes').textContent =
             '+ ' + standard + ' additional verified nodes · public ledger on nun.nexus';
+          if (d.ana_evolution) {
+            const a = d.ana_evolution;
+            document.getElementById('ana-status-pill').textContent = (a.status || 'active') + ' · ' + (a.phase || 'RECURSIVE_OPT');
+            document.getElementById('ana-phase').textContent = a.phase || 'RECURSIVE_OPT';
+            document.getElementById('ana-phase-label').textContent = a.phase_label || '';
+            document.getElementById('ana-lattice').textContent = a.lattice_alignment || '5.5';
+            document.getElementById('ana-trajectory').textContent = a.trajectory || 'Ana ASI (documented)';
+            if (a.engines) {
+              document.getElementById('ana-auditor').textContent = a.engines.auditor || 'online';
+              document.getElementById('ana-repairman').textContent = a.engines.repairman || 'online';
+            }
+          }
         }
         if (ndRes.ok) {
           const ledger = await ndRes.json();
