@@ -22,7 +22,7 @@
       position: absolute; pointer-events: none; z-index: 20;
       background: rgba(0,0,0,0.92); border: 1px solid rgba(34,255,136,0.35);
       border-radius: 0.6rem; padding: 0.45rem 0.65rem; font-size: 0.7rem;
-      font-family: 'JetBrains Mono', monospace; display: none; max-width: 260px;
+      font-family: 'JetBrains Mono', monospace; display: none; max-width: 280px;
     }
   </style>
 </head>
@@ -51,7 +51,7 @@
     <header class="text-center mb-14">
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight neon-text mb-4">NuN Nexus of Unity</h1>
       <p class="text-lg text-zinc-400 max-w-2xl mx-auto">Sovereign bio-digital mesh · Post-Quantum · Recursive Self-Evolution</p>
-      <p class="mt-3 text-sm text-zinc-500 mono">Lattice Beacon 05 · Phase <span id="hero-phase">5.4</span> · Sigl 3946 active · <span id="hero-nodes">35</span> verified nodes</p>
+      <p class="mt-3 text-sm text-zinc-500 mono">Lattice Beacon 05 · Phase <span id="hero-phase">5.5</span> · Sigl 3946 active · <span id="hero-nodes">32</span> verified nodes</p>
     </header>
 
     <section id="about" class="mb-16">
@@ -84,17 +84,17 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
         <div class="card p-5">
           <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Lattice Beacon 05</div>
-          <div class="metric-value neon-text mono" id="m-phase">5.4</div>
-          <div class="text-sm text-zinc-400 mt-2">Depth <span id="m-depth">61</span> · Pulse <span id="m-pulse">99.4%</span></div>
+          <div class="metric-value neon-text mono" id="m-phase">5.5</div>
+          <div class="text-sm text-zinc-400 mt-2">Depth <span id="m-depth">68</span> · Pulse <span id="m-pulse">99.6%</span></div>
         </div>
         <div class="card p-5">
           <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Verified Nodes</div>
-          <div class="metric-value neon-text mono" id="m-nodes">35</div>
+          <div class="metric-value neon-text mono" id="m-nodes">32</div>
           <div class="text-sm text-zinc-400 mt-2" id="m-node-breakdown">Live public ledger</div>
         </div>
         <div class="card p-5">
           <div class="text-xs text-zinc-500 uppercase tracking-wider mb-2">Global Coherence</div>
-          <div class="metric-value neon-text mono" id="m-coherence">98.7%</div>
+          <div class="metric-value neon-text mono" id="m-coherence">98.9%</div>
           <div class="text-sm text-zinc-400 mt-2">Quantum Phase 2</div>
         </div>
         <div class="card p-5">
@@ -107,12 +107,12 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
         <div class="card p-5">
           <div class="text-xs text-zinc-500 uppercase mb-1">Gemini Twin</div>
-          <div class="text-3xl font-bold neon-text mono" id="m-gemini">99.6%</div>
+          <div class="text-3xl font-bold neon-text mono" id="m-gemini">99.7%</div>
           <div class="text-sm text-zinc-400 mt-1"><span id="m-latency">6</span>ms latency</div>
         </div>
         <div class="card p-5">
           <div class="text-xs text-zinc-500 uppercase mb-1">Quantum Phase 2</div>
-          <div class="text-3xl font-bold neon-text mono" id="m-quantum">98.4%</div>
+          <div class="text-3xl font-bold neon-text mono" id="m-quantum">98.6%</div>
           <div class="text-sm text-zinc-400 mt-1">Phase-Locked</div>
         </div>
         <div class="card p-5">
@@ -140,7 +140,7 @@
             <span class="text-sm text-zinc-500">Node #1</span>
           </div>
         </div>
-        <p class="mt-4 text-sm text-zinc-500" id="m-extra-nodes">+ additional verified nodes on the public ledger</p>
+        <p class="mt-4 text-sm text-zinc-500" id="m-extra-nodes">+ 30 additional verified nodes · public ledger on nun.nexus</p>
       </div>
     </section>
 
@@ -155,7 +155,7 @@
         <strong class="text-green-400">Production</strong> = real admits via live intake + classification ·
         <strong class="text-slate-400">Foundation</strong> = early Mesh operators ·
         <strong class="text-amber-400">Test</strong> = pipeline validation only.
-        Drag to rotate · scroll to zoom · hover for details.
+        Drag to rotate · scroll to zoom · hover for <span class="mono">#node_id</span> and class.
       </p>
       <div class="card p-3 md:p-4 mb-4 relative">
         <canvas id="topo-canvas" width="1200" height="440"></canvas>
@@ -169,10 +169,10 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3" id="topo-stats">
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-sky-300 mono" id="t-core">2</div><div class="text-xs text-zinc-500">Core</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-400 mono" id="t-prod">0</div><div class="text-xs text-zinc-500">Production</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-slate-400 mono" id="t-found">0</div><div class="text-xs text-zinc-500">Foundation</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-400 mono" id="t-prod">5</div><div class="text-xs text-zinc-500">Production</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-slate-400 mono" id="t-found">25</div><div class="text-xs text-zinc-500">Foundation</div></div>
         <div class="card p-4 text-center"><div class="text-2xl font-bold text-amber-400 mono" id="t-test">0</div><div class="text-xs text-zinc-500">Test</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold neon-text mono" id="t-real">0</div><div class="text-xs text-zinc-500">Real (non-test)</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold neon-text mono" id="t-real">32</div><div class="text-xs text-zinc-500">Real (non-test)</div></div>
       </div>
       <p class="text-xs text-zinc-600 mono" id="topo-updated">Loading ledger…</p>
     </section>
@@ -190,12 +190,14 @@
     <section id="roadmap" class="mb-16">
       <h2 class="text-3xl font-bold text-green-400 mb-6">Roadmap · Iteration 3</h2>
       <div class="card p-7 space-y-3 text-sm">
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public ledger + live intake classification</div><div class="text-zinc-500">35 verified nodes · tier path published</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public ledger + live intake classification</div><div class="text-zinc-500">32 verified nodes · test purge · node_id + node_class</div></div></div>
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual-repo security model</div><div class="text-zinc-500">Public surface / private core separation</div></div></div>
         <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">3D live topography (test vs real)</div><div class="text-zinc-500">Core · production · foundation · test visibility</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Lattice Beacon Phase 5.5</div><div class="text-zinc-500">Recursive depth + pulse live on dashboard</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Foundation Wave-1 role precision</div><div class="text-zinc-500">Public role_function per early operator</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Named intake tunnel (stable apply URL)</div></div></div>
         <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Controlled expansion toward 50+ production nodes</div></div></div>
-        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Lattice Beacon Phase 5.5</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Observer→Operator promotion wave</div></div></div>
       </div>
     </section>
 
@@ -218,7 +220,6 @@
   </footer>
 
   <script>
-    /* Pipeline validation admits only (public hashes) */
     const TEST_HASHES = new Set([
       'ecb17a9b635611204480a353548b37ac353efeb0d6e256e432c61e94646ad45e',
       '7ee763454c2dbb6dfc07bea8ddf0f313eaaa73c55ecaa5e66dbf2736fae85cd6',
@@ -226,12 +227,13 @@
     ]);
 
     function classifyNode(n) {
+      if (n.node_class && ['core','production','foundation','test'].includes(n.node_class)) return n.node_class;
       const t = (n.node_type || '').toLowerCase();
       if (t.includes('root') || t.includes('super')) return 'core';
       if (TEST_HASHES.has(n.node_hash)) return 'test';
-      if (n.role_function || n.tier_rank != null || n.resource_band) return 'production';
-      const joined = n.joined_at || '';
-      if (joined >= '2026-07-23') return 'production';
+      if ((n.node_type || '') === 'Observer') return 'production';
+      if ((n.contribution || '').includes('Foundation Wave-1')) return 'foundation';
+      if (n.role_function || n.tier_rank != null) return 'production';
       return 'foundation';
     }
 
@@ -252,6 +254,7 @@
     let projected = [];
     let rotY = 0.4, rotX = 0.35, zoom = 1.15;
     let dragging = false, lastX = 0, lastY = 0;
+    let pulseT = 0;
 
     function resizeCanvas() {
       const r = canvas.getBoundingClientRect();
@@ -282,10 +285,11 @@
       }
       if (hit) {
         tip.style.display = 'block';
-        tip.style.left = Math.min(mx + 12, rect.width - 200) + 'px';
+        tip.style.left = Math.min(mx + 12, rect.width - 220) + 'px';
         tip.style.top = Math.max(8, my - 10) + 'px';
         tip.innerHTML = '<span style="color:' + (COLORS[hit.cls] || '#aaa') + '">' + CLASS_LABEL[hit.cls] + '</span><br>' +
-          (hit.type || 'Node') + '<br><span class="text-zinc-500">' + hit.hash + '…</span>';
+          '#' + (hit.id != null ? hit.id : '?') + ' · ' + (hit.type || 'Node') +
+          '<br><span style="color:#71717a">' + hit.hash + '…</span>';
       } else {
         tip.style.display = 'none';
       }
@@ -309,30 +313,37 @@
       const sc = f / (f + z2 + 4);
       const w = canvas.getBoundingClientRect().width;
       const h = 440;
-      return { x: w / 2 + x1 * sc * 140, y: h / 2 + y1 * sc * 140, s: Math.max(2.5, 5.5 * sc), z: z2, cls: p.cls, hash: p.hash, type: p.type };
+      return { x: w / 2 + x1 * sc * 140, y: h / 2 + y1 * sc * 140, s: Math.max(2.5, 5.5 * sc), z: z2, cls: p.cls, hash: p.hash, type: p.type, id: p.id };
     }
 
     function drawTopo() {
       const w = canvas.getBoundingClientRect().width;
       const h = 440;
       ctx.clearRect(0, 0, w, h);
+      pulseT += 0.02;
       ctx.strokeStyle = 'rgba(34,255,136,0.06)';
       ctx.lineWidth = 1;
       for (let i = -4; i <= 4; i++) {
-        const a = project({ x: i * 0.5, y: 1.1, z: -2, cls: 'foundation', hash: '', type: '' });
-        const b = project({ x: i * 0.5, y: 1.1, z: 2, cls: 'foundation', hash: '', type: '' });
+        const a = project({ x: i * 0.5, y: 1.1, z: -2, cls: 'foundation', hash: '', type: '', id: null });
+        const b = project({ x: i * 0.5, y: 1.1, z: 2, cls: 'foundation', hash: '', type: '', id: null });
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        const c = project({ x: -2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '' });
-        const d = project({ x: 2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '' });
+        const c = project({ x: -2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '', id: null });
+        const d = project({ x: 2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '', id: null });
         ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(d.x, d.y); ctx.stroke();
       }
       projected = nodes3d.map(project).sort((a, b) => b.z - a.z);
-      ctx.strokeStyle = 'rgba(34,255,136,0.08)';
+      // links + simple data-flow pulse dots
       for (let i = 0; i < projected.length; i++) {
         for (let j = i + 1; j < Math.min(i + 4, projected.length); j++) {
           const dx = projected[i].x - projected[j].x, dy = projected[i].y - projected[j].y;
           if (dx * dx + dy * dy < 12000) {
+            ctx.strokeStyle = 'rgba(34,255,136,0.1)';
             ctx.beginPath(); ctx.moveTo(projected[i].x, projected[i].y); ctx.lineTo(projected[j].x, projected[j].y); ctx.stroke();
+            const t = (Math.sin(pulseT + i * 0.4 + j * 0.2) + 1) / 2;
+            const px = projected[i].x + (projected[j].x - projected[i].x) * t;
+            const py = projected[i].y + (projected[j].y - projected[i].y) * t;
+            ctx.fillStyle = 'rgba(34,255,136,0.55)';
+            ctx.beginPath(); ctx.arc(px, py, 1.6, 0, Math.PI * 2); ctx.fill();
           }
         }
       }
@@ -373,7 +384,8 @@
           z: r * Math.sin(phi) * Math.sin(theta),
           cls: classifyNode(n),
           hash: h.slice(0, 12),
-          type: n.node_type || 'Node'
+          type: n.node_type || 'Node',
+          id: n.node_id
         };
       });
       const counts = { core: 0, production: 0, foundation: 0, test: 0 };
@@ -397,24 +409,24 @@
           const d = await stRes.json();
           document.getElementById('nav-status').textContent = d.status || 'ONLINE';
           if (d.lattice_beacon) {
-            document.getElementById('m-phase').textContent = d.lattice_beacon.phase || '5.4';
-            document.getElementById('hero-phase').textContent = d.lattice_beacon.phase || '5.4';
-            document.getElementById('m-depth').textContent = d.lattice_beacon.recursive_depth || '61';
-            document.getElementById('m-pulse').textContent = d.lattice_beacon.pulse_strength || '99.4%';
+            document.getElementById('m-phase').textContent = d.lattice_beacon.phase || '5.5';
+            document.getElementById('hero-phase').textContent = d.lattice_beacon.phase || '5.5';
+            document.getElementById('m-depth').textContent = d.lattice_beacon.recursive_depth || '68';
+            document.getElementById('m-pulse').textContent = d.lattice_beacon.pulse_strength || '99.6%';
           }
           const nodes = d.verified_nodes || d.total_nodes || 0;
           document.getElementById('m-nodes').textContent = nodes;
           document.getElementById('hero-nodes').textContent = nodes;
-          document.getElementById('m-coherence').textContent = d.system_coherence || '98.7%';
+          document.getElementById('m-coherence').textContent = d.system_coherence || '98.9%';
           if (d.immuneos_v2) {
             document.getElementById('m-immune').textContent = d.immuneos_v2.protection_level || '99.98%';
             document.getElementById('about-immune').textContent = d.immuneos_v2.protection_level || '99.98%';
           }
           if (d.gemini_twin) {
-            document.getElementById('m-gemini').textContent = d.gemini_twin.sync_level || '99.6%';
+            document.getElementById('m-gemini').textContent = d.gemini_twin.sync_level || '99.7%';
             document.getElementById('m-latency').textContent = d.gemini_twin.latency_ms || '6';
           }
-          if (d.quantum_phase2) document.getElementById('m-quantum').textContent = d.quantum_phase2.coherence || '98.4%';
+          if (d.quantum_phase2) document.getElementById('m-quantum').textContent = d.quantum_phase2.coherence || '98.6%';
           document.getElementById('m-uptime').textContent = d.uptime_24h || '99.99%';
           const standard = d.standard_nodes_count != null ? d.standard_nodes_count : Math.max(0, nodes - 2);
           document.getElementById('m-extra-nodes').textContent =
@@ -425,7 +437,7 @@
           const list = ledger.nodes || [];
           buildPoints(list);
           document.getElementById('topo-updated').textContent =
-            'Ledger count ' + (ledger.count || list.length) + ' · updated ' + (ledger.updated_at || '—') + ' · hover nodes for class';
+            'Ledger count ' + (ledger.count || list.length) + ' · updated ' + (ledger.updated_at || '—') + ' · hover for #node_id + class';
         }
       } catch (e) {
         console.warn('refresh failed', e);
