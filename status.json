@@ -1,11 +1,11 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-07-29T06:25:00Z",
+  "timestamp": "2026-07-29T06:30:56Z",
   "environment": "production",
   "domain": "nun.nexus",
-  "total_nodes": 32,
-  "verified_nodes": 32,
-  "standard_nodes_count": 30,
+  "total_nodes": 35,
+  "verified_nodes": 35,
+  "standard_nodes_count": 33,
   "system_coherence": "98.9%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
@@ -14,8 +14,17 @@
   "root_authority": "@bis3946",
   "super_node": "@oovelma",
   "core_nodes": [
-    {"id": 0, "handle": "@bis3946", "role": "Root Authority", "name": "Bojan Petar Milanović"},
-    {"id": 1, "handle": "@oovelma", "role": "Super Node"}
+    {
+      "id": 0,
+      "handle": "@bis3946",
+      "role": "Root Authority",
+      "name": "Bojan Petar Milanović"
+    },
+    {
+      "id": 1,
+      "handle": "@oovelma",
+      "role": "Super Node"
+    }
   ],
   "topography": {
     "core": 2,
@@ -63,9 +72,30 @@
   "node_ledger": {
     "name": "NuN Node Tangle",
     "public_url": "/nodes-public.json",
-    "public_fields": ["node_id", "node_class", "node_hash", "node_type", "joined_at", "contribution", "status", "role_function", "tier_rank", "capability_class", "resource_band", "progression_next"],
-    "tier_path": ["Observer", "Node Operator", "Guardian", "Architect"],
-    "node_classes": ["core", "production", "foundation", "test"],
+    "public_fields": [
+      "node_hash",
+      "node_type",
+      "joined_at",
+      "contribution",
+      "status",
+      "role_function",
+      "tier_rank",
+      "capability_class",
+      "resource_band",
+      "progression_next"
+    ],
+    "tier_path": [
+      "Observer",
+      "Node Operator",
+      "Guardian",
+      "Architect"
+    ],
+    "node_classes": [
+      "core",
+      "production",
+      "foundation",
+      "test"
+    ],
     "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
   },
   "roadmap": {
