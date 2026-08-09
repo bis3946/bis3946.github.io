@@ -1,13 +1,16 @@
 {
-  "intake_url": "https://beds-supporters-convenient-backgrounds.trycloudflare.com/apply",
-  "updated_at": "2026-08-09T03:09:58Z",
+  "intake_url": "https://warner-heroes-wake-cayman.trycloudflare.com/apply",
+  "updated_at": "2026-08-09T03:18:36Z",
   "host": "bis3946-pc",
   "super_node": 2,
-  "tunnel": "quick-ephemeral",
-  "tunnel_name_named": "nun-intake-sn2",
-  "tunnel_id": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d",
-  "named_hostname": "apply.nun.nexus",
-  "named_cname_target": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d.cfargotunnel.com",
-  "named_status": "tunnel_running_dns_pending_namecheap_cname",
-  "dns_note": "Namecheap CNAME: host=apply value=82ca3bb9-4267-4e00-89e6-f2b0ff420e1d.cfargotunnel.com"
+  "tunnel": "quick-ephemeral-live",
+  "named": {
+    "hostname": "apply.nun.nexus",
+    "tunnel_name": "nun-intake-sn2",
+    "tunnel_id": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d",
+    "cname_ok": true,
+    "cname_target": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d.cfargotunnel.com",
+    "public_https": "pending_cloudflare_zone",
+    "note": "Namecheap CNAME is correct. Cloudflare only publishes public edge IPs for hostnames when the domain is on a Cloudflare zone (Free NS). Until then use intake_url trycloudflare."
+  }
 }
