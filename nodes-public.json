@@ -1,7 +1,7 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.2",
-  "updated_at": "2026-08-02T07:47:58Z",
+  "updated_at": "2026-08-09T02:55:30Z",
   "privacy": "Public fields: node_hash, node_type, joined_at, contribution, status, role_function, tier_rank, capability_class, resource_band, progression_next. Full dossiers are Super Node 0 only.",
   "tier_path": [
     "Observer",
@@ -9,7 +9,7 @@
     "Guardian",
     "Architect"
   ],
-  "count": 33,
+  "count": 34,
   "nodes": [
     {
       "node_hash": "255512a327c88b04d688aa1b40b9b30788b114916f5644142b0a5c7ffbe6cb59",
@@ -470,6 +470,20 @@
       "capability_class": "general",
       "resource_band": "standard",
       "progression_next": "Node Operator"
+    },
+    {
+      "node_hash": "963f99bb3164e342f7ccb76a0667849df918875611880c5a62fd316caac85c68",
+      "node_type": "Super Node",
+      "joined_at": "2026-08-09T00:00:00Z",
+      "contribution": "Super Node 2 – bis3946-pc Ubuntu Control & Command Center; dual-path with Super Node 0",
+      "status": "active",
+      "node_id": 32,
+      "node_class": "core",
+      "role_function": "Super Node 2 – Ubuntu Root-capable dual host, Mesh ops + Ana/AegisNet command surface",
+      "tier_rank": 5,
+      "capability_class": "coordination",
+      "resource_band": "advanced",
+      "progression_next": "—"
     }
   ]
 }
