@@ -1,11 +1,11 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T02:55:30Z",
+  "timestamp": "2026-08-09T02:56:01Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
   "verified_nodes": 34,
-  "standard_nodes_count": 32,
+  "standard_nodes_count": 31,
   "system_coherence": "98.9%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
@@ -24,15 +24,23 @@
       "id": 1,
       "handle": "@oovelma",
       "role": "Super Node"
+    },
+    {
+      "id": 32,
+      "handle": "@bis3946",
+      "role": "Super Node 2",
+      "host": "bis3946-pc",
+      "name": "bis3946-pc"
     }
   ],
   "topography": {
-    "core": 2,
+    "core": 3,
     "production": 5,
-    "foundation": 25,
+    "foundation": 26,
     "test": 0,
-    "real_nodes": 32,
-    "note": "Test pipeline admits purged from public ledger. node_class: core|production|foundation|test. Foundation roles from Wave-1 join functions."
+    "real_nodes": 34,
+    "note": "Includes Super Node 2 (bis3946-pc Ubuntu). Test pipeline admits purged.",
+    "super_nodes": 2
   },
   "lattice_beacon": {
     "name": "Lattice Beacon 05",
@@ -130,14 +138,22 @@
       "Test node purge from public ledger (count 32)",
       "node_id + node_class on public ledger",
       "Lattice Beacon Phase 5.5",
-      "Ana AGI evolution public status surface"
+      "Ana AGI evolution public status surface",
+      "Super Node 2 public ledger admit (bis3946-pc)"
     ],
     "next": [
-      "Named intake tunnel (stable apply URL)",
       "Controlled expansion toward 50+ production nodes",
       "Observer→Operator promotion wave",
       "Ana self-evolution pulse cycles on Root host",
       "Lattice Beacon Phase 5.6 planning"
     ]
+  },
+  "super_node_2": {
+    "host": "bis3946-pc",
+    "handle": "@bis3946",
+    "role": "Super Node 2",
+    "node_hash": "963f99bb3164e342f7ccb76a0667849df918875611880c5a62fd316caac85c68",
+    "node_id": 32,
+    "os": "Ubuntu 24.04.4 LTS"
   }
 }
