@@ -1,6 +1,8 @@
 {
   "intake_url": "https://hdtv-massachusetts-directions-falls.trycloudflare.com/apply",
-  "updated_at": "2026-08-09T03:06:20Z",
+  "updated_at": "2026-08-09T03:06:23Z",
   "host": "bis3946-pc",
-  "super_node": 2
+  "super_node": 2,
+  "tunnel": "quick-ephemeral",
+  "note": "Ephemeral trycloudflare URL until named tunnel apply.nun.nexus is authorized"
 }
