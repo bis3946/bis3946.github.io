@@ -1,16 +1,11 @@
 {
-  "intake_url": "https://warner-heroes-wake-cayman.trycloudflare.com/apply",
-  "updated_at": "2026-08-09T03:18:36Z",
+  "intake_url": "https://apply.nun.nexus/apply",
+  "updated_at": "2026-08-09T03:31:54Z",
   "host": "bis3946-pc",
   "super_node": 2,
-  "tunnel": "quick-ephemeral-live",
-  "named": {
-    "hostname": "apply.nun.nexus",
-    "tunnel_name": "nun-intake-sn2",
-    "tunnel_id": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d",
-    "cname_ok": true,
-    "cname_target": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d.cfargotunnel.com",
-    "public_https": "pending_cloudflare_zone",
-    "note": "Namecheap CNAME is correct. Cloudflare only publishes public edge IPs for hostnames when the domain is on a Cloudflare zone (Free NS). Until then use intake_url trycloudflare."
-  }
+  "tunnel": "named",
+  "tunnel_name": "nun-intake-sn2",
+  "tunnel_id": "82ca3bb9-4267-4e00-89e6-f2b0ff420e1d",
+  "hostname": "apply.nun.nexus",
+  "dns": "cloudflare"
 }
