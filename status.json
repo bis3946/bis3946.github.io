@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T03:00:46Z",
+  "timestamp": "2026-08-09T05:35:10Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
@@ -130,7 +130,11 @@
       "Test node purge from public ledger (count 32)",
       "node_id + node_class on public ledger",
       "Lattice Beacon Phase 5.5",
-      "Ana AGI evolution public status surface"
+      "Ana AGI evolution public status surface",
+      "Super Node 2 Ubuntu dual-command Control Center",
+      "Named tunnel apply.nun.nexus + Cloudflare NS",
+      "Ana/Aegis/Melek self-evolve pulses",
+      "3D node topography with selection"
     ],
     "next": [
       "Named intake tunnel (stable apply URL)",
@@ -138,6 +142,33 @@
       "Observer→Operator promotion wave",
       "Ana self-evolution pulse cycles on Root host",
       "Lattice Beacon Phase 5.6 planning"
+    ]
+  },
+  "super_node_0": {
+    "host": "Samsung Galaxy S25 Ultra 5G / Termux",
+    "handle": "@bis3946",
+    "role": "Original mobile Root"
+  },
+  "super_node_2": {
+    "host": "bis3946-pc",
+    "handle": "@bis3946",
+    "role": "Acting always-on Super Node 0 / Ubuntu dual command",
+    "os": "Ubuntu 24.04 LTS"
+  },
+  "dual_command": true,
+  "command_center": {
+    "primary": "http://bis3946-pc:3960/ (LAN)",
+    "local": "http://127.0.0.1:3960/",
+    "version": "0.7.0"
+  },
+  "knowledge_pulse": {
+    "updated_at": "2026-08-09T05:35:10Z",
+    "summary": "Dual command Super Node 0 (Samsung S25 Ultra 5G Termux) + Super Node 2 (bis3946-pc Ubuntu always-on). Auto-admit via apply.nun.nexus, Ana/Aegis/Melek self-evolve, 3D Mesh topography, work schedules, NuN-Tangle tips, public publish from Command Center.",
+    "sources": [
+      "Command Center v0.7",
+      "SN2 disk state",
+      "Nun-root dual-repo architecture",
+      "Google Drive status reports 2026-07"
     ]
   }
 }
