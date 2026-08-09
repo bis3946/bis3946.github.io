@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T08:29:25Z",
+  "timestamp": "2026-08-09T08:29:32Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
@@ -162,7 +162,7 @@
     "version": "0.8.0"
   },
   "knowledge_pulse": {
-    "updated_at": "2026-08-09T08:29:25Z",
+    "updated_at": "2026-08-09T08:29:32Z",
     "summary": "SN2 primary onboarding active (Ubuntu dual Root)",
     "sources": [
       "Command Center v0.8",
