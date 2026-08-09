@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T08:42:07Z",
+  "timestamp": "2026-08-09T09:05:45Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
@@ -222,7 +222,9 @@
   },
   "skills": {
     "index": "https://nun.nexus/skills/index.json",
+    "catalog": "https://nun.nexus/skills/",
     "grok_nun_node": "https://nun.nexus/skills/grok-nun-node.md",
-    "version": "1.0.0"
+    "version": "1.1.0",
+    "count": 12
   }
 }

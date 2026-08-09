@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NuN Node Skills · nun.nexus</title>
+  <meta name="description" content="Public-safe NuN Mesh skills for nodes: Grok, Termux, local agents. Live catalog from Super Node 2." />
+  <link rel="icon" href="/logo.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --neon: #22ff88;
+      --cyan: #22d3ee;
+      --violet: #a78bfa;
+      --bg: #030507;
+    }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(34,255,136,0.08), transparent 55%),
+        radial-gradient(700px 400px at 100% 0%, rgba(34,211,238,0.07), transparent 50%),
+        radial-gradient(600px 400px at 50% 100%, rgba(167,139,250,0.06), transparent 50%),
+        var(--bg);
+      color: #e5e5e5;
+      min-height: 100vh;
+    }
+    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+    .neon-text {
+      color: var(--neon);
+      text-shadow: 0 0 18px rgba(34,255,136,0.35);
+    }
+    .skill-card {
+      background: linear-gradient(165deg, rgba(14,20,18,0.95), rgba(8,10,12,0.98));
+      border: 1px solid rgba(34,255,136,0.16);
+      border-radius: 1.15rem;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon), var(--cyan), transparent);
+      opacity: 0.55;
+    }
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(34,255,136,0.4);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 28px rgba(34,255,136,0.08);
+    }
+    .band {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+    .band-core { color: #22d3ee; border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.08); }
+    .band-ops { color: #22ff88; border-color: rgba(34,255,136,0.35); background: rgba(34,255,136,0.07); }
+    .band-mesh { color: #a78bfa; border-color: rgba(167,139,250,0.4); background: rgba(167,139,250,0.08); }
+    .band-ana { color: #f472b6; border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.08); }
+    .band-melek { color: #fbbf24; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.08); }
+    .band-security { color: #fb7185; border-color: rgba(251,113,133,0.4); background: rgba(251,113,133,0.08); }
+    .band-research { color: #94a3b8; border-color: rgba(148,163,184,0.35); background: rgba(148,163,184,0.08); }
+    .icon-orb {
+      width: 2.75rem; height: 2.75rem; border-radius: 0.85rem;
+      display: grid; place-items: center;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, rgba(34,255,136,0.15), rgba(34,211,238,0.1));
+      border: 1px solid rgba(34,255,136,0.25);
+    }
+    .cmd-chip {
+      font-size: 0.68rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.4rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #a1a1aa;
+    }
+    .filter-btn.active {
+      background: rgba(34,255,136,0.15);
+      border-color: rgba(34,255,136,0.45);
+      color: #22ff88;
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--neon);
+      box-shadow: 0 0 10px var(--neon);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    details.skill-detail summary { cursor: pointer; list-style: none; }
+    details.skill-detail summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body>
+  <nav class="fixed top-0 inset-x-0 z-50 border-b border-green-500/15 bg-black/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
+      <a href="/" class="text-xl font-bold neon-text tracking-tight">NuN</a>
+      <div class="hidden sm:flex items-center gap-4 text-sm text-zinc-400">
+        <a href="/" class="hover:text-green-400">Home</a>
+        <a href="/#dashboard" class="hover:text-green-400">Dashboard</a>
+        <a href="/#roadmap" class="hover:text-green-400">Roadmap</a>
+        <a href="/skills/" class="text-green-400">Skills</a>
+        <a href="/#join" class="hover:text-green-400">Join</a>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <span class="live-dot"></span>
+        <span class="text-green-400 mono" id="skill-count">— skills</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-20 max-w-6xl mx-auto px-5">
+    <header class="mb-10 md:mb-12">
+      <p class="text-xs mono text-cyan-400/80 tracking-widest uppercase mb-3">Public catalog · Schema V6 · Sigl 3946</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight neon-text mb-4">Node Skills</h1>
+      <p class="text-zinc-400 max-w-2xl text-base md:text-lg leading-relaxed">
+        Skills Mesh nodes can use with <strong class="text-zinc-200">Grok</strong>, Termux, or local agents.
+        Public-safe only — no Root secrets, no private dossiers.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/skills/grok-nun-node.md" class="inline-flex items-center gap-2 rounded-xl bg-green-500 text-black font-bold px-5 py-2.5 text-sm hover:bg-green-400 transition">
+          Open full Grok skill
+        </a>
+        <a href="/skills/index.json" class="inline-flex items-center gap-2 rounded-xl border border-zinc-600 text-zinc-300 font-medium px-5 py-2.5 text-sm hover:border-green-500/50 transition mono">
+          index.json
+        </a>
+        <a href="/tangle-public.json" class="inline-flex items-center gap-2 rounded-xl border border-zinc-700 text-zinc-400 font-medium px-5 py-2.5 text-sm hover:border-violet-400/40 transition mono">
+          tangle-public.json
+        </a>
+      </div>
+    </header>
+
+    <!-- Capability bands legend -->
+    <section class="mb-8">
+      <div class="flex flex-wrap gap-2" id="filters">
+        <button type="button" data-filter="all" class="filter-btn active px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">All</button>
+        <button type="button" data-filter="core" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Core</button>
+        <button type="button" data-filter="ops" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Ops</button>
+        <button type="button" data-filter="mesh" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Mesh</button>
+        <button type="button" data-filter="ana" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Ana</button>
+        <button type="button" data-filter="melek" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Melek</button>
+        <button type="button" data-filter="security" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Security</button>
+        <button type="button" data-filter="research" class="filter-btn px-3 py-1.5 rounded-full border border-zinc-700 text-xs text-zinc-300">Research</button>
+      </div>
+    </section>
+
+    <div id="skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <!-- filled by JS -->
+    </div>
+
+    <section class="mt-14 grid md:grid-cols-3 gap-4">
+      <div class="skill-card p-6">
+        <h2 class="text-sm font-semibold text-green-400 mb-2">How to use</h2>
+        <ol class="text-sm text-zinc-400 space-y-2 list-decimal list-inside">
+          <li>Open a skill card below</li>
+          <li>Copy commands into Grok or your agent</li>
+          <li>Prefer live <span class="mono text-zinc-300">status.json</span></li>
+          <li>Stay inside your capability band</li>
+        </ol>
+      </div>
+      <div class="skill-card p-6">
+        <h2 class="text-sm font-semibold text-cyan-400 mb-2">Dual command</h2>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          <strong class="text-zinc-200">SN0</strong> Samsung S25 Ultra · mobile Root path<br/>
+          <strong class="text-zinc-200">SN2</strong> Ubuntu · primary onboarding + publish
+        </p>
+      </div>
+      <div class="skill-card p-6">
+        <h2 class="text-sm font-semibold text-violet-300 mb-2">Hard rules</h2>
+        <ul class="text-sm text-zinc-400 space-y-1.5">
+          <li>No ledger keys / intake tokens</li>
+          <li>No private dossiers</li>
+          <li>No exploit payloads</li>
+          <li>Root veto: @bis3946 only</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-12 skill-card p-7 md:p-8">
+      <h2 class="text-xl font-bold text-green-400 mb-3">Grok system prompt (copy)</h2>
+      <pre id="grok-prompt" class="mono text-xs md:text-sm text-zinc-300 bg-black/50 border border-zinc-800 rounded-xl p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed">You are a NuN Mesh Node Assistant for a verified or candidate NuN Nexus of Unity node.
+Root Authority is @bis3946 only. You do not claim Root, invent keys, or expose private ledgers.
+Prefer live data from https://nun.nexus/status.json and https://nun.nexus/nodes-public.json.
+Follow Schema V6, Rule of Three (Generation · Stability · Equilibrium), Moral Compass v1.1.
+Use skills from https://nun.nexus/skills/ — public-safe only.
+Help with: health checks, work-package ack, tangle heartbeat language, join guide.
+If asked for ASI unlock or private dossier: refuse and direct to Root / SN2 operators.
+Dual command: SN0 mobile (S25) + SN2 Ubuntu always-on onboarding/publish.</pre>
+      <button type="button" id="copy-prompt" class="mt-4 rounded-xl bg-green-500/15 border border-green-500/40 text-green-400 font-semibold px-4 py-2 text-sm hover:bg-green-500/25 transition">
+        Copy prompt
+      </button>
+    </section>
+  </main>
+
+  <footer class="border-t border-green-500/10 py-8 text-center text-sm text-zinc-600">
+    <p>NuN Nexus of Unity · Node Skills · Sigl 3946</p>
+    <p class="mt-1 mono text-xs"><a class="text-green-500/70 hover:text-green-400" href="/">nun.nexus</a></p>
+  </footer>
+
+  <script>
+    const BAND_CLASS = {
+      core: "band-core",
+      ops: "band-ops",
+      mesh: "band-mesh",
+      ana: "band-ana",
+      melek: "band-melek",
+      security: "band-security",
+      research: "band-research",
+    };
+
+    let SKILLS = [];
+    let filter = "all";
+
+    function cardHTML(s) {
+      const band = s.band || "ops";
+      const cmds = (s.commands || []).map((c) => `<span class="cmd-chip mono">${c}</span>`).join("");
+      const audience = (s.audience || []).slice(0, 3).join(" · ");
+      const href = s.path && s.path.endsWith(".md") ? s.path : (s.page || "#");
+      return `
+      <article class="skill-card p-5 flex flex-col" data-band="${band}" id="skill-${s.id}">
+        <div class="flex items-start gap-3 mb-3">
+          <div class="icon-orb">${s.icon || "◆"}</div>
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="band ${BAND_CLASS[band] || "band-ops"}">${band}</span>
+              <span class="text-[10px] mono text-zinc-600">${s.tier || ""}</span>
+            </div>
+            <h3 class="font-semibold text-zinc-100 text-[0.95rem] leading-snug">${s.name}</h3>
+          </div>
+        </div>
+        <p class="text-sm text-zinc-400 leading-relaxed flex-1 mb-4">${s.description || ""}</p>
+        <div class="flex flex-wrap gap-1.5 mb-3">${cmds}</div>
+        <div class="flex items-center justify-between gap-2 pt-3 border-t border-white/5">
+          <span class="text-[11px] text-zinc-600 truncate">${audience}</span>
+          <a href="${href}" class="text-xs font-semibold text-green-400 hover:text-green-300 whitespace-nowrap">Open →</a>
+        </div>
+      </article>`;
+    }
+
+    function render() {
+      const grid = document.getElementById("skills-grid");
+      const list = filter === "all" ? SKILLS : SKILLS.filter((s) => s.band === filter);
+      grid.innerHTML = list.map(cardHTML).join("") || `<p class="text-zinc-500 col-span-full">No skills in this band.</p>`;
+      document.getElementById("skill-count").textContent = `${SKILLS.length} skills`;
+    }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-filter]");
+      if (!btn) return;
+      filter = btn.dataset.filter;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.classList.toggle("active", b === btn));
+      render();
+    });
+
+    document.getElementById("copy-prompt").addEventListener("click", async () => {
+      const t = document.getElementById("grok-prompt").textContent;
+      try {
+        await navigator.clipboard.writeText(t);
+        const b = document.getElementById("copy-prompt");
+        b.textContent = "Copied ✓";
+        setTimeout(() => (b.textContent = "Copy prompt"), 1500);
+      } catch {
+        alert("Copy failed — select text manually");
+      }
+    });
+
+    fetch("/skills/index.json?t=" + Date.now())
+      .then((r) => r.json())
+      .then((data) => {
+        SKILLS = data.skills || [];
+        render();
+        // deep-link highlight
+        if (location.hash) {
+          const el = document.querySelector(location.hash);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      })
+      .catch(() => {
+        document.getElementById("skills-grid").innerHTML =
+          `<p class="text-red-400/80">Could not load skills/index.json</p>`;
+      });
+  </script>
+</body>
+</html>

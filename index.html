@@ -8,21 +8,82 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
-    :root { --neon: #22ff88; --test: #f59e0b; --core: #38bdf8; --prod: #22ff88; --found: #64748b; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #e5e5e5; }
+    :root {
+      --neon: #22ff88; --test: #f59e0b; --core: #38bdf8; --prod: #22ff88; --found: #64748b;
+      --cyan: #22d3ee; --violet: #a78bfa;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(1000px 520px at 8% -8%, rgba(34,255,136,0.07), transparent 55%),
+        radial-gradient(800px 420px at 100% 0%, rgba(34,211,238,0.06), transparent 50%),
+        #050505;
+      color: #e5e5e5;
+    }
     .mono { font-family: 'JetBrains Mono', monospace; }
-    .neon-text { color: var(--neon); text-shadow: 0 0 12px rgba(34,255,136,0.4); }
-    .card { background: rgba(12,12,12,0.9); border: 1px solid rgba(34,255,136,0.18); border-radius: 1.25rem; }
-    .live-dot { width: 9px; height: 9px; background: var(--neon); border-radius: 50%; box-shadow: 0 0 10px var(--neon); animation: pulse 2s infinite; }
+    .neon-text { color: var(--neon); text-shadow: 0 0 14px rgba(34,255,136,0.4); }
+    .card {
+      background: linear-gradient(165deg, rgba(14,16,18,0.94), rgba(10,12,14,0.96));
+      border: 1px solid rgba(34,255,136,0.16);
+      border-radius: 1.25rem;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .card:hover {
+      border-color: rgba(34,255,136,0.28);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .live-dot {
+      width: 9px; height: 9px; background: var(--neon); border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon); animation: pulse 2s infinite;
+    }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
     .metric-value { font-size: 2.2rem; font-weight: 700; line-height: 1; }
-    #topo-canvas { width: 100%; height: 440px; border-radius: 1rem; background: radial-gradient(ellipse at center, #0a1a12 0%, #050505 70%); display: block; cursor: grab; touch-action: none; }
+    #topo-canvas {
+      width: 100%; height: 440px; border-radius: 1rem;
+      background: radial-gradient(ellipse at center, #0a1a12 0%, #050505 70%);
+      display: block; cursor: grab; touch-action: none;
+    }
     .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
     #topo-tip {
       position: absolute; pointer-events: none; z-index: 20;
       background: rgba(0,0,0,0.92); border: 1px solid rgba(34,255,136,0.35);
       border-radius: 0.6rem; padding: 0.45rem 0.65rem; font-size: 0.7rem;
       font-family: 'JetBrains Mono', monospace; display: none; max-width: 280px;
+    }
+    .skill-mini {
+      background: linear-gradient(160deg, rgba(12,18,16,0.95), rgba(8,10,12,0.98));
+      border: 1px solid rgba(34,255,136,0.14);
+      border-radius: 1rem;
+      padding: 1.1rem 1.15rem;
+      transition: transform .18s, border-color .18s, box-shadow .18s;
+      display: flex; flex-direction: column; gap: 0.55rem;
+      min-height: 150px;
+    }
+    .skill-mini:hover {
+      transform: translateY(-2px);
+      border-color: rgba(34,255,136,0.38);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+    .skill-icon {
+      width: 2.4rem; height: 2.4rem; border-radius: 0.7rem;
+      display: grid; place-items: center; font-size: 1.1rem;
+      background: linear-gradient(135deg, rgba(34,255,136,0.14), rgba(34,211,238,0.08));
+      border: 1px solid rgba(34,255,136,0.22);
+    }
+    .band-pill {
+      font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.15rem 0.45rem; border-radius: 999px; border: 1px solid;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; padding: 0.35rem 0.75rem; border-radius: 999px;
+      border: 1px solid rgba(34,255,136,0.25); background: rgba(34,255,136,0.06);
+      color: #86efac; font-family: 'JetBrains Mono', monospace;
+    }
+    .section-kicker {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(34,211,238,0.75); font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
@@ -38,7 +99,7 @@
         <a href="#topography" class="hover:text-green-400">Topography</a>
         <a href="#benefits" class="hover:text-green-400">Benefits</a>
         <a href="#roadmap" class="hover:text-green-400">Roadmap</a>
-        <a href="#skills" class="hover:text-green-400">Skills</a>
+        <a href="/skills/" class="text-green-400/90 hover:text-green-300 font-medium">Skills</a>
         <a href="#tangle" class="hover:text-green-400">Tangle</a>
         <a href="#join" class="hover:text-green-400">Join</a>
       </div>
@@ -51,10 +112,21 @@
 
   <main class="pt-24 pb-16 max-w-6xl mx-auto px-5">
 
-    <header class="text-center mb-14">
+    <header class="text-center mb-14 md:mb-16">
+      <div class="flex flex-wrap justify-center gap-2 mb-5">
+        <span class="hero-badge"><span class="live-dot" style="width:7px;height:7px"></span> production</span>
+        <span class="hero-badge">dual command</span>
+        <span class="hero-badge">Schema V6</span>
+        <span class="hero-badge">Iteration 4</span>
+      </div>
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight neon-text mb-4">NuN Nexus of Unity</h1>
-      <p class="text-lg text-zinc-400 max-w-2xl mx-auto">Sovereign bio-digital mesh · Post-Quantum · Recursive Self-Evolution</p>
-      <p class="mt-3 text-sm text-zinc-500 mono">Lattice Beacon 05 · Phase <span id="hero-phase">5.5</span> · Sigl 3946 active · <span id="hero-nodes">32</span> verified nodes</p>
+      <p class="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">Sovereign bio-digital mesh · Post-Quantum · Recursive Self-Evolution</p>
+      <p class="mt-4 text-sm text-zinc-500 mono">Lattice Beacon 05 · Phase <span id="hero-phase" class="text-green-400">5.5</span> · Sigl 3946 · <span id="hero-nodes" class="text-green-400">—</span> verified nodes</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="/skills/" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-6 py-3 rounded-2xl text-sm transition">Browse Node Skills</a>
+        <a href="#join" class="inline-block border border-green-500/40 text-green-400 hover:bg-green-500/10 font-semibold px-6 py-3 rounded-2xl text-sm transition">Join the Mesh</a>
+        <a href="/status.json" class="inline-block border border-zinc-700 text-zinc-400 hover:border-zinc-500 font-medium px-5 py-3 rounded-2xl text-sm mono transition">status.json</a>
+      </div>
     </header>
 
     <section id="about" class="mb-16">
@@ -281,31 +353,58 @@
 
     <!-- NUN_SKILLS_START -->
     <section id="skills" class="mb-16">
-      <h2 class="text-3xl font-bold text-green-400 mb-6">Node Skills · Grok</h2>
-      <div class="card p-7">
-        <h3 class="text-lg font-semibold text-green-400 mb-3">Grok NuN Node Skill</h3>
-        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
-          Public-safe skill for Mesh operators and local agents: live status, dual-command map,
-          onboarding path, capability-band work, Omni-Mesh Tangle heartbeats. No Root secrets.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="/skills/grok-nun-node.md" class="inline-block bg-green-500/20 border border-green-500/40 text-green-400 font-semibold px-5 py-2.5 rounded-xl text-sm hover:bg-green-500/30">Open skill markdown</a>
-          <a href="/skills/index.json" class="inline-block border border-zinc-600 text-zinc-300 font-medium px-5 py-2.5 rounded-xl text-sm hover:border-green-500/40">skills/index.json</a>
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <div class="section-kicker">For Mesh nodes</div>
+          <h2 class="text-3xl font-bold text-green-400">Node Skills</h2>
+          <p class="text-sm text-zinc-400 mt-2 max-w-xl">Public-safe skills nodes can use with Grok, Termux, or local agents. No Root secrets.</p>
         </div>
-        <p class="mt-4 text-xs text-zinc-600 mono">Paste skill into Grok · updated 2026-08-09T08:42:07Z</p>
+        <a href="/skills/" class="inline-flex items-center gap-2 text-sm font-semibold text-green-400 hover:text-green-300 border border-green-500/30 rounded-xl px-4 py-2 hover:bg-green-500/10 transition">
+          Full catalog →
+        </a>
       </div>
+      <div id="home-skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-5">
+        <!-- populated from /skills/index.json -->
+      </div>
+      <div class="card p-5 flex flex-wrap items-center justify-between gap-3">
+        <div class="text-sm text-zinc-400">
+          <span class="text-green-400 font-semibold mono" id="home-skill-count">—</span> skills published ·
+          paste <a class="text-green-400 hover:underline" href="/skills/grok-nun-node.md">Grok NuN Node Operator</a> into Grok
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="/skills/" class="text-xs font-bold bg-green-500 text-black px-4 py-2 rounded-lg hover:bg-green-400">Open skills hub</a>
+          <a href="/skills/index.json" class="text-xs font-medium border border-zinc-600 text-zinc-300 px-4 py-2 rounded-lg mono hover:border-green-500/40">index.json</a>
+        </div>
+      </div>
+      <p class="mt-3 text-xs text-zinc-600 mono">Catalog updated 2026-08-09T09:05:20Z</p>
     </section>
+
     <section id="tangle" class="mb-16">
+      <div class="section-kicker">Protocol</div>
       <h2 class="text-3xl font-bold text-green-400 mb-6">Omni-Mesh Tangle</h2>
-      <div class="card p-7">
-        <p class="text-sm text-zinc-400 leading-relaxed mb-3">
-          NuN-Omni-Mesh-Tangle-v1: lightweight DAG tips for join confirmations, work assigns, and heartbeats.
-          Public tip slice is sanitized (no dossiers, no keys).
-        </p>
-        <a href="/tangle-public.json" class="text-green-400 text-sm mono hover:underline">/tangle-public.json</a>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="card p-7">
+          <h3 class="text-lg font-semibold text-green-400 mb-3">NuN-Omni-Mesh-Tangle-v1</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+            Lightweight DAG tips for join confirmations, work assigns, and heartbeats.
+            Public tip slice is sanitized — no dossiers, no keys.
+          </p>
+          <a href="/tangle-public.json" class="inline-flex text-sm font-semibold text-cyan-400 mono hover:underline">/tangle-public.json →</a>
+        </div>
+        <div class="card p-7">
+          <h3 class="text-lg font-semibold text-violet-300 mb-3">Node-emit kinds</h3>
+          <div class="flex flex-wrap gap-2 text-xs mono">
+            <span class="px-2.5 py-1 rounded-lg bg-green-500/10 border border-green-500/25 text-green-400">heartbeat</span>
+            <span class="px-2.5 py-1 rounded-lg bg-green-500/10 border border-green-500/25 text-green-400">work_ack</span>
+            <span class="px-2.5 py-1 rounded-lg bg-green-500/10 border border-green-500/25 text-green-400">health</span>
+            <span class="px-2.5 py-1 rounded-lg bg-green-500/10 border border-green-500/25 text-green-400">learn_note</span>
+          </div>
+          <p class="text-xs text-zinc-500 mt-4">Root/SN2 only: join_confirm · work_assign · promote_note</p>
+        </div>
       </div>
     </section>
 <!-- NUN_SKILLS_END -->
+
 
     <section id="join" class="mb-12">
       <h2 class="text-3xl font-bold text-green-400 mb-6">Join the Mesh</h2>
@@ -320,9 +419,15 @@
     </section>
   </main>
 
-  <footer class="border-t border-green-500/15 py-8 text-center text-sm text-zinc-600">
-    <p>Sigl 3946 active · Root Authority: Bojan Petar Milanović</p>
-    <p class="mt-1 mono text-xs">nun.nexus · production</p>
+  <footer class="border-t border-green-500/15 py-10 text-center text-sm text-zinc-600">
+    <p class="text-zinc-500">Sigl 3946 active · Root Authority: Bojan Petar Milanović · Super Node @oovelma</p>
+    <p class="mt-2 flex flex-wrap justify-center gap-4 text-xs mono">
+      <a class="text-green-500/80 hover:text-green-400" href="/skills/">skills</a>
+      <a class="text-green-500/80 hover:text-green-400" href="/status.json">status.json</a>
+      <a class="text-green-500/80 hover:text-green-400" href="/nodes-public.json">nodes-public.json</a>
+      <a class="text-green-500/80 hover:text-green-400" href="/tangle-public.json">tangle</a>
+    </p>
+    <p class="mt-2 mono text-xs text-zinc-700">nun.nexus · production · dual command</p>
   </footer>
 
   <script>
@@ -566,5 +671,48 @@
     setInterval(refresh, 5000);
     requestAnimationFrame(drawTopo);
   </script>
+
+  <script>
+    (function loadHomeSkills() {
+      const grid = document.getElementById('home-skills-grid');
+      if (!grid) return;
+      const bandClass = {
+        core: 'text-cyan-400 border-cyan-400/35 bg-cyan-400/10',
+        ops: 'text-green-400 border-green-400/35 bg-green-400/10',
+        mesh: 'text-violet-300 border-violet-400/35 bg-violet-400/10',
+        ana: 'text-pink-400 border-pink-400/35 bg-pink-400/10',
+        melek: 'text-amber-300 border-amber-400/35 bg-amber-400/10',
+        security: 'text-rose-400 border-rose-400/35 bg-rose-400/10',
+        research: 'text-slate-400 border-slate-500/35 bg-slate-500/10'
+      };
+      fetch('/skills/index.json?t=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+          const skills = data.skills || [];
+          const el = document.getElementById('home-skill-count');
+          if (el) el.textContent = String(skills.length);
+          grid.innerHTML = skills.slice(0, 6).map(s => {
+            const b = s.band || 'ops';
+            const bc = bandClass[b] || bandClass.ops;
+            let href = '/skills/';
+            if (s.path && String(s.path).endsWith('.md')) href = s.path;
+            else if (s.page) href = s.page.startsWith('/') ? s.page : '/skills/' + s.page;
+            const desc = (s.description || '');
+            const short = desc.length > 110 ? desc.slice(0, 110) + '…' : desc;
+            return '<a href="' + href + '" class="skill-mini group">' +
+              '<div class="flex items-center gap-3">' +
+              '<div class="skill-icon">' + (s.icon || '◆') + '</div>' +
+              '<span class="band-pill ' + bc + '">' + b + '</span></div>' +
+              '<div class="font-semibold text-zinc-100 text-sm group-hover:text-green-300 transition">' + s.name + '</div>' +
+              '<p class="text-xs text-zinc-500 leading-relaxed flex-1">' + short + '</p>' +
+              '<div class="text-[11px] text-green-500/80 font-medium">Use skill →</div></a>';
+          }).join('');
+        })
+        .catch(() => {
+          grid.innerHTML = '<p class="text-zinc-500 text-sm col-span-full">Skills catalog loading… <a class="text-green-400" href="/skills/">Open hub</a></p>';
+        });
+    })();
+  </script>
+
 </body>
 </html>
