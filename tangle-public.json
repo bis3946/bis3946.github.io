@@ -1,368 +1,1356 @@
 {
   "protocol": "NuN-Omni-Mesh-Tangle-v1",
-  "updated_at": "2026-08-09T08:42:07Z",
-  "tip_count_local": 243,
+  "updated_at": "2026-08-09T12:11:51Z",
+  "tip_count_local": 372,
   "tips_public": [
     {
-      "hash": "29915bc66dfff01f",
-      "kind": "work_assign",
+      "hash": "220d07bb7d55e3f5",
+      "hash_full": "220d07bb7d55e3f5f21093f9c1f1229c948939e83569e3764807d9bfc59912a0",
+      "kind": "heartbeat",
       "from": "bis3946-pc",
-      "to": "94a431d44065dc7f",
-      "message": "Task 714a11da: Task for node 31",
-      "created_at": "2026-08-09T08:27:43Z",
-      "height": 204
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:19:39Z",
+      "height": 293,
+      "parents": [
+        "b2788aef5fa916297c1bc331412fad2980b28a650fe1b37f4cb3f66de4864ca2",
+        "7185cc71187bcb25cd3803e3db3f01bbfeca2077358def928888f5f34ad35f28"
+      ]
     },
     {
-      "hash": "d15d603a469c2cf9",
+      "hash": "f276efda6361dcf1",
+      "hash_full": "f276efda6361dcf1e151f437fc7ba0878f3d7f6acda124679b497c50d800a760",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:20:25Z",
+      "height": 294,
+      "parents": [
+        "220d07bb7d55e3f5f21093f9c1f1229c948939e83569e3764807d9bfc59912a0",
+        "b2788aef5fa916297c1bc331412fad2980b28a650fe1b37f4cb3f66de4864ca2"
+      ]
+    },
+    {
+      "hash": "afc1e8ec86368999",
+      "hash_full": "afc1e8ec863689999443ec2bc7614a1133cf128c9ab3aa3ee83cfb5a24496b6a",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:21:10Z",
+      "height": 295,
+      "parents": [
+        "f276efda6361dcf1e151f437fc7ba0878f3d7f6acda124679b497c50d800a760",
+        "220d07bb7d55e3f5f21093f9c1f1229c948939e83569e3764807d9bfc59912a0"
+      ]
+    },
+    {
+      "hash": "ead336aa38b287f6",
+      "hash_full": "ead336aa38b287f61eb5e067847869c27e05408a7df27ec8a0a0c758be9f57d9",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:21:55Z",
+      "height": 296,
+      "parents": [
+        "afc1e8ec863689999443ec2bc7614a1133cf128c9ab3aa3ee83cfb5a24496b6a",
+        "f276efda6361dcf1e151f437fc7ba0878f3d7f6acda124679b497c50d800a760"
+      ]
+    },
+    {
+      "hash": "dc3e87dcf3c40800",
+      "hash_full": "dc3e87dcf3c408005a277244b977c43ef824a57680a5f78906c0808622357e92",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:22:40Z",
+      "height": 297,
+      "parents": [
+        "ead336aa38b287f61eb5e067847869c27e05408a7df27ec8a0a0c758be9f57d9",
+        "afc1e8ec863689999443ec2bc7614a1133cf128c9ab3aa3ee83cfb5a24496b6a"
+      ]
+    },
+    {
+      "hash": "ff8220b094d644dd",
+      "hash_full": "ff8220b094d644dd3c5937c66b48bed54cce0abe02a3f8d21965d9b66d57ad3d",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:23:25Z",
+      "height": 298,
+      "parents": [
+        "dc3e87dcf3c408005a277244b977c43ef824a57680a5f78906c0808622357e92",
+        "ead336aa38b287f61eb5e067847869c27e05408a7df27ec8a0a0c758be9f57d9"
+      ]
+    },
+    {
+      "hash": "e91c8cc97a53cc88",
+      "hash_full": "e91c8cc97a53cc88709e80b12a82617d782430a1c2af03ae86380e608939106d",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:24:10Z",
+      "height": 299,
+      "parents": [
+        "ff8220b094d644dd3c5937c66b48bed54cce0abe02a3f8d21965d9b66d57ad3d",
+        "dc3e87dcf3c408005a277244b977c43ef824a57680a5f78906c0808622357e92"
+      ]
+    },
+    {
+      "hash": "1d6073c06971184c",
+      "hash_full": "1d6073c06971184ce8d4991f7d28c65a6ef5b592478fa09ea63cc8c7c83982e7",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:24:55Z",
+      "height": 300,
+      "parents": [
+        "e91c8cc97a53cc88709e80b12a82617d782430a1c2af03ae86380e608939106d",
+        "ff8220b094d644dd3c5937c66b48bed54cce0abe02a3f8d21965d9b66d57ad3d"
+      ]
+    },
+    {
+      "hash": "32cebacf00d6c7cb",
+      "hash_full": "32cebacf00d6c7cb0f28c60a96dc0bf26fc1475ec806cdc51fa33e6d583026be",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:25:40Z",
+      "height": 301,
+      "parents": [
+        "1d6073c06971184ce8d4991f7d28c65a6ef5b592478fa09ea63cc8c7c83982e7",
+        "e91c8cc97a53cc88709e80b12a82617d782430a1c2af03ae86380e608939106d"
+      ]
+    },
+    {
+      "hash": "e5d6144c002cc4b2",
+      "hash_full": "e5d6144c002cc4b286f4cef863ad7cbbbba1a0a776c76cf1d2542a55845156b2",
       "kind": "work_assign",
       "from": "bis3946-pc",
       "to": "ebeb8e5f8f70dc66",
-      "message": "Task 0faea48a: Task for node 2",
-      "created_at": "2026-08-09T08:27:51Z",
-      "height": 205
+      "from_hash": null,
+      "to_hash": null,
+      "message": "Task 9b7c2213: Task for node 2",
+      "created_at": "2026-08-09T09:26:10Z",
+      "height": 302,
+      "parents": [
+        "32cebacf00d6c7cb0f28c60a96dc0bf26fc1475ec806cdc51fa33e6d583026be",
+        "1d6073c06971184ce8d4991f7d28c65a6ef5b592478fa09ea63cc8c7c83982e7"
+      ]
     },
     {
-      "hash": "636dec516177aac6",
+      "hash": "6a6229e29db1398d",
+      "hash_full": "6a6229e29db1398df30e192c4c33f75a9ddac42b5cd8b7908110ec5010eb515d",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:27:56Z",
-      "height": 206
+      "created_at": "2026-08-09T09:26:25Z",
+      "height": 303,
+      "parents": [
+        "e5d6144c002cc4b286f4cef863ad7cbbbba1a0a776c76cf1d2542a55845156b2",
+        "32cebacf00d6c7cb0f28c60a96dc0bf26fc1475ec806cdc51fa33e6d583026be"
+      ]
     },
     {
-      "hash": "41652dd6aa82b3ba",
+      "hash": "c6c2ed69c1283d64",
+      "hash_full": "c6c2ed69c1283d6422a7e587b22f0b0f49036dd35a14e0c5382acd20e3da4f94",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:28:42Z",
-      "height": 207
+      "created_at": "2026-08-09T09:27:10Z",
+      "height": 304,
+      "parents": [
+        "6a6229e29db1398df30e192c4c33f75a9ddac42b5cd8b7908110ec5010eb515d",
+        "e5d6144c002cc4b286f4cef863ad7cbbbba1a0a776c76cf1d2542a55845156b2"
+      ]
     },
     {
-      "hash": "5d94825e8f8c6b18",
+      "hash": "e9ebbbf0d06cfdc6",
+      "hash_full": "e9ebbbf0d06cfdc63942ae721a95917c5b505104fcc16197dad8d2fa028d1733",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:29:25Z",
-      "height": 208
+      "created_at": "2026-08-09T09:27:56Z",
+      "height": 305,
+      "parents": [
+        "c6c2ed69c1283d6422a7e587b22f0b0f49036dd35a14e0c5382acd20e3da4f94",
+        "6a6229e29db1398df30e192c4c33f75a9ddac42b5cd8b7908110ec5010eb515d"
+      ]
     },
     {
-      "hash": "901eb3381d34e879",
+      "hash": "272370eb324aed65",
+      "hash_full": "272370eb324aed65b969a680db881048c952a25a37e73a66a900140cf4ff7bcc",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:29:27Z",
-      "height": 209
+      "created_at": "2026-08-09T09:28:41Z",
+      "height": 306,
+      "parents": [
+        "e9ebbbf0d06cfdc63942ae721a95917c5b505104fcc16197dad8d2fa028d1733",
+        "c6c2ed69c1283d6422a7e587b22f0b0f49036dd35a14e0c5382acd20e3da4f94"
+      ]
     },
     {
-      "hash": "52ee27a6d05297f9",
+      "hash": "b1d7d03fb6ad9e3e",
+      "hash_full": "b1d7d03fb6ad9e3efe14001c71ef9f967e5d2f8527a6672a9b2a38aa60594815",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:29:32Z",
-      "height": 210
+      "created_at": "2026-08-09T09:29:26Z",
+      "height": 307,
+      "parents": [
+        "272370eb324aed65b969a680db881048c952a25a37e73a66a900140cf4ff7bcc",
+        "e9ebbbf0d06cfdc63942ae721a95917c5b505104fcc16197dad8d2fa028d1733"
+      ]
     },
     {
-      "hash": "73e6e357bde9b5a5",
+      "hash": "ac5307dbe7e37d82",
+      "hash_full": "ac5307dbe7e37d82d97f2db125ed7e1e026fe48ae168e7181ac4c59ed602635a",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:30:12Z",
-      "height": 211
+      "created_at": "2026-08-09T09:30:11Z",
+      "height": 308,
+      "parents": [
+        "b1d7d03fb6ad9e3efe14001c71ef9f967e5d2f8527a6672a9b2a38aa60594815",
+        "272370eb324aed65b969a680db881048c952a25a37e73a66a900140cf4ff7bcc"
+      ]
     },
     {
-      "hash": "b7d405859b584606",
+      "hash": "98916bbbd42d0d96",
+      "hash_full": "98916bbbd42d0d968ec9c5731440b7e9cd2701bb04fb8d61470db012c41b257b",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:30:57Z",
-      "height": 212
+      "created_at": "2026-08-09T09:30:56Z",
+      "height": 309,
+      "parents": [
+        "ac5307dbe7e37d82d97f2db125ed7e1e026fe48ae168e7181ac4c59ed602635a",
+        "b1d7d03fb6ad9e3efe14001c71ef9f967e5d2f8527a6672a9b2a38aa60594815"
+      ]
     },
     {
-      "hash": "4b0e8d647bc11aeb",
+      "hash": "295980e91269a3f7",
+      "hash_full": "295980e91269a3f7fc80182be0c3a828993b817b4dde7133c6c96b2a286a41b2",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:31:30Z",
-      "height": 213
+      "created_at": "2026-08-09T09:31:41Z",
+      "height": 310,
+      "parents": [
+        "98916bbbd42d0d968ec9c5731440b7e9cd2701bb04fb8d61470db012c41b257b",
+        "ac5307dbe7e37d82d97f2db125ed7e1e026fe48ae168e7181ac4c59ed602635a"
+      ]
     },
     {
-      "hash": "dcbe80b4867a59c6",
+      "hash": "36269231112c9d04",
+      "hash_full": "36269231112c9d04f96b09351dadafa9c7c18ae6905b6261c88a2f2faf070a52",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:32:15Z",
-      "height": 214
+      "created_at": "2026-08-09T09:32:26Z",
+      "height": 311,
+      "parents": [
+        "295980e91269a3f7fc80182be0c3a828993b817b4dde7133c6c96b2a286a41b2",
+        "98916bbbd42d0d968ec9c5731440b7e9cd2701bb04fb8d61470db012c41b257b"
+      ]
     },
     {
-      "hash": "2b6f65f24d112708",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": "94a431d44065dc7f",
-      "message": "Task e0369d1c: Task for node 31",
-      "created_at": "2026-08-09T08:32:27Z",
-      "height": 215
-    },
-    {
-      "hash": "1e7adf846981c934",
-      "kind": "signal",
-      "from": "bis3946-pc",
-      "to": "255512a327c88b04",
-      "message": "SN2 dual-command signal",
-      "created_at": "2026-08-09T08:32:39Z",
-      "height": 216
-    },
-    {
-      "hash": "f736fea1802de209",
+      "hash": "035700d0e828e016",
+      "hash_full": "035700d0e828e016a0a46151101b29468617b8f6a7863f508c6a43ef3668b718",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:33:00Z",
-      "height": 217
+      "created_at": "2026-08-09T09:33:11Z",
+      "height": 312,
+      "parents": [
+        "36269231112c9d04f96b09351dadafa9c7c18ae6905b6261c88a2f2faf070a52",
+        "295980e91269a3f7fc80182be0c3a828993b817b4dde7133c6c96b2a286a41b2"
+      ]
     },
     {
-      "hash": "3c638820fd874110",
+      "hash": "c83408ae66fe3c32",
+      "hash_full": "c83408ae66fe3c325b080eb814f0a02ae0fc31d80e00e6f1b854601084a6affa",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:33:45Z",
-      "height": 218
+      "created_at": "2026-08-09T09:33:56Z",
+      "height": 313,
+      "parents": [
+        "035700d0e828e016a0a46151101b29468617b8f6a7863f508c6a43ef3668b718",
+        "36269231112c9d04f96b09351dadafa9c7c18ae6905b6261c88a2f2faf070a52"
+      ]
     },
     {
-      "hash": "87d93e4a96144f88",
+      "hash": "d909ced63c8b3520",
+      "hash_full": "d909ced63c8b352076b3a5b40afd6af5feec0d3591bd5b21f1b86866d7a4768b",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:34:30Z",
-      "height": 219
+      "created_at": "2026-08-09T09:34:41Z",
+      "height": 314,
+      "parents": [
+        "c83408ae66fe3c325b080eb814f0a02ae0fc31d80e00e6f1b854601084a6affa",
+        "035700d0e828e016a0a46151101b29468617b8f6a7863f508c6a43ef3668b718"
+      ]
     },
     {
-      "hash": "772d243e6f70fc87",
+      "hash": "963fec53937826e2",
+      "hash_full": "963fec53937826e2a961f7addf845013e03f5ecdd06e1b545f56cdaabb6b9516",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:35:15Z",
-      "height": 220
+      "created_at": "2026-08-09T09:35:27Z",
+      "height": 315,
+      "parents": [
+        "d909ced63c8b352076b3a5b40afd6af5feec0d3591bd5b21f1b86866d7a4768b",
+        "c83408ae66fe3c325b080eb814f0a02ae0fc31d80e00e6f1b854601084a6affa"
+      ]
     },
     {
-      "hash": "77c6d4efea205144",
+      "hash": "da2fcbead2acc5ef",
+      "hash_full": "da2fcbead2acc5efdb767e59a4df0b3c92084fbdfe4f86dfa7071a14bf9c4af8",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:36:01Z",
-      "height": 221
+      "created_at": "2026-08-09T09:36:12Z",
+      "height": 316,
+      "parents": [
+        "963fec53937826e2a961f7addf845013e03f5ecdd06e1b545f56cdaabb6b9516",
+        "d909ced63c8b352076b3a5b40afd6af5feec0d3591bd5b21f1b86866d7a4768b"
+      ]
     },
     {
-      "hash": "b09be632bc3c7e2a",
+      "hash": "b67b57322dd685c8",
+      "hash_full": "b67b57322dd685c8597756a777c3c4c528c8e4ee36b8a8e525be552d68f70a04",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:36:46Z",
-      "height": 222
+      "created_at": "2026-08-09T09:36:57Z",
+      "height": 317,
+      "parents": [
+        "da2fcbead2acc5efdb767e59a4df0b3c92084fbdfe4f86dfa7071a14bf9c4af8",
+        "963fec53937826e2a961f7addf845013e03f5ecdd06e1b545f56cdaabb6b9516"
+      ]
     },
     {
-      "hash": "9cba18d1140e4313",
+      "hash": "220973cbca7dda48",
+      "hash_full": "220973cbca7dda480102657cb3bc6cefb9eaa235b39a71e16291a04b0f604286",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:37:31Z",
-      "height": 223
+      "created_at": "2026-08-09T09:37:42Z",
+      "height": 318,
+      "parents": [
+        "b67b57322dd685c8597756a777c3c4c528c8e4ee36b8a8e525be552d68f70a04",
+        "da2fcbead2acc5efdb767e59a4df0b3c92084fbdfe4f86dfa7071a14bf9c4af8"
+      ]
     },
     {
-      "hash": "8ba33f8a58d49fbd",
+      "hash": "51921f4793b07cfa",
+      "hash_full": "51921f4793b07cfa741479156cf620e9db9f3efe7d35f4c8bea12a266182c29a",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:38:16Z",
-      "height": 224
+      "created_at": "2026-08-09T09:38:27Z",
+      "height": 319,
+      "parents": [
+        "220973cbca7dda480102657cb3bc6cefb9eaa235b39a71e16291a04b0f604286",
+        "b67b57322dd685c8597756a777c3c4c528c8e4ee36b8a8e525be552d68f70a04"
+      ]
     },
     {
-      "hash": "5169322be90b3fe3",
+      "hash": "88ef6bb523108cfd",
+      "hash_full": "88ef6bb523108cfd56b5ca04a955a3918e9dfb361d6093fee8fe97b556680ace",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:39:01Z",
-      "height": 225
+      "created_at": "2026-08-09T09:39:12Z",
+      "height": 320,
+      "parents": [
+        "51921f4793b07cfa741479156cf620e9db9f3efe7d35f4c8bea12a266182c29a",
+        "220973cbca7dda480102657cb3bc6cefb9eaa235b39a71e16291a04b0f604286"
+      ]
     },
     {
-      "hash": "e550009f7417e916",
+      "hash": "e5c3b5ff5a6100c7",
+      "hash_full": "e5c3b5ff5a6100c79229efc7525dd564497cd628a73966af16cc56ef6a61eb3e",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:39:46Z",
-      "height": 226
+      "created_at": "2026-08-09T09:39:57Z",
+      "height": 321,
+      "parents": [
+        "88ef6bb523108cfd56b5ca04a955a3918e9dfb361d6093fee8fe97b556680ace",
+        "51921f4793b07cfa741479156cf620e9db9f3efe7d35f4c8bea12a266182c29a"
+      ]
     },
     {
-      "hash": "9dfda02915389869",
+      "hash": "d1e5e91b31d62f4a",
+      "hash_full": "d1e5e91b31d62f4adb7610bbeda84720a93a169acc952d3efe0dd3cff3120e21",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:40:31Z",
-      "height": 227
+      "created_at": "2026-08-09T09:40:42Z",
+      "height": 322,
+      "parents": [
+        "e5c3b5ff5a6100c79229efc7525dd564497cd628a73966af16cc56ef6a61eb3e",
+        "88ef6bb523108cfd56b5ca04a955a3918e9dfb361d6093fee8fe97b556680ace"
+      ]
     },
     {
-      "hash": "cc70f1c04debc1aa",
+      "hash": "893e6faddf2dd7a0",
+      "hash_full": "893e6faddf2dd7a03a17a91cba1f5b1bad5e7dd214def57a315a3bec9b119663",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:41:16Z",
-      "height": 228
+      "created_at": "2026-08-09T09:41:27Z",
+      "height": 323,
+      "parents": [
+        "d1e5e91b31d62f4adb7610bbeda84720a93a169acc952d3efe0dd3cff3120e21",
+        "e5c3b5ff5a6100c79229efc7525dd564497cd628a73966af16cc56ef6a61eb3e"
+      ]
     },
     {
-      "hash": "1d954e77b5ead623",
+      "hash": "9a708175e4b56c8e",
+      "hash_full": "9a708175e4b56c8e2d2b59d5af4101117faf913edea6aec39b0dd43c6bea7112",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:42:01Z",
-      "height": 229
+      "created_at": "2026-08-09T09:42:12Z",
+      "height": 324,
+      "parents": [
+        "893e6faddf2dd7a03a17a91cba1f5b1bad5e7dd214def57a315a3bec9b119663",
+        "d1e5e91b31d62f4adb7610bbeda84720a93a169acc952d3efe0dd3cff3120e21"
+      ]
     },
     {
-      "hash": "2116ed6d0770abff",
+      "hash": "7d007b3a86879992",
+      "hash_full": "7d007b3a868799927e31c334b42d026cc832d6d54c6ae8e08ba2fb04de811fa2",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:42:05Z",
-      "height": 230
+      "created_at": "2026-08-09T09:42:57Z",
+      "height": 325,
+      "parents": [
+        "9a708175e4b56c8e2d2b59d5af4101117faf913edea6aec39b0dd43c6bea7112",
+        "893e6faddf2dd7a03a17a91cba1f5b1bad5e7dd214def57a315a3bec9b119663"
+      ]
     },
     {
-      "hash": "8fafa1c30b1db969",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 85044115: Ana AGI pulse + public-safe summary",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 231
-    },
-    {
-      "hash": "a09a6e593f69e143",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 3316f919: Ana ASI architecture watch (locked)",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 232
-    },
-    {
-      "hash": "e8b0a4c712820716",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task d82c6124: Melek anchor VFE light cycle",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 233
-    },
-    {
-      "hash": "b62fa15c5c40eed1",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 8dd2da37: AegisNet ImmuneOS local scan",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 234
-    },
-    {
-      "hash": "47a7560c90d5d55e",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 8c2bcece: Omni-Mesh Tangle heartbeat",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 235
-    },
-    {
-      "hash": "9444f3ef21c6cfc2",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 5b40337a: Verify nun.nexus status vs local",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 236
-    },
-    {
-      "hash": "4213d3153ea647d5",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 8e9a7554: Observer→Operator contribution note",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 237
-    },
-    {
-      "hash": "67c110e5cc8ddbce",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task bf2e1c75: Grok skill compliance check",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 238
-    },
-    {
-      "hash": "c4f69998f80d9383",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 976eaadf: Ledger integrity dry-run",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 239
-    },
-    {
-      "hash": "b4bb4b0275fdf971",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Task 13d366d6: Onboarding queue hygiene",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 240
-    },
-    {
-      "hash": "ea6a144f717de752",
-      "kind": "work_assign",
-      "from": "bis3946-pc",
-      "to": null,
-      "message": "Self-improve cycle seeded (10 tasks)",
-      "created_at": "2026-08-09T08:42:06Z",
-      "height": 241
-    },
-    {
-      "hash": "98f15de87b781402",
+      "hash": "74e926a0166383b1",
+      "hash_full": "74e926a0166383b153ece2e11e78795e09b463ece71fc21e55421c10803336b3",
       "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
+      "from_hash": null,
+      "to_hash": null,
       "message": "SN2 tangle heartbeat",
-      "created_at": "2026-08-09T08:42:07Z",
-      "height": 242
+      "created_at": "2026-08-09T09:43:43Z",
+      "height": 326,
+      "parents": [
+        "7d007b3a868799927e31c334b42d026cc832d6d54c6ae8e08ba2fb04de811fa2",
+        "9a708175e4b56c8e2d2b59d5af4101117faf913edea6aec39b0dd43c6bea7112"
+      ]
     },
     {
-      "hash": "d1b47d9169431736",
+      "hash": "6a57e1a3df944359",
+      "hash_full": "6a57e1a3df9443591684bbb62841d49d4c02796b50f94ec77db7cf49665e6ff0",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:44:28Z",
+      "height": 327,
+      "parents": [
+        "74e926a0166383b153ece2e11e78795e09b463ece71fc21e55421c10803336b3",
+        "7d007b3a868799927e31c334b42d026cc832d6d54c6ae8e08ba2fb04de811fa2"
+      ]
+    },
+    {
+      "hash": "459d90687aaa9ef6",
+      "hash_full": "459d90687aaa9ef6d5a6c35066303f5a2efd0008b8cad4f816e67d1b230a504f",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:45:13Z",
+      "height": 328,
+      "parents": [
+        "6a57e1a3df9443591684bbb62841d49d4c02796b50f94ec77db7cf49665e6ff0",
+        "74e926a0166383b153ece2e11e78795e09b463ece71fc21e55421c10803336b3"
+      ]
+    },
+    {
+      "hash": "e12066f39ab1c627",
+      "hash_full": "e12066f39ab1c6270fb112bf11b4f55fb6c1578a1993d79bf29534dd3cb0111f",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:45:58Z",
+      "height": 329,
+      "parents": [
+        "459d90687aaa9ef6d5a6c35066303f5a2efd0008b8cad4f816e67d1b230a504f",
+        "6a57e1a3df9443591684bbb62841d49d4c02796b50f94ec77db7cf49665e6ff0"
+      ]
+    },
+    {
+      "hash": "c7128a2e54190ab8",
+      "hash_full": "c7128a2e54190ab89871d4465d031823f99f6f8fae9009cf515ae986fcc4f734",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:46:43Z",
+      "height": 330,
+      "parents": [
+        "e12066f39ab1c6270fb112bf11b4f55fb6c1578a1993d79bf29534dd3cb0111f",
+        "459d90687aaa9ef6d5a6c35066303f5a2efd0008b8cad4f816e67d1b230a504f"
+      ]
+    },
+    {
+      "hash": "ef031eaa35ebf781",
+      "hash_full": "ef031eaa35ebf7819830179495ea9daa1a64c888bc1e6729ab0601045fbcb85f",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:47:28Z",
+      "height": 331,
+      "parents": [
+        "c7128a2e54190ab89871d4465d031823f99f6f8fae9009cf515ae986fcc4f734",
+        "e12066f39ab1c6270fb112bf11b4f55fb6c1578a1993d79bf29534dd3cb0111f"
+      ]
+    },
+    {
+      "hash": "38936a280087a01a",
+      "hash_full": "38936a280087a01a556a66c7ae55e7e1a0b1ab717fb6cf2977622bc7b84333fd",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:48:13Z",
+      "height": 332,
+      "parents": [
+        "ef031eaa35ebf7819830179495ea9daa1a64c888bc1e6729ab0601045fbcb85f",
+        "c7128a2e54190ab89871d4465d031823f99f6f8fae9009cf515ae986fcc4f734"
+      ]
+    },
+    {
+      "hash": "e82c9c3518df9247",
+      "hash_full": "e82c9c3518df9247a8154824aa1b5a66827fa90798556797d87879d6894ea069",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:48:58Z",
+      "height": 333,
+      "parents": [
+        "38936a280087a01a556a66c7ae55e7e1a0b1ab717fb6cf2977622bc7b84333fd",
+        "ef031eaa35ebf7819830179495ea9daa1a64c888bc1e6729ab0601045fbcb85f"
+      ]
+    },
+    {
+      "hash": "bf7329f1a2d75cc7",
+      "hash_full": "bf7329f1a2d75cc71620a628fe44e3e32c32faa0b5c8d0a88b966ef6bbe981a8",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:49:43Z",
+      "height": 334,
+      "parents": [
+        "e82c9c3518df9247a8154824aa1b5a66827fa90798556797d87879d6894ea069",
+        "38936a280087a01a556a66c7ae55e7e1a0b1ab717fb6cf2977622bc7b84333fd"
+      ]
+    },
+    {
+      "hash": "9a70e736142da1d5",
+      "hash_full": "9a70e736142da1d5b6c49fc3d161423806374474c0af5433fc226226d79090c7",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:50:28Z",
+      "height": 335,
+      "parents": [
+        "bf7329f1a2d75cc71620a628fe44e3e32c32faa0b5c8d0a88b966ef6bbe981a8",
+        "e82c9c3518df9247a8154824aa1b5a66827fa90798556797d87879d6894ea069"
+      ]
+    },
+    {
+      "hash": "2579eedf9d663e22",
+      "hash_full": "2579eedf9d663e2277ccb17a3965825a5dd3d7a16431610f4de8519da4729621",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:51:14Z",
+      "height": 336,
+      "parents": [
+        "9a70e736142da1d5b6c49fc3d161423806374474c0af5433fc226226d79090c7",
+        "bf7329f1a2d75cc71620a628fe44e3e32c32faa0b5c8d0a88b966ef6bbe981a8"
+      ]
+    },
+    {
+      "hash": "e8fd18b488af99dd",
+      "hash_full": "e8fd18b488af99dda5737ae8f7822ca2ca6c9d1a3fd49d11da593e847f97d1ac",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:51:59Z",
+      "height": 337,
+      "parents": [
+        "2579eedf9d663e2277ccb17a3965825a5dd3d7a16431610f4de8519da4729621",
+        "9a70e736142da1d5b6c49fc3d161423806374474c0af5433fc226226d79090c7"
+      ]
+    },
+    {
+      "hash": "5a06416540964d10",
+      "hash_full": "5a06416540964d1054b5c6af6c0ca1b930dda3b48165582de4eb5c533caf0a0c",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:52:44Z",
+      "height": 338,
+      "parents": [
+        "e8fd18b488af99dda5737ae8f7822ca2ca6c9d1a3fd49d11da593e847f97d1ac",
+        "2579eedf9d663e2277ccb17a3965825a5dd3d7a16431610f4de8519da4729621"
+      ]
+    },
+    {
+      "hash": "8cf4b0aa046c7c71",
+      "hash_full": "8cf4b0aa046c7c710c23ecff80fa4beaab5d64bdee98986268df57c0d0e76a2f",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:53:29Z",
+      "height": 339,
+      "parents": [
+        "5a06416540964d1054b5c6af6c0ca1b930dda3b48165582de4eb5c533caf0a0c",
+        "e8fd18b488af99dda5737ae8f7822ca2ca6c9d1a3fd49d11da593e847f97d1ac"
+      ]
+    },
+    {
+      "hash": "e3fd231f92582fd5",
+      "hash_full": "e3fd231f92582fd553ea7313db188d3fbf6cdcd27706d88690ede82aa729692c",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:54:14Z",
+      "height": 340,
+      "parents": [
+        "8cf4b0aa046c7c710c23ecff80fa4beaab5d64bdee98986268df57c0d0e76a2f",
+        "5a06416540964d1054b5c6af6c0ca1b930dda3b48165582de4eb5c533caf0a0c"
+      ]
+    },
+    {
+      "hash": "c334a166fab362f7",
+      "hash_full": "c334a166fab362f7456ffbc5bd3c4c23d6442b894fd6a2f4dbb7c5aafa5e03b3",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:54:59Z",
+      "height": 341,
+      "parents": [
+        "e3fd231f92582fd553ea7313db188d3fbf6cdcd27706d88690ede82aa729692c",
+        "8cf4b0aa046c7c710c23ecff80fa4beaab5d64bdee98986268df57c0d0e76a2f"
+      ]
+    },
+    {
+      "hash": "85d8931b08499cb6",
+      "hash_full": "85d8931b08499cb689e9ca915200bd5a7c98491142bc1badc9ab788f7e83dda2",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:55:44Z",
+      "height": 342,
+      "parents": [
+        "c334a166fab362f7456ffbc5bd3c4c23d6442b894fd6a2f4dbb7c5aafa5e03b3",
+        "e3fd231f92582fd553ea7313db188d3fbf6cdcd27706d88690ede82aa729692c"
+      ]
+    },
+    {
+      "hash": "04b42a94f7d78c4b",
+      "hash_full": "04b42a94f7d78c4ba37fc3a9dafc34362afca8afeffe0748ff16abecbfd83d75",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:56:29Z",
+      "height": 343,
+      "parents": [
+        "85d8931b08499cb689e9ca915200bd5a7c98491142bc1badc9ab788f7e83dda2",
+        "c334a166fab362f7456ffbc5bd3c4c23d6442b894fd6a2f4dbb7c5aafa5e03b3"
+      ]
+    },
+    {
+      "hash": "271970b8a389542a",
+      "hash_full": "271970b8a389542ab468ecc4bf2cc896e88f9b6ffdfa0c8f403905a9e440adf9",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:57:14Z",
+      "height": 344,
+      "parents": [
+        "04b42a94f7d78c4ba37fc3a9dafc34362afca8afeffe0748ff16abecbfd83d75",
+        "85d8931b08499cb689e9ca915200bd5a7c98491142bc1badc9ab788f7e83dda2"
+      ]
+    },
+    {
+      "hash": "7842335abd1d59ac",
+      "hash_full": "7842335abd1d59ac2d987189ca88fd49486eda857b3b59c118a8b83b4a331ba6",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:58:00Z",
+      "height": 345,
+      "parents": [
+        "271970b8a389542ab468ecc4bf2cc896e88f9b6ffdfa0c8f403905a9e440adf9",
+        "04b42a94f7d78c4ba37fc3a9dafc34362afca8afeffe0748ff16abecbfd83d75"
+      ]
+    },
+    {
+      "hash": "a5904ac5b8f71b30",
+      "hash_full": "a5904ac5b8f71b30453c3b7be0978dc937b217229b88b63d10cec6578097b88c",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:58:45Z",
+      "height": 346,
+      "parents": [
+        "7842335abd1d59ac2d987189ca88fd49486eda857b3b59c118a8b83b4a331ba6",
+        "271970b8a389542ab468ecc4bf2cc896e88f9b6ffdfa0c8f403905a9e440adf9"
+      ]
+    },
+    {
+      "hash": "873f4cbee0832ae6",
+      "hash_full": "873f4cbee0832ae657b5105afcc7ca6bb07604768c24bd2561f1021674668436",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T09:59:30Z",
+      "height": 347,
+      "parents": [
+        "a5904ac5b8f71b30453c3b7be0978dc937b217229b88b63d10cec6578097b88c",
+        "7842335abd1d59ac2d987189ca88fd49486eda857b3b59c118a8b83b4a331ba6"
+      ]
+    },
+    {
+      "hash": "142372b26df72c63",
+      "hash_full": "142372b26df72c63d383650c835ddbf591cf8a49c0761833cb4a2563bd5b7370",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:00:15Z",
+      "height": 348,
+      "parents": [
+        "873f4cbee0832ae657b5105afcc7ca6bb07604768c24bd2561f1021674668436",
+        "a5904ac5b8f71b30453c3b7be0978dc937b217229b88b63d10cec6578097b88c"
+      ]
+    },
+    {
+      "hash": "c0d9462f71ac2852",
+      "hash_full": "c0d9462f71ac2852cc8c94ee926eac832b16ac197ea7755600dcf1e85fd4de18",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:01:00Z",
+      "height": 349,
+      "parents": [
+        "142372b26df72c63d383650c835ddbf591cf8a49c0761833cb4a2563bd5b7370",
+        "873f4cbee0832ae657b5105afcc7ca6bb07604768c24bd2561f1021674668436"
+      ]
+    },
+    {
+      "hash": "59cd4d32cecfb7c5",
+      "hash_full": "59cd4d32cecfb7c53f91486ade445dc3cf806fcabca812ab54ad93cedf09b474",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:01:45Z",
+      "height": 350,
+      "parents": [
+        "c0d9462f71ac2852cc8c94ee926eac832b16ac197ea7755600dcf1e85fd4de18",
+        "142372b26df72c63d383650c835ddbf591cf8a49c0761833cb4a2563bd5b7370"
+      ]
+    },
+    {
+      "hash": "cf7b415b2edb0057",
+      "hash_full": "cf7b415b2edb0057785fecf8f091cbdeacda5926819b78584ed3631984010624",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:02:30Z",
+      "height": 351,
+      "parents": [
+        "59cd4d32cecfb7c53f91486ade445dc3cf806fcabca812ab54ad93cedf09b474",
+        "c0d9462f71ac2852cc8c94ee926eac832b16ac197ea7755600dcf1e85fd4de18"
+      ]
+    },
+    {
+      "hash": "a2b70b170a45ba15",
+      "hash_full": "a2b70b170a45ba150541862850e4a7466c27fb11f54cb25a5fe6c81f6d2a1d96",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:03:15Z",
+      "height": 352,
+      "parents": [
+        "cf7b415b2edb0057785fecf8f091cbdeacda5926819b78584ed3631984010624",
+        "59cd4d32cecfb7c53f91486ade445dc3cf806fcabca812ab54ad93cedf09b474"
+      ]
+    },
+    {
+      "hash": "623ad032d8b730be",
+      "hash_full": "623ad032d8b730bed6effc909bd34b2cda15d1e0e2aa45b8d528eaf72d98d333",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:04:00Z",
+      "height": 353,
+      "parents": [
+        "a2b70b170a45ba150541862850e4a7466c27fb11f54cb25a5fe6c81f6d2a1d96",
+        "cf7b415b2edb0057785fecf8f091cbdeacda5926819b78584ed3631984010624"
+      ]
+    },
+    {
+      "hash": "9e66a0b62fe50617",
+      "hash_full": "9e66a0b62fe5061721bde3d65ad5aa590501c0105296115af52df29385dea9e5",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:04:45Z",
+      "height": 354,
+      "parents": [
+        "623ad032d8b730bed6effc909bd34b2cda15d1e0e2aa45b8d528eaf72d98d333",
+        "a2b70b170a45ba150541862850e4a7466c27fb11f54cb25a5fe6c81f6d2a1d96"
+      ]
+    },
+    {
+      "hash": "c8e50cbb090bb84a",
+      "hash_full": "c8e50cbb090bb84adc45dc231476a2c7c3f958dfef01e4f6d9006d1be8937847",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": null,
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T10:05:30Z",
+      "height": 355,
+      "parents": [
+        "9e66a0b62fe5061721bde3d65ad5aa590501c0105296115af52df29385dea9e5",
+        "623ad032d8b730bed6effc909bd34b2cda15d1e0e2aa45b8d528eaf72d98d333"
+      ]
+    },
+    {
+      "hash": "1d3294755ba4a883",
+      "hash_full": "1d3294755ba4a883be6c5755b65d67d296e9709d5c64bf2bb823f379fbaa6226",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "from_hash": "963f99bb3164e342f7ccb76a0667849df918875611880c5a62fd316caac85c68",
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 356,
+      "parents": [
+        "c8e50cbb090bb84adc45dc231476a2c7c3f958dfef01e4f6d9006d1be8937847",
+        "9e66a0b62fe5061721bde3d65ad5aa590501c0105296115af52df29385dea9e5"
+      ]
+    },
+    {
+      "hash": "9045ac0558636b52",
+      "hash_full": "9045ac0558636b52450203b140c5c9f6187bb9ee176b80bc398d136e2019b901",
       "kind": "health",
+      "from": "root",
+      "to": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "from_hash": "255512a327c88b04d688aa1b40b9b30788b114916f5644142b0a5c7ffbe6cb59",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Root↔Super dual-command pulse",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 357,
+      "parents": [
+        "1d3294755ba4a883be6c5755b65d67d296e9709d5c64bf2bb823f379fbaa6226",
+        "c8e50cbb090bb84adc45dc231476a2c7c3f958dfef01e4f6d9006d1be8937847"
+      ]
+    },
+    {
+      "hash": "def43470b04b62ee",
+      "hash_full": "def43470b04b62ee914f8cdc71d1c16e20117a56d8aad6c50d0cc69f283e1189",
+      "kind": "work_assign",
+      "from": "sn",
+      "to": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "from_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "to_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "message": "Capability task signal #1",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 358,
+      "parents": [
+        "9045ac0558636b52450203b140c5c9f6187bb9ee176b80bc398d136e2019b901",
+        "1d3294755ba4a883be6c5755b65d67d296e9709d5c64bf2bb823f379fbaa6226"
+      ]
+    },
+    {
+      "hash": "8cbd82e9d0b11717",
+      "hash_full": "8cbd82e9d0b11717ff8dc3bc1fc7a5767f165aa1ff67f760f48c2b9c0fd91a23",
+      "kind": "work_ack",
+      "from": "ebeb8e5f8f70",
+      "to": "sn",
+      "from_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Node ack #1",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 359,
+      "parents": [
+        "def43470b04b62ee914f8cdc71d1c16e20117a56d8aad6c50d0cc69f283e1189",
+        "9045ac0558636b52450203b140c5c9f6187bb9ee176b80bc398d136e2019b901"
+      ]
+    },
+    {
+      "hash": "57036ed4f4ba0f96",
+      "hash_full": "57036ed4f4ba0f9693e41a8a3038f177e2794e517a98fc811f1fc6917a742855",
+      "kind": "work_assign",
+      "from": "sn",
+      "to": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "from_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "to_hash": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "message": "Capability task signal #2",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 360,
+      "parents": [
+        "8cbd82e9d0b11717ff8dc3bc1fc7a5767f165aa1ff67f760f48c2b9c0fd91a23",
+        "def43470b04b62ee914f8cdc71d1c16e20117a56d8aad6c50d0cc69f283e1189"
+      ]
+    },
+    {
+      "hash": "1042070c0d09b121",
+      "hash_full": "1042070c0d09b121072362e29193b38de8ed38013a9d26d8fcb555046a46089e",
+      "kind": "work_ack",
+      "from": "d67c04f6963d",
+      "to": "sn",
+      "from_hash": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Node ack #2",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 361,
+      "parents": [
+        "57036ed4f4ba0f9693e41a8a3038f177e2794e517a98fc811f1fc6917a742855",
+        "8cbd82e9d0b11717ff8dc3bc1fc7a5767f165aa1ff67f760f48c2b9c0fd91a23"
+      ]
+    },
+    {
+      "hash": "f71a0d601ea5f1a3",
+      "hash_full": "f71a0d601ea5f1a3349d3252faf17ca2138f3ce8e984cd6857153677a0ac1866",
+      "kind": "work_assign",
+      "from": "sn",
+      "to": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "from_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "to_hash": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "message": "Capability task signal #3",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 362,
+      "parents": [
+        "1042070c0d09b121072362e29193b38de8ed38013a9d26d8fcb555046a46089e",
+        "57036ed4f4ba0f9693e41a8a3038f177e2794e517a98fc811f1fc6917a742855"
+      ]
+    },
+    {
+      "hash": "dfc76389239448aa",
+      "hash_full": "dfc76389239448aa5b4b090f26b77052434adcd08f09a939fba94afdd3082982",
+      "kind": "work_ack",
+      "from": "32501a0c80ba",
+      "to": "sn",
+      "from_hash": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Node ack #3",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 363,
+      "parents": [
+        "f71a0d601ea5f1a3349d3252faf17ca2138f3ce8e984cd6857153677a0ac1866",
+        "1042070c0d09b121072362e29193b38de8ed38013a9d26d8fcb555046a46089e"
+      ]
+    },
+    {
+      "hash": "2a0a81c0ebf516df",
+      "hash_full": "2a0a81c0ebf516df86544dcef625359a511da8654fc708057c6e90592060fc4f",
+      "kind": "work_assign",
+      "from": "sn",
+      "to": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "from_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "to_hash": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "message": "Capability task signal #4",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 364,
+      "parents": [
+        "dfc76389239448aa5b4b090f26b77052434adcd08f09a939fba94afdd3082982",
+        "f71a0d601ea5f1a3349d3252faf17ca2138f3ce8e984cd6857153677a0ac1866"
+      ]
+    },
+    {
+      "hash": "894b05bb64c73c8c",
+      "hash_full": "894b05bb64c73c8c5974f94cf64d4e1ec1d84ef4c6f654a461a8bcb113f3f5c7",
+      "kind": "work_ack",
+      "from": "c64ce8f34ef6",
+      "to": "sn",
+      "from_hash": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Node ack #4",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 365,
+      "parents": [
+        "2a0a81c0ebf516df86544dcef625359a511da8654fc708057c6e90592060fc4f",
+        "dfc76389239448aa5b4b090f26b77052434adcd08f09a939fba94afdd3082982"
+      ]
+    },
+    {
+      "hash": "c6336d8dffbed1e4",
+      "hash_full": "c6336d8dffbed1e4fa7ad3efe4291f23424ec8f779baeba8f0c7274c22099ab2",
+      "kind": "work_assign",
+      "from": "sn",
+      "to": "089c23a5b8fa2c987c6b998d6d8552ae7c913a51b8b0bbeef279de6edd81e1eb",
+      "from_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "to_hash": "089c23a5b8fa2c987c6b998d6d8552ae7c913a51b8b0bbeef279de6edd81e1eb",
+      "message": "Capability task signal #5",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 366,
+      "parents": [
+        "894b05bb64c73c8c5974f94cf64d4e1ec1d84ef4c6f654a461a8bcb113f3f5c7",
+        "2a0a81c0ebf516df86544dcef625359a511da8654fc708057c6e90592060fc4f"
+      ]
+    },
+    {
+      "hash": "a55444565d75812a",
+      "hash_full": "a55444565d75812a15e201094ec457f33ccc8add88694d49740d0009160e361e",
+      "kind": "work_ack",
+      "from": "089c23a5b8fa",
+      "to": "sn",
+      "from_hash": "089c23a5b8fa2c987c6b998d6d8552ae7c913a51b8b0bbeef279de6edd81e1eb",
+      "to_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "message": "Node ack #5",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 367,
+      "parents": [
+        "c6336d8dffbed1e4fa7ad3efe4291f23424ec8f779baeba8f0c7274c22099ab2",
+        "894b05bb64c73c8c5974f94cf64d4e1ec1d84ef4c6f654a461a8bcb113f3f5c7"
+      ]
+    },
+    {
+      "hash": "ba109a6bba8140eb",
+      "hash_full": "ba109a6bba8140eb524b3317ce0f948b673f7eddfd113aa9fabd66da6d615323",
+      "kind": "heartbeat",
+      "from": "ebeb8e5f8f70",
+      "to": null,
+      "from_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "to_hash": null,
+      "message": "node heartbeat",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 368,
+      "parents": [
+        "a55444565d75812a15e201094ec457f33ccc8add88694d49740d0009160e361e",
+        "c6336d8dffbed1e4fa7ad3efe4291f23424ec8f779baeba8f0c7274c22099ab2"
+      ]
+    },
+    {
+      "hash": "0d9755c1850d9180",
+      "hash_full": "0d9755c1850d918030c7a7226a8863d18d4fa64de11e0d36fb6881eff29f0bfc",
+      "kind": "heartbeat",
+      "from": "d67c04f6963d",
+      "to": null,
+      "from_hash": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "to_hash": null,
+      "message": "node heartbeat",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 369,
+      "parents": [
+        "ba109a6bba8140eb524b3317ce0f948b673f7eddfd113aa9fabd66da6d615323",
+        "a55444565d75812a15e201094ec457f33ccc8add88694d49740d0009160e361e"
+      ]
+    },
+    {
+      "hash": "15a2e2f2a638920e",
+      "hash_full": "15a2e2f2a638920e1e2ad6f6476f38f9f8e976d902d6da3146d44cf84c7f6598",
+      "kind": "heartbeat",
+      "from": "32501a0c80ba",
+      "to": null,
+      "from_hash": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "to_hash": null,
+      "message": "node heartbeat",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 370,
+      "parents": [
+        "0d9755c1850d918030c7a7226a8863d18d4fa64de11e0d36fb6881eff29f0bfc",
+        "ba109a6bba8140eb524b3317ce0f948b673f7eddfd113aa9fabd66da6d615323"
+      ]
+    },
+    {
+      "hash": "f30d5f0e0802a127",
+      "hash_full": "f30d5f0e0802a127977cafc9000373727cdf8163d5cd4f3314e9faff70af6e1c",
+      "kind": "heartbeat",
+      "from": "c64ce8f34ef6",
+      "to": null,
+      "from_hash": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "to_hash": null,
+      "message": "node heartbeat",
+      "created_at": "2026-08-09T12:11:06Z",
+      "height": 371,
+      "parents": [
+        "15a2e2f2a638920e1e2ad6f6476f38f9f8e976d902d6da3146d44cf84c7f6598",
+        "0d9755c1850d918030c7a7226a8863d18d4fa64de11e0d36fb6881eff29f0bfc"
+      ]
+    },
+    {
+      "hash": "f883ae4f74d727a7",
+      "hash_full": "f883ae4f74d727a7e0b6adb6cf7a6ee30461c3986ab9e9630624130afa1e5439",
+      "kind": "heartbeat",
       "from": "bis3946-pc",
       "to": null,
-      "message": "Omni-Mesh Tangle pulse from SN2",
-      "created_at": "2026-08-09T08:42:07Z",
-      "height": 243
+      "from_hash": "963f99bb3164e342f7ccb76a0667849df918875611880c5a62fd316caac85c68",
+      "to_hash": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T12:11:33Z",
+      "height": 372,
+      "parents": [
+        "f30d5f0e0802a127977cafc9000373727cdf8163d5cd4f3314e9faff70af6e1c",
+        "15a2e2f2a638920e1e2ad6f6476f38f9f8e976d902d6da3146d44cf84c7f6598"
+      ]
     }
   ],
-  "note": "Public-safe tip slice only. Full private tangle remains on Super Node hosts."
+  "node_edges": [
+    {
+      "source_hash": "255512a327c88b04d688aa1b40b9b30788b114916f5644142b0a5c7ffbe6cb59",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "health",
+      "tip_hash": "9045ac0558636b52450203b140c5c9f6187bb9ee176b80bc398d136e2019b901"
+    },
+    {
+      "source_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "target_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "kind": "work_assign",
+      "tip_hash": "def43470b04b62ee914f8cdc71d1c16e20117a56d8aad6c50d0cc69f283e1189"
+    },
+    {
+      "source_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "work_ack",
+      "tip_hash": "8cbd82e9d0b11717ff8dc3bc1fc7a5767f165aa1ff67f760f48c2b9c0fd91a23"
+    },
+    {
+      "source_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "target_hash": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "kind": "work_assign",
+      "tip_hash": "57036ed4f4ba0f9693e41a8a3038f177e2794e517a98fc811f1fc6917a742855"
+    },
+    {
+      "source_hash": "d67c04f6963da919970996ff145dc34e3ecaa045df6170acc7c0a13451ebc7e6",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "work_ack",
+      "tip_hash": "1042070c0d09b121072362e29193b38de8ed38013a9d26d8fcb555046a46089e"
+    },
+    {
+      "source_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "target_hash": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "kind": "work_assign",
+      "tip_hash": "f71a0d601ea5f1a3349d3252faf17ca2138f3ce8e984cd6857153677a0ac1866"
+    },
+    {
+      "source_hash": "32501a0c80bae66be0a3a1b99b4841545221798d893e1461c84b6d3de32b4adb",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "work_ack",
+      "tip_hash": "dfc76389239448aa5b4b090f26b77052434adcd08f09a939fba94afdd3082982"
+    },
+    {
+      "source_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "target_hash": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "kind": "work_assign",
+      "tip_hash": "2a0a81c0ebf516df86544dcef625359a511da8654fc708057c6e90592060fc4f"
+    },
+    {
+      "source_hash": "c64ce8f34ef6de4b2f1ce01de179921c3bb2716bf9f6244d6b912473d0c26960",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "work_ack",
+      "tip_hash": "894b05bb64c73c8c5974f94cf64d4e1ec1d84ef4c6f654a461a8bcb113f3f5c7"
+    },
+    {
+      "source_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "target_hash": "089c23a5b8fa2c987c6b998d6d8552ae7c913a51b8b0bbeef279de6edd81e1eb",
+      "kind": "work_assign",
+      "tip_hash": "c6336d8dffbed1e4fa7ad3efe4291f23424ec8f779baeba8f0c7274c22099ab2"
+    },
+    {
+      "source_hash": "089c23a5b8fa2c987c6b998d6d8552ae7c913a51b8b0bbeef279de6edd81e1eb",
+      "target_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "kind": "work_ack",
+      "tip_hash": "a55444565d75812a15e201094ec457f33ccc8add88694d49740d0009160e361e"
+    }
+  ],
+  "note": "Tips and edges use full node_hash when known. Public-safe messages only."
 }

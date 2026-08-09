@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T09:05:45Z",
+  "timestamp": "2026-08-09T12:11:32Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
@@ -190,12 +190,12 @@
     ]
   },
   "knowledge_pulse": {
-    "updated_at": "2026-08-09T08:42:07Z",
-    "summary": "Iteration 4 · Dual command · SN2 onboarding · Omni-Mesh Tangle · Grok skill",
+    "updated_at": "2026-08-09T12:11:32Z",
+    "summary": "Handle lookup + skill unlock + tangle node_hash edges live",
     "sources": [
-      "Command Center v0.9",
-      "status.json",
-      "skills/grok-nun-node.md"
+      "handle-index.json",
+      "lookup/",
+      "tangle-public.json"
     ]
   },
   "onboarding": {
@@ -222,9 +222,12 @@
   },
   "skills": {
     "index": "https://nun.nexus/skills/index.json",
-    "catalog": "https://nun.nexus/skills/",
     "grok_nun_node": "https://nun.nexus/skills/grok-nun-node.md",
-    "version": "1.1.0",
-    "count": 12
+    "version": "1.0.0"
+  },
+  "handle_lookup": {
+    "index": "https://nun.nexus/handle-index.json",
+    "page": "https://nun.nexus/lookup/",
+    "protocol": "nun-handle-v1"
   }
 }

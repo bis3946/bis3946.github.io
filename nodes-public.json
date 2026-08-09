@@ -1,7 +1,7 @@
 {
   "ledger": "NuN Node Tangle – Public Slice",
   "version": "1.2",
-  "updated_at": "2026-08-09T03:00:46Z",
+  "updated_at": "2026-08-09T12:11:32Z",
   "privacy": "Public fields: node_hash, node_type, joined_at, contribution, status, role_function, tier_rank, capability_class, resource_band, progression_next. Full dossiers are Super Node 0 only.",
   "tier_path": [
     "Observer",
@@ -23,7 +23,8 @@
       "tier_rank": 0,
       "capability_class": "governance",
       "resource_band": "advanced",
-      "progression_next": "—"
+      "progression_next": "—",
+      "handle_key": "a86d379065199f8c38f661db7057977d4b94961292a843757853e90adc2609a3"
     },
     {
       "node_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
@@ -37,7 +38,8 @@
       "tier_rank": 5,
       "capability_class": "coordination",
       "resource_band": "advanced",
-      "progression_next": "—"
+      "progression_next": "—",
+      "handle_key": "61cc8b833cb5f0b62fe9ff032f9f4f6fbb520052e03ecf206112d93eca8abff8"
     },
     {
       "node_hash": "ebeb8e5f8f70dc663e1fb22f23a988eeb184731b01c27c2b661ca614a44885ce",

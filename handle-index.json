@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-09T12:11:32Z",
+  "protocol": "nun-handle-v1",
+  "note": "Lookup: sha256('nun-handle-v1|' + lowercase_@handle). Matches prove handle ownership without listing raw handles.",
+  "count": 2,
+  "entries": [
+    {
+      "handle_key": "a86d379065199f8c38f661db7057977d4b94961292a843757853e90adc2609a3",
+      "node_hash": "255512a327c88b04d688aa1b40b9b30788b114916f5644142b0a5c7ffbe6cb59",
+      "node_id": 0,
+      "node_type": "Root Authority",
+      "status": "active"
+    },
+    {
+      "handle_key": "61cc8b833cb5f0b62fe9ff032f9f4f6fbb520052e03ecf206112d93eca8abff8",
+      "node_hash": "2b2dc36f6f4d2a9abcd70307f99982649b4d5dfe17ba9254d43b21ee68b6fdb1",
+      "node_id": 1,
+      "node_type": "Super Node",
+      "status": "active"
+    }
+  ]
+}
