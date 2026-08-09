@@ -102,6 +102,7 @@
         <a href="#guide" class="hover:text-green-400">Guide</a>
         <a href="/skills/" class="text-green-400/90 hover:text-green-300 font-medium">Skills</a>
         <a href="/nodes-public.json" class="hover:text-green-400">Ledger</a>
+        <a href="/lookup/" class="hover:text-green-400">My hash</a>
         <a href="#tangle" class="hover:text-green-400">Tangle</a>
         <a href="#join" class="hover:text-green-400">Join</a>
       </div>
@@ -163,6 +164,8 @@
         <a href="/schema/orchestrator/v6.json" class="px-4 py-2 rounded-xl border border-zinc-600 text-zinc-400 text-sm mono hover:border-zinc-400">schema V6</a>
         <a href="/skills/index.json" class="px-4 py-2 rounded-xl border border-zinc-600 text-zinc-400 text-sm mono hover:border-zinc-400">skills index</a>
         <a href="/intake-config.json" class="px-4 py-2 rounded-xl border border-zinc-600 text-zinc-400 text-sm mono hover:border-zinc-400">intake-config</a>
+        <a href="/handle-index.json" class="px-4 py-2 rounded-xl border border-zinc-600 text-zinc-400 text-sm mono hover:border-zinc-400">handle-index</a>
+        <a href="/lookup/" class="px-4 py-2 rounded-xl border border-green-500/25 bg-green-500/5 text-green-400 text-sm mono hover:bg-green-500/10">find my hash</a>
       </div>
     </section>
 
@@ -480,6 +483,13 @@
           </li>
           <li class="flex gap-3">
             <span class="flex-shrink-0 w-7 h-7 rounded-full bg-green-500/15 border border-green-500/40 text-green-400 font-bold text-xs grid place-items-center">5</span>
+            <div>
+              <div class="text-zinc-200 font-medium">Find your node_hash &amp; unlock skills</div>
+              <p class="mt-1 mb-4">After admission, open <a class="text-green-400 font-semibold hover:underline" href="/lookup/">/lookup</a>, confirm the same <span class="mono">@handle</span>, and copy your public <span class="mono">node_hash</span>. Use that session on <a class="text-green-400 hover:underline" href="/skills/">/skills</a> to unlock operator mode.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-green-500/15 border border-green-500/40 text-green-400 font-bold text-xs grid place-items-center">6</span>
             <div>
               <div class="text-zinc-200 font-medium">Progress by contribution</div>
               <p class="mt-1">Path: <strong class="text-zinc-300">Observer → Node Operator → Guardian → Architect</strong>.
@@ -851,13 +861,31 @@
           ' · nodes ' + esc(String(statusLive.total_nodes || statusLive.verified_nodes || '—')) + '</p>' : '');
     }
 
+    let tipNodeEdges = []; // {source_hash, target_hash, kind} from tangle-public
+
     function buildLinks() {
       links = [];
       const byCls = { core: [], production: [], foundation: [], test: [] };
-      nodes3d.forEach((n, i) => { (byCls[n.cls] || byCls.foundation).push(i); });
+      const byHash = {};
+      nodes3d.forEach((n, i) => {
+        (byCls[n.cls] || byCls.foundation).push(i);
+        if (n.fullHash) byHash[n.fullHash] = i;
+        if (n.raw && n.raw.node_hash) byHash[n.raw.node_hash] = i;
+      });
       const cores = byCls.core;
       const hubs = cores.length ? cores : byCls.production.slice(0, 3);
 
+      // Real tangle tip edges first (authoritative traffic)
+      let tipLinks = 0;
+      (tipNodeEdges || []).forEach(e => {
+        const a = byHash[e.source_hash];
+        const b = byHash[e.target_hash];
+        if (a == null || b == null || a === b) return;
+        links.push({ a, b, w: 1.15, kind: 'tangle', tipKind: e.kind || 'tip' });
+        tipLinks++;
+      });
+
+      // Structural hub mesh as backbone
       nodes3d.forEach((n, i) => {
         if (!hubs.length) return;
         let best = hubs[0], bestD = 1e9;
@@ -890,13 +918,16 @@
         return true;
       });
       const el = document.getElementById('topo-links');
-      if (el) el.textContent = String(links.length);
+      if (el) el.textContent = String(links.length) + (tipLinks ? ' (' + tipLinks + ' tangle)' : '');
     }
 
     function spawnPacket() {
       if (!links.length || !nodes3d.length) return;
+      const tangleLinks = links.filter(L => L.kind === 'tangle');
       const hubLinks = links.filter(L => L.kind === 'hub');
-      const pool = hubLinks.length && Math.random() < 0.65 ? hubLinks : links;
+      let pool = links;
+      if (tangleLinks.length && Math.random() < 0.72) pool = tangleLinks;
+      else if (hubLinks.length && Math.random() < 0.55) pool = hubLinks;
       const L = pool[Math.floor(Math.random() * pool.length)];
       const fromCore = nodes3d[L.a].cls === 'core' || nodes3d[L.b].cls === 'core';
       packets.push({
@@ -941,7 +972,7 @@
         g.addColorStop(0.5, 'rgba(34,255,136,' + alpha + ')');
         g.addColorStop(1, 'rgba(167,139,250,' + (alpha * 0.85) + ')');
         ctx.strokeStyle = g;
-        ctx.lineWidth = L.kind === 'hub' ? 1.25 : 0.85;
+        ctx.lineWidth = L.kind === 'tangle' ? 1.6 : (L.kind === 'hub' ? 1.2 : 0.85);
         ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
       });
 
@@ -1040,6 +1071,7 @@
           z: r * Math.sin(phi) * Math.sin(theta),
           cls,
           hash: hsh.slice(0, 12),
+          fullHash: hsh,
           type: n.node_type || 'Node',
           id: n.node_id,
           idx,
@@ -1128,9 +1160,18 @@
         if (tgRes && tgRes.ok) {
           const tg = await tgRes.json();
           tipCount = (tg.tips_public || []).length || tg.tip_count_local || 0;
+          tipNodeEdges = tg.node_edges || [];
+          // Also derive edges from tips with from_hash/to_hash
+          (tg.tips_public || []).forEach(tip => {
+            if (tip.from_hash && tip.to_hash && tip.from_hash.length === 64 && tip.to_hash.length === 64) {
+              tipNodeEdges.push({ source_hash: tip.from_hash, target_hash: tip.to_hash, kind: tip.kind || 'tip' });
+            }
+          });
           const tt = document.getElementById('topo-tips');
-          if (tt) tt.textContent = String(tipCount);
-          packetBudget += Math.min(12, tipCount * 0.15);
+          if (tt) tt.textContent = String(tipCount) + ' · edges ' + tipNodeEdges.length;
+          packetBudget += Math.min(16, tipCount * 0.2 + tipNodeEdges.length * 0.5);
+          // rebuild links with real tip edges
+          if (nodes3d.length) buildLinks();
         }
         lastPollAt = Date.now();
         const lp = document.getElementById('topo-last');

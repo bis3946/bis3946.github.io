@@ -96,6 +96,7 @@
       <div class="flex flex-col gap-2">
         <a href="/nodes-public.json" class="text-green-400 text-sm hover:underline">View live public node ledger →</a>
         <a href="/#guide" class="text-zinc-400 text-sm hover:underline">Full join + skills guide →</a>
+        <a id="lookupLink" href="/lookup/" class="text-green-400 text-sm hover:underline">Find your node_hash after admission →</a>
         <a href="/skills/" class="text-zinc-400 text-sm hover:underline">Node Skills catalog →</a>
       </div>
       <div class="mt-6">
@@ -211,6 +212,8 @@
         : 'Delivery: local only (relay offline).';
       document.getElementById('step2').classList.add('hidden');
       document.getElementById('step3').classList.remove('hidden');
+      const ll = document.getElementById('lookupLink');
+      if (ll && handle) ll.href = '/lookup/?handle=' + encodeURIComponent(handle);
       if (btn) { btn.disabled = false; btn.textContent = 'Submit for investigation'; }
     }
   </script>

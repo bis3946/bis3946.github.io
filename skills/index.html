@@ -137,6 +137,30 @@
       </div>
     </header>
 
+    
+    <section id="verify-gate" class="mb-8 card-like">
+      <div class="rounded-2xl border border-green-500/20 bg-black/40 p-5 md:p-6">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <div class="text-xs mono text-cyan-400/80 tracking-widest uppercase mb-1">Node verification</div>
+            <h2 class="text-lg font-bold text-zinc-100">Unlock skills with your registered @handle</h2>
+            <p class="text-sm text-zinc-400 mt-1 max-w-xl">Only active Mesh nodes (admitted after /beta) can use full NuN Skills. Confirm the same X handle you registered with.</p>
+          </div>
+          <div id="verify-badge" class="text-xs mono px-3 py-1.5 rounded-full border border-zinc-600 text-zinc-400">not verified</div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2 items-end">
+          <div class="flex-1 min-w-[200px]">
+            <label class="text-[11px] text-zinc-500">X handle</label>
+            <input id="skill-handle" type="text" placeholder="@yourhandle" class="w-full mt-1 bg-black border border-zinc-700 focus:border-green-500/50 rounded-xl px-3 py-2.5 text-sm outline-none" />
+          </div>
+          <button type="button" id="skill-verify" class="rounded-xl bg-green-500 text-black font-bold px-5 py-2.5 text-sm hover:bg-green-400">Verify node</button>
+          <a href="/lookup/" class="rounded-xl border border-zinc-600 text-zinc-300 px-4 py-2.5 text-sm hover:border-green-500/40">Lookup page</a>
+        </div>
+        <p id="skill-verify-msg" class="text-xs text-zinc-500 mt-3"></p>
+        <div id="skill-node-box" class="hidden mt-3 mono text-xs text-green-400/90 break-all"></div>
+      </div>
+    </section>
+
     <!-- Capability bands legend -->
     <section class="mb-8">
       <div class="flex flex-wrap gap-2" id="filters">
@@ -218,11 +242,95 @@ Dual command: SN0 mobile (S25) + SN2 Ubuntu always-on onboarding/publish.</pre>
     let SKILLS = [];
     let filter = "all";
 
+    // --- handle verification / skill unlock ---
+    let NODE_SESSION = null;
+    try { NODE_SESSION = JSON.parse(sessionStorage.getItem('nun_node_session') || 'null'); } catch(e) {}
+
+    async function sha256Hex(text) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    function normHandle(h) {
+      h = (h || '').trim().toLowerCase();
+      if (h && !h.startsWith('@')) h = '@' + h;
+      return h;
+    }
+    async function handleKey(h) {
+      return sha256Hex('nun-handle-v1|' + normHandle(h));
+    }
+    function setVerifiedUI(session) {
+      const badge = document.getElementById('verify-badge');
+      const msg = document.getElementById('skill-verify-msg');
+      const box = document.getElementById('skill-node-box');
+      const grid = document.getElementById('skills-grid');
+      if (session && session.status === 'active' && session.node_hash) {
+        NODE_SESSION = session;
+        if (badge) {
+          badge.textContent = 'ACTIVE · skills unlocked';
+          badge.className = 'text-xs mono px-3 py-1.5 rounded-full border border-green-500/40 text-green-400 bg-green-500/10';
+        }
+        if (msg) msg.textContent = 'Verified ' + session.handle + ' — full skill catalog enabled for this browser session.';
+        if (box) {
+          box.classList.remove('hidden');
+          box.innerHTML = 'node_hash: ' + session.node_hash +
+            (session.node_id != null ? '<br>node_id: #' + session.node_id : '') +
+            (session.node_type ? '<br>type: ' + session.node_type : '');
+        }
+        if (grid) grid.classList.remove('opacity-40', 'pointer-events-none');
+        document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('opacity-50'));
+      } else {
+        if (badge) {
+          badge.textContent = 'not verified · catalog browse-only';
+          badge.className = 'text-xs mono px-3 py-1.5 rounded-full border border-zinc-600 text-zinc-400';
+        }
+        if (msg) msg.textContent = 'Browse skills freely. Full operator use (Grok session as your node) requires an active registered @handle.';
+        if (box) box.classList.add('hidden');
+      }
+    }
+    setVerifiedUI(NODE_SESSION);
+    if (NODE_SESSION && NODE_SESSION.handle) {
+      const inp = document.getElementById('skill-handle');
+      if (inp) inp.value = NODE_SESSION.handle;
+    }
+    document.getElementById('skill-verify')?.addEventListener('click', async () => {
+      const handle = normHandle(document.getElementById('skill-handle')?.value || '');
+      const msg = document.getElementById('skill-verify-msg');
+      if (!handle || handle.length < 3) { if (msg) msg.textContent = 'Enter @handle'; return; }
+      if (msg) msg.textContent = 'Checking handle index…';
+      try {
+        const key = await handleKey(handle);
+        const r = await fetch('/handle-index.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) throw new Error('index unavailable');
+        const idx = await r.json();
+        const entry = (idx.entries || []).find(e => e.handle_key === key);
+        if (entry && (entry.status || 'active') === 'active') {
+          const session = {
+            handle, handle_key: key, node_hash: entry.node_hash,
+            node_id: entry.node_id, node_type: entry.node_type,
+            status: 'active', verified_at: new Date().toISOString()
+          };
+          sessionStorage.setItem('nun_node_session', JSON.stringify(session));
+          setVerifiedUI(session);
+        } else {
+          sessionStorage.removeItem('nun_node_session');
+          setVerifiedUI(null);
+          if (msg) msg.textContent = 'No active node for ' + handle + '. Join at /beta first, then return after admission.';
+        }
+      } catch (e) {
+        if (msg) msg.textContent = 'Verify failed: ' + e.message;
+      }
+    });
+
+
+
     function cardHTML(s) {
       const band = s.band || "ops";
       const cmds = (s.commands || []).map((c) => `<span class="cmd-chip mono">${c}</span>`).join("");
       const audience = (s.audience || []).slice(0, 3).join(" · ");
       const href = s.path && s.path.endsWith(".md") ? s.path : (s.page || "#");
+      const unlockNote = NODE_SESSION && NODE_SESSION.node_hash
+        ? '<div class="text-[10px] text-green-500/80 mono mt-1">unlocked · ' + NODE_SESSION.handle + '</div>'
+        : '<div class="text-[10px] text-zinc-600 mt-1">verify @handle to unlock operator mode</div>';
       return `
       <article class="skill-card p-5 flex flex-col" data-band="${band}" id="skill-${s.id}">
         <div class="flex items-start gap-3 mb-3">
@@ -239,7 +347,7 @@ Dual command: SN0 mobile (S25) + SN2 Ubuntu always-on onboarding/publish.</pre>
         <div class="flex flex-wrap gap-1.5 mb-3">${cmds}</div>
         <div class="flex items-center justify-between gap-2 pt-3 border-t border-white/5">
           <span class="text-[11px] text-zinc-600 truncate">${audience}</span>
-          <a href="${href}" class="text-xs font-semibold text-green-400 hover:text-green-300 whitespace-nowrap">Open →</a>
+          ${unlockNote}<a href="${href}" class="text-xs font-semibold text-green-400 hover:text-green-300 whitespace-nowrap">Open →</a>
         </div>
       </article>`;
     }

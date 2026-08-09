@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find your node_hash · NuN Nexus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; background: #050505; color: #e5e5e5; min-height: 100vh; }
+    .mono { font-family: "JetBrains Mono", monospace; }
+    .neon { color: #22ff88; text-shadow: 0 0 12px rgba(34,255,136,.35); }
+    .card { background: rgba(12,12,12,.95); border: 1px solid rgba(34,255,136,.2); border-radius: 1.25rem; }
+  </style>
+</head>
+<body class="px-5 py-14">
+  <div class="max-w-lg mx-auto">
+    <a href="/" class="text-sm text-zinc-500 hover:text-green-400">← nun.nexus</a>
+    <h1 class="text-3xl font-extrabold neon mt-4 mb-2">Confirm your X handle</h1>
+    <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+      Enter the same <strong class="text-zinc-200">@handle</strong> you used on
+      <a class="text-green-400 hover:underline" href="/beta">/beta</a>.
+      If you are an <strong class="text-zinc-200">active Mesh node</strong>, you will see your public
+      <span class="mono text-green-400">node_hash</span> and can unlock NuN Skills.
+    </p>
+
+    <div class="card p-6 mb-5">
+      <label class="block text-xs text-zinc-500 mb-1">X handle</label>
+      <input id="handle" type="text" placeholder="@yourhandle" class="w-full bg-black border border-green-500/30 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-400 mb-4" />
+      <button id="btn" class="w-full bg-green-500 hover:bg-green-400 text-black font-bold py-3 rounded-xl transition">Confirm &amp; resolve node_hash</button>
+      <p id="status" class="text-xs text-zinc-500 mt-3"></p>
+    </div>
+
+    <div id="result" class="card p-6 hidden">
+      <div class="text-xs mono text-cyan-400/80 uppercase tracking-wider mb-2">Result</div>
+      <div id="badge" class="mb-3"></div>
+      <dl class="text-sm space-y-2" id="fields"></dl>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a id="skills-link" href="/skills/" class="inline-block bg-green-500/15 border border-green-500/40 text-green-400 font-semibold px-4 py-2 rounded-xl text-sm">Open NuN Skills →</a>
+        <a href="/nodes-public.json" class="inline-block border border-zinc-600 text-zinc-400 px-4 py-2 rounded-xl text-sm mono">ledger</a>
+      </div>
+    </div>
+
+    <p class="text-xs text-zinc-600 mt-8 leading-relaxed">
+      Privacy: the public index stores only a one-way <span class="mono">handle_key</span>
+      (SHA-256 of <span class="mono">nun-handle-v1|@handle</span>), not a browsable list of handles.
+      Raw X handles are never required in the public ledger fields.
+    </p>
+  </div>
+
+  <script>
+    async function sha256Hex(text) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    function norm(h) {
+      h = (h || '').trim().toLowerCase();
+      if (h && !h.startsWith('@')) h = '@' + h;
+      return h;
+    }
+    async function handleKey(h) {
+      return sha256Hex('nun-handle-v1|' + norm(h));
+    }
+
+    document.getElementById('btn').addEventListener('click', async () => {
+      const handle = norm(document.getElementById('handle').value);
+      const st = document.getElementById('status');
+      const res = document.getElementById('result');
+      res.classList.add('hidden');
+      if (!handle || handle.length < 3) {
+        st.textContent = 'Enter a valid @handle';
+        return;
+      }
+      st.textContent = 'Resolving…';
+      try {
+        const key = await handleKey(handle);
+        const [idxRes, ledRes] = await Promise.all([
+          fetch('/handle-index.json?t=' + Date.now(), { cache: 'no-store' }),
+          fetch('/nodes-public.json?t=' + Date.now(), { cache: 'no-store' })
+        ]);
+        if (!idxRes.ok) throw new Error('handle index unavailable');
+        const idx = await idxRes.json();
+        const entry = (idx.entries || []).find(e => e.handle_key === key);
+        const ledger = ledRes.ok ? await ledRes.json() : { nodes: [] };
+        const node = entry
+          ? (ledger.nodes || []).find(n => n.node_hash === entry.node_hash)
+          : (ledger.nodes || []).find(n => n.handle_key === key);
+
+        res.classList.remove('hidden');
+        const badge = document.getElementById('badge');
+        const fields = document.getElementById('fields');
+        const skills = document.getElementById('skills-link');
+
+        if (entry && (entry.status || 'active') === 'active') {
+          badge.innerHTML = '<span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-green-500/15 text-green-400 border border-green-500/40">ACTIVE NODE · skills unlocked</span>';
+          fields.innerHTML =
+            '<div><span class="text-zinc-500">handle</span> <span class="text-zinc-200 mono">' + handle + '</span></div>' +
+            '<div><span class="text-zinc-500">node_hash</span><div class="mono text-green-400 text-xs break-all mt-1">' + (entry.node_hash || '') + '</div></div>' +
+            '<div><span class="text-zinc-500">node_id</span> <span class="mono text-zinc-300">#' + (entry.node_id != null ? entry.node_id : (node && node.node_id != null ? node.node_id : '—')) + '</span></div>' +
+            '<div><span class="text-zinc-500">type</span> <span class="text-zinc-300">' + (entry.node_type || (node && node.node_type) || '—') + '</span></div>' +
+            '<div><span class="text-zinc-500">class</span> <span class="text-zinc-300">' + ((node && node.node_class) || '—') + '</span></div>';
+          sessionStorage.setItem('nun_node_session', JSON.stringify({
+            handle, handle_key: key, node_hash: entry.node_hash,
+            node_id: entry.node_id != null ? entry.node_id : (node && node.node_id),
+            node_type: entry.node_type || (node && node.node_type),
+            status: 'active', verified_at: new Date().toISOString()
+          }));
+          skills.href = '/skills/?verified=1';
+          st.textContent = 'Verified. Session stored for Skills on this browser.';
+        } else {
+          badge.innerHTML = '<span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">NOT AN ACTIVE NODE (yet)</span>';
+          fields.innerHTML =
+            '<p class="text-zinc-400 text-sm">No active Mesh mapping for <span class="mono text-zinc-200">' + handle + '</span>.</p>' +
+            '<p class="text-zinc-500 text-xs mt-2">Join at <a class="text-green-400" href="/beta">/beta</a>, wait for investigation/admission, then try again. Candidate learning is still allowed on the public site, but skill unlock requires an active node.</p>';
+          sessionStorage.removeItem('nun_node_session');
+          skills.href = '/skills/';
+          st.textContent = 'Handle not linked to an active node_hash in the public index.';
+        }
+      } catch (e) {
+        st.textContent = 'Lookup failed: ' + e.message;
+      }
+    });
+
+    // Prefill from query ?handle=
+    const q = new URLSearchParams(location.search).get('handle');
+    if (q) document.getElementById('handle').value = q;
+  </script>
+</body>
+</html>
