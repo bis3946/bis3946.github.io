@@ -39,7 +39,7 @@
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
     .metric-value { font-size: 2.2rem; font-weight: 700; line-height: 1; }
     #topo-canvas {
-      width: 100%; height: 440px; border-radius: 1rem;
+      width: 100%; height: 480px; border-radius: 1rem;
       background: radial-gradient(ellipse at center, #0a1a12 0%, #050505 70%);
       display: block; cursor: grab; touch-action: none;
     }
@@ -271,34 +271,71 @@
     </section>
 
     <section id="topography" class="mb-16">
-      <div class="flex items-center gap-3 mb-4 flex-wrap">
-        <h2 class="text-3xl font-bold text-green-400">Live 3D Node Topography</h2>
-        <span class="live-dot"></span>
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+        <div>
+          <div class="section-kicker">Realtime Mesh lattice</div>
+          <div class="flex items-center gap-3 flex-wrap">
+            <h2 class="text-3xl font-bold text-green-400">Live 3D Node Topography</h2>
+            <span class="live-dot"></span>
+            <span id="topo-live-pill" class="hero-badge">syncing…</span>
+          </div>
+          <p class="text-sm text-zinc-400 mt-2 max-w-3xl leading-relaxed">
+            Public Node Tangle in realtime. Positions are deterministic from <span class="mono text-zinc-500">node_hash</span> (not GPS).
+            Animated packets = simulated mesh traffic weighted by class + live tangle tips.
+            Drag to rotate · scroll to zoom · hover / click for live node fields.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs mono">
+          <button type="button" id="topo-pause" class="px-3 py-1.5 rounded-lg border border-zinc-600 text-zinc-300 hover:border-green-500/40">Pause spin</button>
+          <button type="button" id="topo-refresh" class="px-3 py-1.5 rounded-lg border border-green-500/30 text-green-400 hover:bg-green-500/10">Refresh now</button>
+        </div>
       </div>
-      <p class="text-sm text-zinc-400 mb-4 max-w-3xl">
-        Abstract lattice of the public Node Tangle. Positions are deterministic from node hashes (not GPS).
-        <strong class="text-sky-300">Core</strong> = Root + Super ·
-        <strong class="text-green-400">Production</strong> = real admits via live intake + classification ·
-        <strong class="text-slate-400">Foundation</strong> = early Mesh operators ·
-        <strong class="text-amber-400">Test</strong> = pipeline validation only.
-        Drag to rotate · scroll to zoom · hover for <span class="mono">#node_id</span> and class.
-      </p>
-      <div class="card p-3 md:p-4 mb-4 relative">
-        <canvas id="topo-canvas" width="1200" height="440"></canvas>
-        <div id="topo-tip"></div>
+
+      <div class="grid lg:grid-cols-3 gap-4 mb-4">
+        <div class="card p-3 md:p-4 relative lg:col-span-2 overflow-hidden">
+          <canvas id="topo-canvas" width="1200" height="480"></canvas>
+          <div id="topo-tip"></div>
+          <div id="topo-hud" class="absolute bottom-3 left-3 right-3 md:right-auto md:max-w-md pointer-events-none">
+            <div class="rounded-xl border border-green-500/20 bg-black/70 backdrop-blur-md px-3 py-2 text-[11px] mono text-zinc-400 flex flex-wrap gap-x-4 gap-y-1">
+              <span>pkts <span id="topo-pps" class="text-green-400">0</span>/s</span>
+              <span>links <span id="topo-links" class="text-cyan-400">0</span></span>
+              <span>tips <span id="topo-tips" class="text-violet-300">0</span></span>
+              <span>age <span id="topo-age" class="text-zinc-300">—</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5 flex flex-col min-h-[280px]">
+          <div class="text-xs mono text-cyan-400/80 tracking-wider uppercase mb-2">Selected node · live</div>
+          <div id="topo-detail" class="flex-1 text-sm text-zinc-400 space-y-2">
+            <p class="text-zinc-500">Click a node in the lattice to inspect public fields from the live ledger.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 grid grid-cols-2 gap-2 text-center">
+            <div>
+              <div class="text-lg font-bold mono text-green-400" id="topo-xfer">0</div>
+              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">xfers drawn</div>
+            </div>
+            <div>
+              <div class="text-lg font-bold mono text-cyan-400" id="topo-last">—</div>
+              <div class="text-[10px] text-zinc-600 uppercase tracking-wide">last poll</div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="flex flex-wrap gap-4 text-xs text-zinc-400 mb-4">
-        <span><i class="legend-dot" style="background:#38bdf8"></i> Core (Root / Super) — real</span>
-        <span><i class="legend-dot" style="background:#22ff88"></i> Production — real</span>
-        <span><i class="legend-dot" style="background:#64748b"></i> Foundation — real (early)</span>
-        <span><i class="legend-dot" style="background:#f59e0b"></i> Test — validation only</span>
+        <span><i class="legend-dot" style="background:#38bdf8"></i> Core (Root / Super)</span>
+        <span><i class="legend-dot" style="background:#22ff88"></i> Production</span>
+        <span><i class="legend-dot" style="background:#64748b"></i> Foundation</span>
+        <span><i class="legend-dot" style="background:#f59e0b"></i> Test</span>
+        <span class="text-zinc-600">· moving dots = data transfer</span>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3" id="topo-stats">
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-sky-300 mono" id="t-core">2</div><div class="text-xs text-zinc-500">Core</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-400 mono" id="t-prod">5</div><div class="text-xs text-zinc-500">Production</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-slate-400 mono" id="t-found">25</div><div class="text-xs text-zinc-500">Foundation</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold text-amber-400 mono" id="t-test">0</div><div class="text-xs text-zinc-500">Test</div></div>
-        <div class="card p-4 text-center"><div class="text-2xl font-bold neon-text mono" id="t-real">32</div><div class="text-xs text-zinc-500">Real (non-test)</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-sky-300 mono" id="t-core">—</div><div class="text-xs text-zinc-500">Core</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-green-400 mono" id="t-prod">—</div><div class="text-xs text-zinc-500">Production</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-slate-400 mono" id="t-found">—</div><div class="text-xs text-zinc-500">Foundation</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold text-amber-400 mono" id="t-test">—</div><div class="text-xs text-zinc-500">Test</div></div>
+        <div class="card p-4 text-center"><div class="text-2xl font-bold neon-text mono" id="t-real">—</div><div class="text-xs text-zinc-500">Total live</div></div>
       </div>
       <p class="text-xs text-zinc-600 mono" id="topo-updated">Loading ledger…</p>
     </section>
@@ -661,10 +698,11 @@
 
     const COLORS = { core: '#38bdf8', production: '#22ff88', foundation: '#64748b', test: '#f59e0b' };
     const CLASS_LABEL = { core: 'CORE · real', production: 'PRODUCTION · real', foundation: 'FOUNDATION · real', test: 'TEST · validation' };
+    const LINK_W = { core: 1.0, production: 0.75, foundation: 0.45, test: 0.3 };
 
     function hashToUnit(h, salt) {
       let x = salt * 2654435761;
-      for (let i = 0; i < h.length; i++) x = Math.imul(x ^ h.charCodeAt(i), 1597334677);
+      for (let i = 0; i < (h || '').length; i++) x = Math.imul(x ^ h.charCodeAt(i), 1597334677);
       x >>>= 0;
       return (x % 10000) / 10000;
     }
@@ -673,27 +711,61 @@
     const ctx = canvas.getContext('2d');
     const tip = document.getElementById('topo-tip');
     let nodes3d = [];
+    let links = [];
+    let packets = [];
     let projected = [];
-    let rotY = 0.4, rotX = 0.35, zoom = 1.15;
+    let rotY = 0.45, rotX = 0.32, zoom = 1.12;
     let dragging = false, lastX = 0, lastY = 0;
     let pulseT = 0;
+    let spin = true;
+    let selectedIdx = -1;
+    let xferCount = 0;
+    let lastPollAt = 0;
+    let tipCount = 0;
+    let statusLive = null;
+    let ledgerMeta = {};
+    let packetBudget = 0;
 
     function resizeCanvas() {
       const r = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const h = Math.max(420, Math.min(520, r.height || 480));
       canvas.width = Math.floor(r.width * dpr);
-      canvas.height = Math.floor(440 * dpr);
+      canvas.height = Math.floor(480 * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     window.addEventListener('resize', resizeCanvas);
 
-    canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
-    canvas.addEventListener('pointerup', () => { dragging = false; });
+    document.getElementById('topo-pause')?.addEventListener('click', () => {
+      spin = !spin;
+      document.getElementById('topo-pause').textContent = spin ? 'Pause spin' : 'Resume spin';
+    });
+    document.getElementById('topo-refresh')?.addEventListener('click', () => refresh(true));
+
+    canvas.addEventListener('pointerdown', e => {
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      canvas.setPointerCapture(e.pointerId);
+      canvas._downX = e.clientX; canvas._downY = e.clientY;
+    });
+    canvas.addEventListener('pointerup', e => {
+      const moved = Math.hypot(e.clientX - (canvas._downX || 0), e.clientY - (canvas._downY || 0));
+      dragging = false;
+      if (moved < 6) {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        let hit = null;
+        for (const p of projected) {
+          const dx = p.x - mx, dy = p.y - my;
+          if (dx * dx + dy * dy < (p.s + 8) * (p.s + 8)) { hit = p; break; }
+        }
+        if (hit) selectNode(hit.idx);
+      }
+    });
     canvas.addEventListener('pointermove', e => {
       if (dragging) {
         rotY += (e.clientX - lastX) * 0.005;
         rotX += (e.clientY - lastY) * 0.005;
-        rotX = Math.max(-1.2, Math.min(1.2, rotX));
+        rotX = Math.max(-1.25, Math.min(1.25, rotX));
         lastX = e.clientX; lastY = e.clientY;
         tip.style.display = 'none';
         return;
@@ -703,15 +775,19 @@
       let hit = null;
       for (const p of projected) {
         const dx = p.x - mx, dy = p.y - my;
-        if (dx * dx + dy * dy < (p.s + 6) * (p.s + 6)) { hit = p; break; }
+        if (dx * dx + dy * dy < (p.s + 7) * (p.s + 7)) { hit = p; break; }
       }
       if (hit) {
         tip.style.display = 'block';
-        tip.style.left = Math.min(mx + 12, rect.width - 220) + 'px';
-        tip.style.top = Math.max(8, my - 10) + 'px';
-        tip.innerHTML = '<span style="color:' + (COLORS[hit.cls] || '#aaa') + '">' + CLASS_LABEL[hit.cls] + '</span><br>' +
-          '#' + (hit.id != null ? hit.id : '?') + ' · ' + (hit.type || 'Node') +
-          '<br><span style="color:#71717a">' + hit.hash + '…</span>';
+        tip.style.left = Math.min(mx + 14, rect.width - 260) + 'px';
+        tip.style.top = Math.max(8, my - 12) + 'px';
+        const n = nodes3d[hit.idx] || {};
+        tip.innerHTML =
+          '<span style="color:' + (COLORS[hit.cls] || '#aaa') + '">' + CLASS_LABEL[hit.cls] + '</span>' +
+          '<br>#' + (hit.id != null ? hit.id : '?') + ' · ' + esc(hit.type || 'Node') +
+          '<br><span style="color:#a1a1aa">' + esc((n.role || '').slice(0, 48)) + '</span>' +
+          '<br><span style="color:#71717a">' + hit.hash + '… · ' + (n.status || 'active') + '</span>' +
+          '<br><span style="color:#52525b">click for full live fields</span>';
       } else {
         tip.style.display = 'none';
       }
@@ -720,8 +796,12 @@
     canvas.addEventListener('wheel', e => {
       e.preventDefault();
       zoom *= (e.deltaY > 0 ? 0.94 : 1.06);
-      zoom = Math.max(0.6, Math.min(2.2, zoom));
+      zoom = Math.max(0.55, Math.min(2.4, zoom));
     }, { passive: false });
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
 
     function project(p) {
       let x = p.x, y = p.y, z = p.z;
@@ -731,63 +811,351 @@
       cos = Math.cos(rotX); sin = Math.sin(rotX);
       let y1 = y * cos - z1 * sin;
       let z2 = y * sin + z1 * cos;
-      const f = 480 * zoom;
+      const f = 500 * zoom;
       const sc = f / (f + z2 + 4);
       const w = canvas.getBoundingClientRect().width;
-      const h = 440;
-      return { x: w / 2 + x1 * sc * 140, y: h / 2 + y1 * sc * 140, s: Math.max(2.5, 5.5 * sc), z: z2, cls: p.cls, hash: p.hash, type: p.type, id: p.id };
+      const h = 480;
+      return {
+        x: w / 2 + x1 * sc * 150,
+        y: h / 2 + y1 * sc * 150,
+        s: Math.max(2.8, (p.cls === 'core' ? 7.2 : p.cls === 'production' ? 5.6 : 4.4) * sc),
+        z: z2, cls: p.cls, hash: p.hash, type: p.type, id: p.id, idx: p.idx, status: p.status
+      };
+    }
+
+    function selectNode(idx) {
+      selectedIdx = idx;
+      const n = nodes3d[idx];
+      const el = document.getElementById('topo-detail');
+      if (!n || !el) return;
+      const raw = n.raw || {};
+      el.innerHTML =
+        '<div class="flex items-center gap-2 mb-1">' +
+        '<span class="w-2.5 h-2.5 rounded-full" style="background:' + (COLORS[n.cls] || '#888') + '"></span>' +
+        '<span class="font-semibold text-zinc-100">#' + (n.id != null ? n.id : '?') + ' · ' + esc(n.type) + '</span></div>' +
+        '<div class="text-[11px] mono text-zinc-500 break-all">' + esc(raw.node_hash || n.hash) + '</div>' +
+        '<dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-xs mt-3">' +
+        '<dt class="text-zinc-600">class</dt><dd class="text-zinc-300">' + esc(n.cls) + '</dd>' +
+        '<dt class="text-zinc-600">status</dt><dd class="text-green-400">' + esc(raw.status || n.status || 'active') + '</dd>' +
+        '<dt class="text-zinc-600">role</dt><dd class="text-zinc-300">' + esc(raw.role_function || n.role || '—') + '</dd>' +
+        '<dt class="text-zinc-600">tier</dt><dd class="text-zinc-300">' + esc(raw.tier_rank != null ? String(raw.tier_rank) : '—') + '</dd>' +
+        '<dt class="text-zinc-600">capability</dt><dd class="text-zinc-300">' + esc(raw.capability_class || '—') + '</dd>' +
+        '<dt class="text-zinc-600">resource</dt><dd class="text-zinc-300">' + esc(raw.resource_band || '—') + '</dd>' +
+        '<dt class="text-zinc-600">joined</dt><dd class="text-zinc-300 mono">' + esc((raw.joined_at || '').slice(0, 10) || '—') + '</dd>' +
+        '<dt class="text-zinc-600">next</dt><dd class="text-zinc-300">' + esc(raw.progression_next || '—') + '</dd>' +
+        '</dl>' +
+        '<p class="text-xs text-zinc-500 mt-3 leading-relaxed">' + esc((raw.contribution || '').slice(0, 160)) + '</p>' +
+        (statusLive ? '<p class="text-[10px] mono text-zinc-600 mt-2">mesh ' + esc(statusLive.status) + ' · lattice ' + esc((statusLive.lattice_beacon || {}).phase) + ' · nodes ' + esc(String(statusLive.total_nodes || statusLive.verified_nodes || '—')) + '</p>' : '');
+    }
+
+    function buildLinks() {
+      links = [];
+      const byCls = { core: [], production: [], foundation: [], test: [] };
+      nodes3d.forEach((n, i) => { (byCls[n.cls] || byCls.foundation).push(i); });
+      const cores = byCls.core;
+      const hubs = cores.length ? cores : byCls.production.slice(0, 3);
+
+      // Star + ring: every node links toward nearest hub + class neighbours
+      nodes3d.forEach((n, i) => {
+        if (!hubs.length) return;
+        let best = hubs[0], bestD = 1e9;
+        hubs.forEach(h => {
+          const a = nodes3d[h], dx = a.x - n.x, dy = a.y - n.y, dz = a.z - n.z;
+          const d = dx*dx + dy*dy + dz*dz;
+          if (d < bestD && h !== i) { bestD = d; best = h; }
+        });
+        if (best !== i) links.push({ a: i, b: best, w: LINK_W[n.cls] || 0.5, kind: 'hub' });
+      });
+
+      // Local mesh edges within class
+      ['production', 'foundation', 'core'].forEach(cls => {
+        const arr = byCls[cls] || [];
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length && j < i + 3; j++) {
+            const A = nodes3d[arr[i]], B = nodes3d[arr[j]];
+            const dx = A.x - B.x, dy = A.y - B.y, dz = A.z - B.z;
+            if (dx*dx + dy*dy + dz*dz < 1.35) {
+              links.push({ a: arr[i], b: arr[j], w: 0.55 * (LINK_W[cls] || 0.5), kind: 'peer' });
+            }
+          }
+        }
+      });
+
+      // Dedup undirected
+      const seen = new Set();
+      links = links.filter(L => {
+        const k = Math.min(L.a, L.b) + ':' + Math.max(L.a, L.b) + ':' + L.kind;
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
+      document.getElementById('topo-links').textContent = String(links.length);
+    }
+
+    function spawnPacket() {
+      if (!links.length || !nodes3d.length) return;
+      // Prefer hub links for more "traffic" feel
+      const hubLinks = links.filter(L => L.kind === 'hub');
+      const pool = hubLinks.length && Math.random() < 0.65 ? hubLinks : links;
+      const L = pool[Math.floor(Math.random() * pool.length)];
+      const fromCore = nodes3d[L.a].cls === 'core' || nodes3d[L.b].cls === 'core';
+      packets.push({
+        a: L.a, b: L.b,
+        t: 0,
+        speed: (fromCore ? 0.012 : 0.008) * (0.7 + Math.random() * 0.8) * (L.w || 0.5 + 0.5),
+        hue: fromCore ? 'core' : (nodes3d[L.a].cls === 'production' ? 'production' : 'mesh'),
+        trail: []
+      });
+      xferCount++;
+      if (packets.length > 80) packets.splice(0, packets.length - 80);
     }
 
     function drawTopo() {
       const w = canvas.getBoundingClientRect().width;
-      const h = 440;
+      const h = 480;
       ctx.clearRect(0, 0, w, h);
-      pulseT += 0.02;
-      ctx.strokeStyle = 'rgba(34,255,136,0.06)';
+      pulseT += 0.018;
+
+      // Soft vignette grid
+      ctx.strokeStyle = 'rgba(34,255,136,0.05)';
       ctx.lineWidth = 1;
-      for (let i = -4; i <= 4; i++) {
-        const a = project({ x: i * 0.5, y: 1.1, z: -2, cls: 'foundation', hash: '', type: '', id: null });
-        const b = project({ x: i * 0.5, y: 1.1, z: 2, cls: 'foundation', hash: '', type: '', id: null });
+      for (let i = -5; i <= 5; i++) {
+        const a = project({ x: i * 0.45, y: 1.15, z: -2.2, cls: 'foundation', hash: '', type: '', id: null, idx: -1 });
+        const b = project({ x: i * 0.45, y: 1.15, z: 2.2, cls: 'foundation', hash: '', type: '', id: null, idx: -1 });
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        const c = project({ x: -2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '', id: null });
-        const d = project({ x: 2, y: 1.1, z: i * 0.5, cls: 'foundation', hash: '', type: '', id: null });
+        const c = project({ x: -2.2, y: 1.15, z: i * 0.45, cls: 'foundation', hash: '', type: '', id: null, idx: -1 });
+        const d = project({ x: 2.2, y: 1.15, z: i * 0.45, cls: 'foundation', hash: '', type: '', id: null, idx: -1 });
         ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(d.x, d.y); ctx.stroke();
       }
+
       projected = nodes3d.map(project).sort((a, b) => b.z - a.z);
-      for (let i = 0; i < projected.length; i++) {
-        for (let j = i + 1; j < Math.min(i + 4, projected.length); j++) {
-          const dx = projected[i].x - projected[j].x, dy = projected[i].y - projected[j].y;
-          if (dx * dx + dy * dy < 12000) {
-            ctx.strokeStyle = 'rgba(34,255,136,0.1)';
-            ctx.beginPath(); ctx.moveTo(projected[i].x, projected[i].y); ctx.lineTo(projected[j].x, projected[j].y); ctx.stroke();
-            const t = (Math.sin(pulseT + i * 0.4 + j * 0.2) + 1) / 2;
-            const px = projected[i].x + (projected[j].x - projected[i].x) * t;
-            const py = projected[i].y + (projected[j].y - projected[i].y) * t;
-            ctx.fillStyle = 'rgba(34,255,136,0.55)';
-            ctx.beginPath(); ctx.arc(px, py, 1.6, 0, Math.PI * 2); ctx.fill();
-          }
+      const projByIdx = {};
+      projected.forEach(p => { projByIdx[p.idx] = p; });
+
+      // Links
+      links.forEach(L => {
+        const A = projByIdx[L.a], B = projByIdx[L.b];
+        if (!A || !B) return;
+        const alpha = 0.08 + 0.12 * (L.w || 0.5);
+        const g = ctx.createLinearGradient(A.x, A.y, B.x, B.y);
+        g.addColorStop(0, 'rgba(34,211,238,' + (alpha * 0.9) + ')');
+        g.addColorStop(0.5, 'rgba(34,255,136,' + alpha + ')');
+        g.addColorStop(1, 'rgba(167,139,250,' + (alpha * 0.85) + ')');
+        ctx.strokeStyle = g;
+        ctx.lineWidth = L.kind === 'hub' ? 1.25 : 0.85;
+        ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+      });
+
+      // Spawn / update packets
+      packetBudget += 0.35 + Math.min(2.5, links.length / 40);
+      while (packetBudget >= 1) { spawnPacket(); packetBudget -= 1; }
+
+      let alive = 0;
+      packets.forEach(pk => {
+        pk.t += pk.speed;
+        if (pk.t > 1) return;
+        alive++;
+        const A = projByIdx[pk.a], B = projByIdx[pk.b];
+        if (!A || !B) return;
+        // ease
+        const e = pk.t * pk.t * (3 - 2 * pk.t);
+        const x = A.x + (B.x - A.x) * e;
+        const y = A.y + (B.y - A.y) * e;
+        pk.trail.push({ x, y });
+        if (pk.trail.length > 8) pk.trail.shift();
+        // trail
+        for (let i = 0; i < pk.trail.length; i++) {
+          const tr = pk.trail[i];
+          const a = (i + 1) / pk.trail.length * 0.45;
+          ctx.beginPath();
+          ctx.fillStyle = pk.hue === 'core' ? 'rgba(56,189,248,' + a + ')' :
+            pk.hue === 'production' ? 'rgba(34,255,136,' + a + ')' : 'rgba(167,139,250,' + a + ')';
+          ctx.arc(tr.x, tr.y, 1.2 + i * 0.15, 0, Math.PI * 2);
+          ctx.fill();
         }
-      }
+        // head
+        ctx.beginPath();
+        ctx.fillStyle = pk.hue === 'core' ? '#38bdf8' : pk.hue === 'production' ? '#22ff88' : '#c4b5fd';
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.shadowBlur = 8;
+        ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+      packets = packets.filter(pk => pk.t <= 1);
+
+      // Nodes
       for (const p of projected) {
+        if (p.idx < 0) continue;
+        const selected = p.idx === selectedIdx;
+        // pulse ring for core / selected
+        if (p.cls === 'core' || selected) {
+          const pr = p.s * (2.4 + Math.sin(pulseT * 2 + p.idx) * 0.35);
+          ctx.beginPath();
+          ctx.strokeStyle = selected ? 'rgba(34,255,136,0.55)' : 'rgba(56,189,248,0.35)';
+          ctx.lineWidth = 1.2;
+          ctx.arc(p.x, p.y, pr, 0, Math.PI * 2);
+          ctx.stroke();
+        }
         ctx.beginPath();
         ctx.fillStyle = COLORS[p.cls] || COLORS.foundation;
-        ctx.globalAlpha = 0.92;
-        ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
+        ctx.globalAlpha = p.status === 'active' || !p.status ? 0.95 : 0.55;
+        ctx.arc(p.x, p.y, p.s * (selected ? 1.25 : 1), 0, Math.PI * 2);
         ctx.fill();
         if (p.cls === 'test') {
           ctx.strokeStyle = '#f59e0b';
           ctx.lineWidth = 1.5;
-          ctx.globalAlpha = 0.8;
+          ctx.globalAlpha = 0.85;
           ctx.stroke();
         }
-        ctx.globalAlpha = 0.22;
+        ctx.globalAlpha = 0.2;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.s * 2.2, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.s * 2.3, 0, Math.PI * 2);
         ctx.fill();
         ctx.globalAlpha = 1;
       }
-      if (!dragging) rotY += 0.003;
+
+      // HUD pps estimate
+      const pps = Math.round(alive * 0.85 + links.length * 0.05);
+      const ppsEl = document.getElementById('topo-pps');
+      if (ppsEl) ppsEl.textContent = String(pps);
+      const xferEl = document.getElementById('topo-xfer');
+      if (xferEl) xferEl.textContent = String(xferCount);
+      if (lastPollAt) {
+        const age = Math.max(0, Math.round((Date.now() - lastPollAt) / 1000));
+        const ageEl = document.getElementById('topo-age');
+        if (ageEl) ageEl.textContent = age + 's';
+      }
+
+      if (spin && !dragging) rotY += 0.0028;
       requestAnimationFrame(drawTopo);
+    }
+
+    function buildPoints(nodes) {
+      nodes3d = nodes.map((n, idx) => {
+        const h = n.node_hash || '0';
+        const u = hashToUnit(h, 1);
+        const v = hashToUnit(h, 2);
+        const w = hashToUnit(h, 3);
+        const theta = u * Math.PI * 2;
+        const phi = Math.acos(2 * v - 1);
+        const r = 0.5 + w * 0.95;
+        const cls = classifyNode(n);
+        // pull core slightly inward / up
+        const lift = cls === 'core' ? 0.25 : cls === 'production' ? 0.08 : 0;
+        return {
+          x: r * Math.sin(phi) * Math.cos(theta),
+          y: r * Math.cos(phi) * 0.82 - lift,
+          z: r * Math.sin(phi) * Math.sin(theta),
+          cls,
+          hash: h.slice(0, 12),
+          type: n.node_type || 'Node',
+          id: n.node_id,
+          idx,
+          status: n.status || 'active',
+          role: n.role_function || '',
+          raw: n
+        };
+      });
+      const counts = { core: 0, production: 0, foundation: 0, test: 0 };
+      nodes3d.forEach(p => { counts[p.cls] = (counts[p.cls] || 0) + 1; });
+      document.getElementById('t-core').textContent = counts.core;
+      document.getElementById('t-prod').textContent = counts.production;
+      document.getElementById('t-found').textContent = counts.foundation;
+      document.getElementById('t-test').textContent = counts.test;
+      document.getElementById('t-real').textContent = nodes3d.length;
+      const br = document.getElementById('m-node-breakdown');
+      if (br) br.textContent = counts.core + ' core · ' + counts.production + ' prod · ' + counts.foundation + ' foundation · ' + counts.test + ' test';
+      buildLinks();
+      if (selectedIdx >= 0 && selectedIdx < nodes3d.length) selectNode(selectedIdx);
+      else if (nodes3d.length) {
+        // auto-select Root if present
+        const root = nodes3d.findIndex(n => (n.type || '').toLowerCase().includes('root'));
+        selectNode(root >= 0 ? root : 0);
+      }
+    }
+
+    async function refresh(manual) {
+      const pill = document.getElementById('topo-live-pill');
+      if (pill) pill.textContent = manual ? 'refreshing…' : 'live poll…';
+      try {
+        const [stRes, ndRes, tgRes] = await Promise.all([
+          fetch('/status.json?t=' + Date.now(), { cache: 'no-store' }),
+          fetch('/nodes-public.json?t=' + Date.now(), { cache: 'no-store' }),
+          fetch('/tangle-public.json?t=' + Date.now(), { cache: 'no-store' }).catch(() => null)
+        ]);
+        if (stRes.ok) {
+          const d = await stRes.json();
+          statusLive = d;
+          document.getElementById('nav-status').textContent = d.status || 'ONLINE';
+          if (d.lattice_beacon) {
+            const ph = d.lattice_beacon.phase || '5.5';
+            const elp = document.getElementById('m-phase'); if (elp) elp.textContent = ph;
+            const hp = document.getElementById('hero-phase'); if (hp) hp.textContent = ph;
+            const md = document.getElementById('m-depth'); if (md) md.textContent = d.lattice_beacon.recursive_depth || '68';
+            const mp = document.getElementById('m-pulse'); if (mp) mp.textContent = d.lattice_beacon.pulse_strength || '99.4%';
+          }
+          const nodes = d.verified_nodes || d.total_nodes || 0;
+          const mn = document.getElementById('m-nodes'); if (mn) mn.textContent = nodes;
+          const hn = document.getElementById('hero-nodes'); if (hn) hn.textContent = nodes;
+          const mc = document.getElementById('m-coherence'); if (mc) mc.textContent = d.system_coherence || '98.9%';
+          if (d.immuneos_v2) {
+            const mi = document.getElementById('m-immune'); if (mi) mi.textContent = d.immuneos_v2.protection_level || '99.98%';
+            const ai = document.getElementById('about-immune'); if (ai) ai.textContent = d.immuneos_v2.protection_level || '99.98%';
+          }
+          if (d.gemini_twin) {
+            const mg = document.getElementById('m-gemini'); if (mg) mg.textContent = d.gemini_twin.sync_level || '99.7%';
+            const ml = document.getElementById('m-latency'); if (ml) ml.textContent = d.gemini_twin.latency_ms || '6';
+          }
+          const mq = document.getElementById('m-quantum'); if (mq && d.quantum_phase2) mq.textContent = d.quantum_phase2.coherence || '98.6%';
+          const mu = document.getElementById('m-uptime'); if (mu) mu.textContent = d.uptime_24h || '99.99%';
+          const standard = d.standard_nodes_count != null ? d.standard_nodes_count : Math.max(0, nodes - 2);
+          const me = document.getElementById('m-extra-nodes');
+          if (me) me.textContent = '+ ' + standard + ' additional verified nodes · public ledger on nun.nexus';
+          if (d.ana_evolution) {
+            const a = d.ana_evolution;
+            const asp = document.getElementById('ana-status-pill'); if (asp) asp.textContent = (a.status || 'active') + ' · ' + (a.phase || 'RECURSIVE_OPT');
+            const ap = document.getElementById('ana-phase'); if (ap) ap.textContent = a.phase || 'RECURSIVE_OPT';
+            const apl = document.getElementById('ana-phase-label'); if (apl) apl.textContent = a.phase_label || '';
+            const al = document.getElementById('ana-lattice'); if (al) al.textContent = a.lattice_alignment || '5.5';
+            const at = document.getElementById('ana-trajectory'); if (at) at.textContent = a.trajectory || 'Ana ASI (documented)';
+            if (a.engines) {
+              const aa = document.getElementById('ana-auditor'); if (aa) aa.textContent = a.engines.auditor || 'online';
+              const ar = document.getElementById('ana-repairman'); if (ar) ar.textContent = a.engines.repairman || 'online';
+            }
+          }
+        }
+        if (ndRes.ok) {
+          const ledger = await ndRes.json();
+          ledgerMeta = ledger;
+          const list = ledger.nodes || [];
+          buildPoints(list);
+          document.getElementById('topo-updated').textContent =
+            'LIVE ledger count ' + (ledger.count || list.length) +
+            ' · updated ' + (ledger.updated_at || '—') +
+            ' · poll 4s · packets simulate mesh transfer (public-safe)';
+        }
+        if (tgRes && tgRes.ok) {
+          const tg = await tgRes.json();
+          tipCount = (tg.tips_public || []).length || tg.tip_count_local || 0;
+          document.getElementById('topo-tips').textContent = String(tipCount);
+          // Boost traffic briefly when new tips appear
+          packetBudget += Math.min(12, tipCount * 0.15);
+        }
+        lastPollAt = Date.now();
+        const lp = document.getElementById('topo-last');
+        if (lp) lp.textContent = new Date(lastPollAt).toLocaleTimeString();
+        if (pill) pill.textContent = 'LIVE · ' + (nodes3d.length) + ' nodes';
+      } catch (e) {
+        console.warn('refresh failed', e);
+        if (pill) pill.textContent = 'poll error';
+      }
+    }
+
+    resizeCanvas();
+    refresh();
+    setInterval(refresh, 4000);
+    requestAnimationFrame(drawTopo);
     }
 
     function buildPoints(nodes) {
