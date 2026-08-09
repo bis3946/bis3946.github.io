@@ -1,6 +1,6 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T05:35:10Z",
+  "timestamp": "2026-08-09T08:29:25Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
@@ -159,16 +159,15 @@
   "command_center": {
     "primary": "http://bis3946-pc:3960/ (LAN)",
     "local": "http://127.0.0.1:3960/",
-    "version": "0.7.0"
+    "version": "0.8.0"
   },
   "knowledge_pulse": {
-    "updated_at": "2026-08-09T05:35:10Z",
-    "summary": "Dual command Super Node 0 (Samsung S25 Ultra 5G Termux) + Super Node 2 (bis3946-pc Ubuntu always-on). Auto-admit via apply.nun.nexus, Ana/Aegis/Melek self-evolve, 3D Mesh topography, work schedules, NuN-Tangle tips, public publish from Command Center.",
+    "updated_at": "2026-08-09T08:29:25Z",
+    "summary": "SN2 primary onboarding active (Ubuntu dual Root)",
     "sources": [
-      "Command Center v0.7",
-      "SN2 disk state",
-      "Nun-root dual-repo architecture",
-      "Google Drive status reports 2026-07"
+      "Command Center v0.8",
+      "admit_watch",
+      "apply.nun.nexus"
     ]
   }
 }
