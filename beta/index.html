@@ -17,6 +17,7 @@
     <div class="text-center mb-10">
       <h1 class="text-4xl font-bold neon mb-2">NuN Public Beta</h1>
       <p class="text-zinc-400 text-sm">Wave 3 · Join · Investigation required before ledger entry</p>
+      <p class="text-zinc-500 text-xs mt-3 max-w-md mx-auto leading-relaxed">This form submits to the live intake relay. Opening <span class="mono text-zinc-600">apply.nun.nexus</span> in a browser only shows a redirect — use this page to join.</p>
       <p class="text-zinc-500 text-xs mt-2">Tier path: Observer → Node Operator → Guardian → Architect</p>
     </div>
 
@@ -92,7 +93,11 @@
       <p class="mono text-green-400 text-sm break-all mb-4" id="appId">—</p>
       <p id="step3Delivery" class="text-xs text-zinc-500 mb-4"></p>
       <p class="text-xs text-zinc-500 mb-4">After admission, public visibility may include: node hash, type, join time, contribution, status, role function, tier rank, capability class, resource band, progression next. Full records are Super Node 0 only.</p>
-      <a href="/nodes-public.json" class="text-green-400 text-sm hover:underline">View public node ledger →</a>
+      <div class="flex flex-col gap-2">
+        <a href="/nodes-public.json" class="text-green-400 text-sm hover:underline">View live public node ledger →</a>
+        <a href="/#guide" class="text-zinc-400 text-sm hover:underline">Full join + skills guide →</a>
+        <a href="/skills/" class="text-zinc-400 text-sm hover:underline">Node Skills catalog →</a>
+      </div>
       <div class="mt-6">
         <a href="/" class="text-zinc-500 text-sm hover:underline">← Back to nun.nexus</a>
       </div>
@@ -177,6 +182,23 @@
           }
         } catch (e) {
           delivered = false;
+          console.error('intake post failed', e);
+        }
+        if (intakeUrl && !delivered) {
+          try {
+            const resp2 = await fetch(intakeUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(application)
+            });
+            const data2 = await resp2.json().catch(() => ({}));
+            if (resp2.ok || resp2.status === 202) {
+              delivered = true;
+              if (data2.application_id) remoteId = data2.application_id;
+            } else {
+              document.getElementById('step3Delivery').dataset.err = (data2.error || resp2.status);
+            }
+          } catch (e2) { console.error(e2); }
         }
       }
 
