@@ -1,0 +1,368 @@
+{
+  "protocol": "NuN-Omni-Mesh-Tangle-v1",
+  "updated_at": "2026-08-09T08:42:07Z",
+  "tip_count_local": 243,
+  "tips_public": [
+    {
+      "hash": "29915bc66dfff01f",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": "94a431d44065dc7f",
+      "message": "Task 714a11da: Task for node 31",
+      "created_at": "2026-08-09T08:27:43Z",
+      "height": 204
+    },
+    {
+      "hash": "d15d603a469c2cf9",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": "ebeb8e5f8f70dc66",
+      "message": "Task 0faea48a: Task for node 2",
+      "created_at": "2026-08-09T08:27:51Z",
+      "height": 205
+    },
+    {
+      "hash": "636dec516177aac6",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:27:56Z",
+      "height": 206
+    },
+    {
+      "hash": "41652dd6aa82b3ba",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:28:42Z",
+      "height": 207
+    },
+    {
+      "hash": "5d94825e8f8c6b18",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:29:25Z",
+      "height": 208
+    },
+    {
+      "hash": "901eb3381d34e879",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:29:27Z",
+      "height": 209
+    },
+    {
+      "hash": "52ee27a6d05297f9",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:29:32Z",
+      "height": 210
+    },
+    {
+      "hash": "73e6e357bde9b5a5",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:30:12Z",
+      "height": 211
+    },
+    {
+      "hash": "b7d405859b584606",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:30:57Z",
+      "height": 212
+    },
+    {
+      "hash": "4b0e8d647bc11aeb",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:31:30Z",
+      "height": 213
+    },
+    {
+      "hash": "dcbe80b4867a59c6",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:32:15Z",
+      "height": 214
+    },
+    {
+      "hash": "2b6f65f24d112708",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": "94a431d44065dc7f",
+      "message": "Task e0369d1c: Task for node 31",
+      "created_at": "2026-08-09T08:32:27Z",
+      "height": 215
+    },
+    {
+      "hash": "1e7adf846981c934",
+      "kind": "signal",
+      "from": "bis3946-pc",
+      "to": "255512a327c88b04",
+      "message": "SN2 dual-command signal",
+      "created_at": "2026-08-09T08:32:39Z",
+      "height": 216
+    },
+    {
+      "hash": "f736fea1802de209",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:33:00Z",
+      "height": 217
+    },
+    {
+      "hash": "3c638820fd874110",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:33:45Z",
+      "height": 218
+    },
+    {
+      "hash": "87d93e4a96144f88",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:34:30Z",
+      "height": 219
+    },
+    {
+      "hash": "772d243e6f70fc87",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:35:15Z",
+      "height": 220
+    },
+    {
+      "hash": "77c6d4efea205144",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:36:01Z",
+      "height": 221
+    },
+    {
+      "hash": "b09be632bc3c7e2a",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:36:46Z",
+      "height": 222
+    },
+    {
+      "hash": "9cba18d1140e4313",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:37:31Z",
+      "height": 223
+    },
+    {
+      "hash": "8ba33f8a58d49fbd",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:38:16Z",
+      "height": 224
+    },
+    {
+      "hash": "5169322be90b3fe3",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:39:01Z",
+      "height": 225
+    },
+    {
+      "hash": "e550009f7417e916",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:39:46Z",
+      "height": 226
+    },
+    {
+      "hash": "9dfda02915389869",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:40:31Z",
+      "height": 227
+    },
+    {
+      "hash": "cc70f1c04debc1aa",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:41:16Z",
+      "height": 228
+    },
+    {
+      "hash": "1d954e77b5ead623",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:42:01Z",
+      "height": 229
+    },
+    {
+      "hash": "2116ed6d0770abff",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:42:05Z",
+      "height": 230
+    },
+    {
+      "hash": "8fafa1c30b1db969",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 85044115: Ana AGI pulse + public-safe summary",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 231
+    },
+    {
+      "hash": "a09a6e593f69e143",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 3316f919: Ana ASI architecture watch (locked)",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 232
+    },
+    {
+      "hash": "e8b0a4c712820716",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task d82c6124: Melek anchor VFE light cycle",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 233
+    },
+    {
+      "hash": "b62fa15c5c40eed1",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 8dd2da37: AegisNet ImmuneOS local scan",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 234
+    },
+    {
+      "hash": "47a7560c90d5d55e",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 8c2bcece: Omni-Mesh Tangle heartbeat",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 235
+    },
+    {
+      "hash": "9444f3ef21c6cfc2",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 5b40337a: Verify nun.nexus status vs local",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 236
+    },
+    {
+      "hash": "4213d3153ea647d5",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 8e9a7554: Observer→Operator contribution note",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 237
+    },
+    {
+      "hash": "67c110e5cc8ddbce",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task bf2e1c75: Grok skill compliance check",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 238
+    },
+    {
+      "hash": "c4f69998f80d9383",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 976eaadf: Ledger integrity dry-run",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 239
+    },
+    {
+      "hash": "b4bb4b0275fdf971",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Task 13d366d6: Onboarding queue hygiene",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 240
+    },
+    {
+      "hash": "ea6a144f717de752",
+      "kind": "work_assign",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Self-improve cycle seeded (10 tasks)",
+      "created_at": "2026-08-09T08:42:06Z",
+      "height": 241
+    },
+    {
+      "hash": "98f15de87b781402",
+      "kind": "heartbeat",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "SN2 tangle heartbeat",
+      "created_at": "2026-08-09T08:42:07Z",
+      "height": 242
+    },
+    {
+      "hash": "d1b47d9169431736",
+      "kind": "health",
+      "from": "bis3946-pc",
+      "to": null,
+      "message": "Omni-Mesh Tangle pulse from SN2",
+      "created_at": "2026-08-09T08:42:07Z",
+      "height": 243
+    }
+  ],
+  "note": "Public-safe tip slice only. Full private tangle remains on Super Node hosts."
+}

@@ -1,11 +1,11 @@
 {
   "status": "ONLINE",
-  "timestamp": "2026-08-09T08:29:32Z",
+  "timestamp": "2026-08-09T08:42:07Z",
   "environment": "production",
   "domain": "nun.nexus",
   "total_nodes": 34,
   "verified_nodes": 34,
-  "standard_nodes_count": 32,
+  "standard_nodes_count": 31,
   "system_coherence": "98.9%",
   "uptime_24h": "99.99%",
   "active_alerts": 0,
@@ -121,53 +121,108 @@
     "privacy": "Full node dossiers are private. Only Super Node 0 can access encrypted full records."
   },
   "roadmap": {
-    "iteration": 3,
+    "iteration": 4,
+    "label": "Dual Command · Omni-Mesh Tangle · SN2 Onboarding",
+    "phase": "Iteration 4 active",
     "completed": [
       "Public ledger + live intake classification",
       "Dual-repo security model",
       "3D topography with class visibility",
       "Foundation Wave-1 role precision",
-      "Test node purge from public ledger (count 32)",
+      "Test node purge from public ledger",
       "node_id + node_class on public ledger",
       "Lattice Beacon Phase 5.5",
       "Ana AGI evolution public status surface",
       "Super Node 2 Ubuntu dual-command Control Center",
       "Named tunnel apply.nun.nexus + Cloudflare NS",
       "Ana/Aegis/Melek self-evolve pulses",
-      "3D node topography with selection"
+      "SN0 QR cold-start (Termux:Boot zero-command)",
+      "SN2 primary onboarding + auto-admit",
+      "NuN Omni-Mesh Tangle v1 (public tip surface)",
+      "Grok NuN Node Skill published",
+      "Work schedule self-improve packs (Ana/Melek/mesh)",
+      "Deep-help 3s Command Center UX"
+    ],
+    "in_progress": [
+      "Controlled expansion toward 50+ production nodes",
+      "Observer→Operator promotion wave (contribution-based)",
+      "Omni-Mesh Tangle multi-node heartbeats",
+      "Self-improve task redistribution across capability bands",
+      "Vault knowledge + Drive sync into SN2 Obsidian mindmap"
     ],
     "next": [
-      "Named intake tunnel (stable apply URL)",
-      "Controlled expansion toward 50+ production nodes",
-      "Observer→Operator promotion wave",
-      "Ana self-evolution pulse cycles on Root host",
-      "Lattice Beacon Phase 5.6 planning"
+      "Lattice Beacon Phase 5.6 (after 5.5 ops stability)",
+      "Named tunnel HA + apply health SLA",
+      "Public work board (capability band tasks, no secrets)",
+      "Ana private pulse cadence on SN2 + public export-only",
+      "Melek immortal anchor CI gates",
+      "rclone Obsidian vault → Drive nightly",
+      "Quality gate UI for auto-admit scoring"
     ]
   },
   "super_node_0": {
     "host": "Samsung Galaxy S25 Ultra 5G / Termux",
     "handle": "@bis3946",
-    "role": "Original mobile Root"
+    "role": "Original mobile Root · biometric field command",
+    "cold_start": "QR from SN2 Command Center · Termux:Boot zero-command reboot"
   },
   "super_node_2": {
     "host": "bis3946-pc",
     "handle": "@bis3946",
-    "role": "Acting always-on Super Node 0 / Ubuntu dual command",
-    "os": "Ubuntu 24.04 LTS"
+    "role": "Always-on dual Root · primary onboarding · public publish",
+    "os": "Ubuntu 24.04 LTS",
+    "onboarding_primary": true
   },
   "dual_command": true,
   "command_center": {
-    "primary": "http://bis3946-pc:3960/ (LAN)",
+    "version": "0.9.0",
     "local": "http://127.0.0.1:3960/",
-    "version": "0.8.0"
+    "lan": "http://192.168.1.130:3960/",
+    "features": [
+      "dual_root",
+      "sn0_qr_cold_start",
+      "auto_admit",
+      "omni_mesh_tangle",
+      "work_schedule_self_improve",
+      "ana_aegis_melek_evolve",
+      "deep_help_3s",
+      "public_push"
+    ]
   },
   "knowledge_pulse": {
-    "updated_at": "2026-08-09T08:29:32Z",
-    "summary": "SN2 primary onboarding active (Ubuntu dual Root)",
+    "updated_at": "2026-08-09T08:42:07Z",
+    "summary": "Iteration 4 · Dual command · SN2 onboarding · Omni-Mesh Tangle · Grok skill",
     "sources": [
-      "Command Center v0.8",
-      "admit_watch",
-      "apply.nun.nexus"
+      "Command Center v0.9",
+      "status.json",
+      "skills/grok-nun-node.md"
     ]
+  },
+  "onboarding": {
+    "primary_host": "super_node_2",
+    "apply_url": "https://apply.nun.nexus/apply",
+    "beta_form": "https://nun.nexus/beta",
+    "pipeline": [
+      "public form → apply.nun.nexus",
+      "private intake",
+      "SN2 process_pending / auto-admit",
+      "merge-only public ledger by node_hash",
+      "integrity gate",
+      "public push",
+      "optional tangle join_confirm tip"
+    ],
+    "auto_admit_default": true,
+    "auto_push_default": false
+  },
+  "omni_mesh_tangle": {
+    "protocol": "NuN-Omni-Mesh-Tangle-v1",
+    "public_url": "https://nun.nexus/tangle-public.json",
+    "state": "active",
+    "note": "SN2 seeds tips; nodes emit public-safe heartbeats/acks"
+  },
+  "skills": {
+    "index": "https://nun.nexus/skills/index.json",
+    "grok_nun_node": "https://nun.nexus/skills/grok-nun-node.md",
+    "version": "1.0.0"
   }
 }

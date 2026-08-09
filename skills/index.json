@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-08-09T08:42:07Z",
+  "host": "nun.nexus",
+  "skills": [
+    {
+      "id": "grok-nun-node",
+      "name": "Grok NuN Node Skill",
+      "path": "/skills/grok-nun-node.md",
+      "url": "https://nun.nexus/skills/grok-nun-node.md",
+      "audience": [
+        "Observer",
+        "Node Operator",
+        "Guardian",
+        "Architect"
+      ],
+      "runtime": [
+        "Grok",
+        "local-agent",
+        "Termux"
+      ],
+      "description": "Public-safe Mesh operator skill: live status, onboarding path, work bands, Omni-Mesh Tangle."
+    }
+  ],
+  "dual_command": true,
+  "onboarding_primary": "super_node_2",
+  "protocol": "NuN-Tangle-v1"
+}

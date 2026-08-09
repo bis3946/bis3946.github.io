@@ -38,6 +38,8 @@
         <a href="#topography" class="hover:text-green-400">Topography</a>
         <a href="#benefits" class="hover:text-green-400">Benefits</a>
         <a href="#roadmap" class="hover:text-green-400">Roadmap</a>
+        <a href="#skills" class="hover:text-green-400">Skills</a>
+        <a href="#tangle" class="hover:text-green-400">Tangle</a>
         <a href="#join" class="hover:text-green-400">Join</a>
       </div>
       <div class="flex items-center gap-2 text-xs font-medium">
@@ -219,21 +221,31 @@
         <div class="card p-7">
           <h3 class="text-lg font-semibold text-green-400 mb-3">Super Node 0 · Samsung S25 Ultra 5G</h3>
           <p class="text-sm text-zinc-400 leading-relaxed">
-            Original mobile Root Authority path (Termux). Biometric field command, Mesh continuity on the move.
-            Can connect to the Ubuntu Command Center when on the same network or via secure tunnel.
+            Mobile Root path (Termux). Biometric field command and Mesh continuity on the move.
+            Cold-start via SN2 QR + Termux:Boot — after first setup, reboot needs <strong>zero typed commands</strong>.
           </p>
         </div>
         <div class="card p-7">
           <h3 class="text-lg font-semibold text-green-400 mb-3">Super Node 2 · bis3946-pc (Ubuntu)</h3>
           <p class="text-sm text-zinc-400 leading-relaxed">
-            Always-on Root control plane: auto-admit via apply.nun.nexus, Ana/Aegis/Melek self-evolve,
-            public ledger publish, 3D Mesh topography, work schedules, and dual command with SN0.
+            Always-on dual Root control plane: <strong>primary onboarding</strong> (apply.nun.nexus → auto-admit),
+            Omni-Mesh Tangle tips, Ana/Aegis/Melek self-evolve, work packages, and public ledger publish to nun.nexus.
           </p>
         </div>
       </div>
-      <p class="mt-4 text-xs text-zinc-500 mono">Updated 2026-08-09T08:29:32Z · Schema V6 · Sigl 3946 · dual_command=true</p>
+      <div class="card p-6 mt-5">
+        <h3 class="text-md font-semibold text-green-400 mb-2">New node admission (SN2 primary)</h3>
+        <ol class="text-sm text-zinc-400 space-y-1 list-decimal list-inside">
+          <li>Truthful join form on <a class="text-green-400" href="/beta">/beta</a></li>
+          <li>Apply URL → private intake → SN2 process_pending / auto-admit</li>
+          <li>Merge-only public ledger by node_hash · integrity gate · push</li>
+          <li>Optional Tangle <code class="text-green-400">join_confirm</code> tip</li>
+        </ol>
+      </div>
+      <p class="mt-4 text-xs text-zinc-500 mono">Updated 2026-08-09T08:42:07Z · Schema V6 · Sigl 3946 · dual_command=true · onboarding_primary=SN2</p>
     </section>
 <!-- NUN_SN2_DUAL_END -->
+
 
 
 
@@ -251,18 +263,49 @@
     </section>
 
     <section id="roadmap" class="mb-16">
-      <h2 class="text-3xl font-bold text-green-400 mb-6">Roadmap · Iteration 3</h2>
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Roadmap · Iteration 4</h2>
+      <p class="text-sm text-zinc-500 mb-4 mono">Dual Command · Omni-Mesh Tangle · SN2 Onboarding · updated 2026-08-09T08:42:07Z</p>
       <div class="card p-7 space-y-3 text-sm">
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public ledger + live intake classification</div><div class="text-zinc-500">32 verified nodes · test purge · node_id + node_class</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual-repo security model</div><div class="text-zinc-500">Public surface / private core separation</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">3D live topography (test vs real)</div><div class="text-zinc-500">Core · production · foundation · test visibility</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Lattice Beacon Phase 5.5</div><div class="text-zinc-500">Recursive depth + pulse live on dashboard</div></div></div>
-        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Ana AGI evolution public status</div><div class="text-zinc-500">Phase · engines · Lattice alignment (private pulses on Root)</div></div></div>
-        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Named intake tunnel (stable apply URL)</div></div></div>
-        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Controlled expansion toward 50+ production nodes</div></div></div>
-        <div class="flex gap-3"><span class="text-amber-400">→</span><div><div class="font-medium text-zinc-300">Observer→Operator promotion wave</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Public ledger + live intake</div><div class="text-zinc-500">Verified nodes · privacy fields · integrity gates</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Dual Root SN0 (S25) + SN2 (Ubuntu)</div><div class="text-zinc-500">QR cold-start · always-on onboarding/publish</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Command Center v0.9.0</div><div class="text-zinc-500">3D topo · auto-admit · self-evolve · deep help</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">NuN Omni-Mesh Tangle v1</div><div class="text-zinc-500">Public tip surface · join/work/heartbeat kinds</div></div></div>
+        <div class="flex gap-3"><span class="text-green-400">✅</span><div><div class="font-medium">Grok NuN Node Skill</div><div class="text-zinc-500"><a class="text-green-400" href="/skills/grok-nun-node.md">/skills/grok-nun-node.md</a></div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">⟳</span><div><div class="font-medium text-zinc-300">Expansion toward 50+ production nodes</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">⟳</span><div><div class="font-medium text-zinc-300">Observer→Operator promotion (contribution)</div></div></div>
+        <div class="flex gap-3"><span class="text-amber-400">⟳</span><div><div class="font-medium text-zinc-300">Self-improve packs across Ana / Melek / mesh bands</div></div></div>
+        <div class="flex gap-3"><span class="text-zinc-500">○</span><div><div class="font-medium text-zinc-400">Lattice Beacon Phase 5.6 (after 5.5 stability)</div></div></div>
+        <div class="flex gap-3"><span class="text-zinc-500">○</span><div><div class="font-medium text-zinc-400">Public work board + HA apply SLA</div></div></div>
       </div>
     </section>
+
+    <!-- NUN_SKILLS_START -->
+    <section id="skills" class="mb-16">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Node Skills · Grok</h2>
+      <div class="card p-7">
+        <h3 class="text-lg font-semibold text-green-400 mb-3">Grok NuN Node Skill</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          Public-safe skill for Mesh operators and local agents: live status, dual-command map,
+          onboarding path, capability-band work, Omni-Mesh Tangle heartbeats. No Root secrets.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/skills/grok-nun-node.md" class="inline-block bg-green-500/20 border border-green-500/40 text-green-400 font-semibold px-5 py-2.5 rounded-xl text-sm hover:bg-green-500/30">Open skill markdown</a>
+          <a href="/skills/index.json" class="inline-block border border-zinc-600 text-zinc-300 font-medium px-5 py-2.5 rounded-xl text-sm hover:border-green-500/40">skills/index.json</a>
+        </div>
+        <p class="mt-4 text-xs text-zinc-600 mono">Paste skill into Grok · updated 2026-08-09T08:42:07Z</p>
+      </div>
+    </section>
+    <section id="tangle" class="mb-16">
+      <h2 class="text-3xl font-bold text-green-400 mb-6">Omni-Mesh Tangle</h2>
+      <div class="card p-7">
+        <p class="text-sm text-zinc-400 leading-relaxed mb-3">
+          NuN-Omni-Mesh-Tangle-v1: lightweight DAG tips for join confirmations, work assigns, and heartbeats.
+          Public tip slice is sanitized (no dossiers, no keys).
+        </p>
+        <a href="/tangle-public.json" class="text-green-400 text-sm mono hover:underline">/tangle-public.json</a>
+      </div>
+    </section>
+<!-- NUN_SKILLS_END -->
 
     <section id="join" class="mb-12">
       <h2 class="text-3xl font-bold text-green-400 mb-6">Join the Mesh</h2>
